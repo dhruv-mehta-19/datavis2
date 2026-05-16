@@ -1,0 +1,268 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Where Melbourne Drinks",
+    "subtitle": [
+      "Every cafe and restaurant in the City of Melbourne, 2024.",
+      "Click a neighbourhood or size category in the legend to filter. Click again to deselect, hold Shift for multiple.",
+      "Note: data covers City of Melbourne council only — St Kilda, Richmond and most of South Yarra are in other councils."
+    ],
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666",
+    "color": "#3C1F0F"
+  },
+  "width": 700,
+  "height": 600,
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/dhruv-mehta-19/datavis2/refs/heads/main/small-areas-for-census-of-land-use-and-employment-clue.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#F5F1E8",
+        "stroke": "#D89651",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "tooltip": [
+          {"field": "properties.featurenam", "type": "nominal", "title": "Neighbourhood"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/dhruv-mehta-19/datavis2/refs/heads/main/cafes-and-restaurants-with-seating-capacity.csv"
+      },
+      "transform": [
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Number of seats", "as": "total_seats"}
+          ],
+          "groupby": ["Trading name", "Longitude", "Latitude", "CLUE small area"]
+        },
+        {
+          "calculate": "datum.total_seats < 50 ? 'Small (< 50 seats)' : datum.total_seats < 150 ? 'Medium (50–149)' : datum.total_seats < 300 ? 'Large (150–299)' : 'Very Large (300+)'",
+          "as": "size_category"
+        }
+      ],
+      "params": [
+        {
+          "name": "area_select",
+          "select": {"type": "point", "fields": ["CLUE small area"]},
+          "bind": "legend"
+        },
+        {
+          "name": "size_select",
+          "select": {"type": "point", "fields": ["size_category"]},
+          "bind": "legend"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "stroke": "#3C1F0F",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "size": {
+          "field": "total_seats",
+          "type": "quantitative",
+          "scale": {"range": [10, 350], "domain": [10, 500]},
+          "legend": {
+            "title": "Total seats",
+            "orient": "right",
+            "offset": 10,
+            "values": [20, 50, 100, 200, 500]
+          }
+        },
+        "color": {
+          "field": "size_category",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Small (< 50 seats)", "Medium (50–149)", "Large (150–299)", "Very Large (300+)"],
+            "range": ["#D89651", "#B8702F", "#6B3410", "#3C1F0F"]
+          }
+        },
+        "opacity": {
+          "condition": {
+            "test": {
+              "and": [
+                {"param": "area_select"},
+                {"param": "size_select"}
+              ]
+            },
+            "value": 0.75
+          },
+          "value": 0.08
+        },
+        "tooltip": [
+          {"field": "Trading name", "type": "nominal", "title": "Venue"},
+          {"field": "total_seats", "type": "quantitative", "title": "Seats"},
+          {"field": "size_category", "type": "nominal", "title": "Size"},
+          {"field": "CLUE small area", "type": "nominal", "title": "Area"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/dhruv-mehta-19/datavis2/refs/heads/main/cafes-and-restaurants-with-seating-capacity.csv"
+      },
+      "transform": [
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Number of seats", "as": "total_seats"}
+          ],
+          "groupby": ["CLUE small area"]
+        },
+        {
+          "filter": "datum['CLUE small area'] != null"
+        }
+      ],
+      "mark": {"type": "point", "opacity": 0},
+      "encoding": {
+        "color": {
+          "field": "CLUE small area",
+          "type": "nominal",
+          "legend": {
+            "title": "Size",
+            "orient": "right",
+            "offset": 10,
+            "labelLimit": 150,
+            "symbolType": "square"
+          },
+          "scale": {"range": ["#6B3410"]}
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"lon": 144.9633, "lat": -37.8136, "label": "CBD", "size": 16},
+          {"lon": 144.9710, "lat": -37.8040, "label": "Carlton", "size": 14},
+          {"lon": 144.9450, "lat": -37.8236, "label": "Docklands", "size": 14},
+          {"lon": 144.9647, "lat": -37.8260, "label": "Southbank", "size": 14},
+          {"lon": 144.9526, "lat": -37.8005, "label": "North Melbourne", "size": 12},
+          {"lon": 144.9844, "lat": -37.8181, "label": "East Melbourne", "size": 12},
+          {"lon": 144.9460, "lat": -37.8100, "label": "West Melbourne", "size": 12},
+          {"lon": 144.9190, "lat": -37.8250, "label": "Port Melbourne", "size": 11},
+          {"lon": 144.9533, "lat": -37.7860, "label": "Parkville", "size": 12},
+          {"lon": 144.9300, "lat": -37.7950, "label": "Kensington", "size": 12}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "text",
+            "fontWeight": "bold",
+            "stroke": "white",
+            "strokeWidth": 3,
+            "fill": "white"
+          },
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "text": {"field": "label"},
+            "size": {"field": "size", "type": "quantitative", "scale": null, "legend": null}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontWeight": "bold",
+            "color": "#3C1F0F"
+          },
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "text": {"field": "label"},
+            "size": {"field": "size", "type": "quantitative", "scale": null, "legend": null}
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon_anchor": 144.9670,
+            "lat_anchor": -37.8160,
+            "lon_label": 144.9100,
+            "lat_label": -37.8420
+          },
+          {
+            "lon_anchor": 144.9710,
+            "lat_anchor": -37.8000,
+            "lon_label": 144.9870,
+            "lat_label": -37.7780
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "stroke": "#3C1F0F",
+        "strokeWidth": 1,
+        "strokeDash": [3, 2]
+      },
+      "encoding": {
+        "longitude": {"field": "lon_anchor", "type": "quantitative"},
+        "latitude": {"field": "lat_anchor", "type": "quantitative"},
+        "longitude2": {"field": "lon_label"},
+        "latitude2": {"field": "lat_label"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"lon": 144.9100, "lat": -37.8420, "label": "The CBD cluster — small, quick venues"},
+          {"lon": 144.9100, "lat": -37.8435, "label": "built for corporate workers grabbing"},
+          {"lon": 144.9100, "lat": -37.8450, "label": "a coffee between meetings."},
+          {"lon": 144.9780, "lat": -37.7780, "label": "Lygon Street — Carlton's"},
+          {"lon": 144.9780, "lat": -37.7795, "label": "iconic coffee heart."}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "fontWeight": "bold",
+            "stroke": "white",
+            "strokeWidth": 4,
+            "fill": "white",
+            "fontSize": 11,
+            "fontStyle": "italic"
+          },
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "text": {"field": "label"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "fontStyle": "italic",
+            "color": "#3C1F0F",
+            "fontSize": 11
+          },
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "text": {"field": "label"}
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "background": "white"
+  }
+}
