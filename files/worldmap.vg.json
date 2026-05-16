@@ -1,0 +1,105 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Where Australia's Coffee Comes From",
+    "subtitle": "Australian imports of unroasted coffee beans by country, 2023",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666",
+    "color": "#000000"
+  },
+  "width": 800,
+  "height": 450,
+  "projection": {"type": "equalEarth"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+        "format": {"type": "topojson", "feature": "countries"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#F5F1E8",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+        "format": {"type": "topojson", "feature": "countries"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/dhruv-mehta-19/datavis2/refs/heads/main/coffee_imports_2023.csv"
+            },
+            "key": "partner",
+            "fields": ["value_usd_thousands"]
+          }
+        },
+        {"calculate": "datum.value_usd_thousands * 1000", "as": "value_usd_full"},
+        {"filter": "datum.value_usd_thousands != null"},
+        {"filter": "datum.properties.name != 'Australia'"}
+      ],
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "value_usd_full",
+          "type": "quantitative",
+          "scale": {
+            "range": ["#F5DDB8", "#D89651", "#B8702F", "#6B3410", "#3C1F0F"],
+            "type": "log"
+          },
+          "legend": {
+            "title": "Import value (USD)",
+            "format": "$,.0f",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 400,
+            "values": [10000, 100000, 1000000, 10000000, 100000000]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "Country"},
+          {"field": "value_usd_full", "type": "quantitative", "title": "Import value", "format": "$,.0f"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"lon": -55, "lat": -10, "label_lon": -40, "label_lat": 15, "label": "Brazil: our #1 supplier"},
+          {"lon": 40, "lat": 9, "label_lon": 65, "label_lat": -25, "label": "Ethiopia: birthplace of coffee"},
+          {"lon": 145, "lat": -6, "label_lon": 170, "label_lat": -20, "label": "Papua New Guinea: our closest supplier"}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {"type": "rule", "stroke": "#6b3410", "strokeWidth": 0.5},
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "longitude2": {"field": "label_lon"},
+            "latitude2": {"field": "label_lat"}
+          }
+        },
+        {
+          "mark": {"type": "text", "fontSize": 10, "fontWeight": "bold", "color": "#3C1F0F"},
+          "encoding": {
+            "longitude": {"field": "label_lon", "type": "quantitative"},
+            "latitude": {"field": "label_lat", "type": "quantitative"},
+            "text": {"field": "label"}
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "background": "white"
+  }
+}
