@@ -1,0 +1,144 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Where Melbourne's Cafes Cluster",
+    "subtitle": "Number of cafes by neighbourhood in the city of Melbourne, 2024",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666",
+    "color": "#3C1F0F"
+  },
+  "width": 850,
+  "height": 450,
+  "data": {
+    "values": [
+      {"neighbourhood": "Melbourne (CBD)", "cafe_count": 1298, "x": 0.0000, "y": 0.0000, "x2": 0.5331, "y2": 1.0000},
+      {"neighbourhood": "Carlton", "cafe_count": 306, "x": 0.5331, "y": 0.0000, "x2": 0.8390, "y2": 0.4107},
+      {"neighbourhood": "Docklands", "cafe_count": 249, "x": 0.5331, "y": 0.4107, "x2": 0.8390, "y2": 0.7450},
+      {"neighbourhood": "Southbank", "cafe_count": 190, "x": 0.5331, "y": 0.7450, "x2": 0.8390, "y2": 1.0000},
+      {"neighbourhood": "North Melbourne", "cafe_count": 107, "x": 0.8390, "y": 0.0000, "x2": 1.0000, "y2": 0.2730},
+      {"neighbourhood": "West Melbourne", "cafe_count": 59, "x": 0.8390, "y": 0.2730, "x2": 1.0000, "y2": 0.4235},
+      {"neighbourhood": "Melbourne (Remainder)", "cafe_count": 59, "x": 0.8390, "y": 0.4235, "x2": 1.0000, "y2": 0.5740},
+      {"neighbourhood": "East Melbourne", "cafe_count": 48, "x": 0.8390, "y": 0.5740, "x2": 1.0000, "y2": 0.6964},
+      {"neighbourhood": "Parkville", "cafe_count": 40, "x": 0.8390, "y": 0.6964, "x2": 1.0000, "y2": 0.7985},
+      {"neighbourhood": "Kensington", "cafe_count": 37, "x": 0.8390, "y": 0.7985, "x2": 1.0000, "y2": 0.8929},
+      {"neighbourhood": "Port Melbourne", "cafe_count": 27, "x": 0.8390, "y": 0.8929, "x2": 1.0000, "y2": 0.9617},
+      {"neighbourhood": "South Yarra", "cafe_count": 15, "x": 0.8390, "y": 0.9617, "x2": 1.0000, "y2": 1.0000}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect", "stroke": "white", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "axis": null, "scale": {"domain": [0, 1.3]}},
+        "x2": {"field": "x2"},
+        "y": {"field": "y", "type": "quantitative", "axis": null, "scale": {"domain": [0, 1]}},
+        "y2": {"field": "y2"},
+        "color": {
+          "field": "cafe_count",
+          "type": "quantitative",
+          "scale": {
+            "range": ["#D89651", "#B8702F", "#6B3410", "#3C1F0F"],
+            "type": "log"
+          },
+          "legend": {
+            "title": "Cafes",
+            "orient": "right",
+            "format": ",.0f"
+          }
+        },
+        "tooltip": [
+          {"field": "neighbourhood", "type": "nominal", "title": "Neighbourhood"},
+          {"field": "cafe_count", "type": "quantitative", "title": "Cafes", "format": ","}
+        ]
+      }
+    },
+    {
+      "transform": [
+        {"calculate": "(datum.x + datum.x2) / 2", "as": "cx"},
+        {"calculate": "(datum.y + datum.y2) / 2", "as": "cy"},
+        {"calculate": "(datum.x2 - datum.x) * (datum.y2 - datum.y)", "as": "area"}
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": "bold",
+        "color": "white",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {"field": "cx", "type": "quantitative", "scale": {"domain": [0, 1.3]}, "axis": null},
+        "y": {"field": "cy", "type": "quantitative", "scale": {"domain": [0, 1]}, "axis": null},
+        "text": {"field": "neighbourhood"},
+        "size": {"field": "area", "type": "quantitative", "scale": {"range": [8, 22]}, "legend": null}
+      }
+    },
+    {
+      "transform": [
+        {"calculate": "(datum.x + datum.x2) / 2", "as": "cx"},
+        {"calculate": "((datum.y + datum.y2) / 2) + 0.03", "as": "cy"},
+        {"calculate": "(datum.x2 - datum.x) * (datum.y2 - datum.y)", "as": "area"},
+        {"filter": "datum.area > 0.015"}
+      ],
+      "mark": {
+        "type": "text",
+        "color": "white",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 11,
+        "opacity": 0.85
+      },
+      "encoding": {
+        "x": {"field": "cx", "type": "quantitative", "scale": {"domain": [0, 1.3]}, "axis": null},
+        "y": {"field": "cy", "type": "quantitative", "scale": {"domain": [0, 1]}, "axis": null},
+        "text": {"field": "cafe_count", "type": "quantitative", "format": ","}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x_anchor": 0.99, "y_anchor": 0.93, "x_label": 1.05, "y_label": 0.85},
+          {"x_anchor": 0.99, "y_anchor": 0.98, "x_label": 1.05, "y_label": 0.98}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "stroke": "#3C1F0F",
+        "strokeWidth": 1,
+        "strokeDash": [3, 2]
+      },
+      "encoding": {
+        "x": {"field": "x_anchor", "type": "quantitative", "scale": {"domain": [0, 1.3]}, "axis": null},
+        "x2": {"field": "x_label"},
+        "y": {"field": "y_anchor", "type": "quantitative", "scale": {"domain": [0, 1]}, "axis": null},
+        "y2": {"field": "y_label"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x": 1.06, "y": 0.85, "label": "Port Melbourne — 27 cafes"},
+          {"x": 1.06, "y": 0.98, "label": "South Yarra — 15 cafes"}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontStyle": "italic",
+        "fontSize": 11,
+        "color": "#3C1F0F"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [0, 1.3]}, "axis": null},
+        "y": {"field": "y", "type": "quantitative", "scale": {"domain": [0, 1]}, "axis": null},
+        "text": {"field": "label"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "background": "white"
+  }
+}
