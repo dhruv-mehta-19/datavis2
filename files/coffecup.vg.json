@@ -1,0 +1,164 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Where Your $5 Goes",
+    "subtitle": "Breaking down the cost of a Melbourne flat white",
+    "anchor": "start",
+    "fontSize": 25,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666",
+    "color": "#3C1F0F"
+  },
+  "width": 500,
+  "height": 650,
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {"x": 1.5, "y": 9.6},
+          {"x": 4.5, "y": 9.6},
+          {"x": 4.7, "y": 9.4},
+          {"x": 1.3, "y": 9.4}
+        ]
+      },
+      "mark": {"type": "area", "color": "#f7f3ed", "stroke": "#412211", "strokeWidth": 1, "interpolate": "linear-closed"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [-0.5, 8]}, "axis": null},
+        "y": {"field": "y", "type": "quantitative", "scale": {"domain": [-0.5, 10.5]}, "axis": null}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x": 1.3, "y": 9.4},
+          {"x": 4.7, "y": 9.4},
+          {"x": 5.4, "y": 9.0},
+          {"x": 0.6, "y": 9.0}
+        ]
+      },
+      "mark": {"type": "area", "color": "#f7f3ed", "stroke": "#412211", "strokeWidth": 1.5, "interpolate": "linear-closed"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [-0.5, 8]}, "axis": null},
+        "y": {"field": "y", "type": "quantitative", "scale": {"domain": [-0.5, 10.5]}, "axis": null}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x": 0.6, "y": 9.0},
+          {"x": 5.4, "y": 9.0},
+          {"x": 5.3, "y": 8.8},
+          {"x": 0.7, "y": 8.8}
+        ]
+      },
+      "mark": {"type": "area", "color": "#3C1F0F", "interpolate": "linear-closed"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [-0.5, 8]}, "axis": null},
+        "y": {"field": "y", "type": "quantitative", "scale": {"domain": [-0.5, 10.5]}, "axis": null}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x": 0.7, "y": 8.8},
+          {"x": 5.3, "y": 8.8},
+          {"x": 4.85, "y": 0.4},
+          {"x": 1.15, "y": 0.4}
+        ]
+      },
+      "mark": {"type": "area", "color": "#C9A77A", "stroke": "#3C1F0F", "strokeWidth": 1.5, "interpolate": "linear-closed"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [-0.5, 8]}, "axis": null},
+        "y": {"field": "y", "type": "quantitative", "scale": {"domain": [-0.5, 10.5]}, "axis": null}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x_left": 0.86, "x_right": 5.14, "y": 5.092},
+          {"x_left": 0.91, "x_right": 5.09, "y": 4.341},
+          {"x_left": 1.07, "x_right": 4.93, "y": 2.088},
+          {"x_left": 1.11, "x_right": 4.89, "y": 1.420},
+          {"x_left": 1.15, "x_right": 4.85, "y": 0.786}
+        ]
+      },
+      "mark": {"type": "rule", "stroke": "#3C1F0F", "strokeWidth": 0.8},
+      "encoding": {
+        "x": {"field": "x_left", "type": "quantitative", "scale": {"domain": [-0.5, 8]}, "axis": null},
+        "x2": {"field": "x_right"},
+        "y": {"field": "y", "type": "quantitative", "scale": {"domain": [-0.5, 10.5]}, "axis": null}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x": 3, "y": 6.946, "label": "Gross profit  $2.22", "size": 13},
+          {"x": 3, "y": 4.716, "label": "GST  $0.45", "size": 11},
+          {"x": 3, "y": 3.214, "label": "Labour  $1.35", "size": 13},
+          {"x": 3, "y": 1.754, "label": "Milk  $0.40", "size": 11},
+          {"x": 3, "y": 1.103, "label": "Beans  $0.38", "size": 11},
+          {"x": 3, "y": 0.593, "label": "Cup & lid  $0.20", "size": 10}
+        ]
+      },
+      "mark": {"type": "text", "fontWeight": "bold", "align": "center", "baseline": "middle", "color": "#3C1F0F"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [-0.5, 8]}, "axis": null},
+        "y": {"field": "y", "type": "quantitative", "scale": {"domain": [-0.5, 10.5]}, "axis": null},
+        "text": {"field": "label"},
+        "size": {"field": "size", "type": "quantitative", "scale": null, "legend": null}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x_anchor": 5.05, "y_anchor": 6.946, "x_label": 7.3, "y_label": 7.0},
+          {"x_anchor": 5.05, "y_anchor": 3.214, "x_label": 7.3, "y_label": 3.0}
+        ]
+      },
+      "mark": {"type": "rule", "stroke": "#3C1F0F", "strokeWidth": 0.8, "strokeDash": [3, 2]},
+      "encoding": {
+        "x": {"field": "x_anchor", "type": "quantitative", "scale": {"domain": [-0.5, 8]}, "axis": null},
+        "x2": {"field": "x_label"},
+        "y": {"field": "y_anchor", "type": "quantitative", "scale": {"domain": [-0.5, 10.5]}, "axis": null},
+        "y2": {"field": "y_label"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x": 7.4, "y": 7.3, "label": "Before rent, power,", "size": 11},
+          {"x": 7.4, "y": 7.0, "label": "insurance & other", "size": 11},
+          {"x": 7.4, "y": 6.7, "label": "expenses", "size": 11},
+          {"x": 7.4, "y": 3.3, "label": "Labour is the", "size": 11},
+          {"x": 7.4, "y": 3.0, "label": "biggest cost", "size": 11},
+          {"x": 7.4, "y": 2.7, "label": "more than ingredients", "size": 11},
+          {"x": 7.4, "y": 2.4, "label": "combined.", "size": 11}
+        ]
+      },
+      "mark": {"type": "text", "align": "left", "baseline": "middle", "color": "#3C1F0F", "fontWeight": "bold"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [-0.5, 8]}, "axis": null},
+        "y": {"field": "y", "type": "quantitative", "scale": {"domain": [-0.5, 10.5]}, "axis": null},
+        "text": {"field": "label"},
+        "size": {"field": "size", "type": "quantitative", "scale": null, "legend": null}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x": 3, "y": -0.2, "label": "$5.00 Flat White"}
+        ]
+      },
+      "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "color": "#3C1F0F", "align": "center"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [-0.5, 8]}, "axis": null},
+        "y": {"field": "y", "type": "quantitative", "scale": {"domain": [-0.5, 10.5]}, "axis": null},
+        "text": {"field": "label"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "background": "white"
+  }
+}
