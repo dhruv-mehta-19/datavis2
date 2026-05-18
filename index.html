@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Heart of Coffee — Why Melbourne Earned the Title</title>
+
+<!-- Vega-Lite libraries (load from CDN, no install needed) -->
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<!-- Pure.css for clean defaults -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    color: #3C1F0F;
+    background: #FAFAF5;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  h1 {
+    font-size: 42px;
+    font-weight: 500;
+    margin: 0 0 8px;
+    color: #3C1F0F;
+  }
+  .subtitle {
+    font-size: 18px;
+    color: #6B3410;
+    font-style: italic;
+    margin: 0 0 32px;
+  }
+  .byline {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 40px;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 60px 0 12px;
+    color: #3C1F0F;
+    border-bottom: 1px solid #D89651;
+    padding-bottom: 8px;
+  }
+  h2 .num {
+    color: #B8702F;
+    font-size: 20px;
+    margin-right: 12px;
+  }
+  p {
+    font-size: 16px;
+    margin: 0 0 20px;
+  }
+  .chart {
+    margin: 32px 0;
+    overflow-x: auto;
+  }
+  .sources {
+    margin-top: 80px;
+    padding: 24px;
+    background: #F5F1E8;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  .sources h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+  }
+  .sources ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .sources a {
+    color: #6B3410;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>The Heart of Coffee</h1>
+  <p class="subtitle">Why Melbourne earned the title — from bean to cup</p>
+  <p class="byline">By Dhruv Mehta · FIT2179 Data Visualisation 2 · May 2026</p>
+
+  <p>Melbourne isn't the city where Australians drink the most coffee — that title belongs to Western Australia by some measures, or Canberra by others. So why is Melbourne famous for it? This is the story of how a city without the highest consumption built a culture that the world calls the coffee capital.</p>
+
+  <!-- SECTION 1: WORLD MAP -->
+  <h2><span class="num">01</span>The World That Supplies It</h2>
+  <p>Before it lands in a Carlton café, every bean travels through Australia's import network. In 2023, Australia imported coffee from over 50 countries — but a handful do almost all the work. Brazil alone supplies nearly twice what Colombia does, our second biggest supplier.</p>
+  <div id="chart1" class="chart"></div>
+
+  <!-- SECTION 2: TOP SUPPLIERS BAR -->
+  <p>Ranked by value, the top suppliers tell a clear story: Latin America dominates Australian imports, with South-East Asia (Vietnam, Indonesia) and Africa (Ethiopia, Kenya) playing supporting roles.</p>
+  <div id="chart2" class="chart"></div>
+
+  <!-- SECTION 3: SCATTER (PREMIUM vs BULK) -->
+  <h2><span class="num">02</span>Premium Beans vs Bulk Beans</h2>
+  <p>Not every bean is created equal. Vietnam supplies us with cheap robusta at $2.58 per kilogram — by far the lowest price of any major partner. At the other end, Jamaica Blue Mountain commands $62 per kilogram in tiny boutique quantities. Australia imports both — the workhorses that fill chain-store espressos, and the luxury beans that end up in specialty cafés.</p>
+  <div id="chart3" class="chart"></div>
+
+  <!-- SECTION 4: MELBOURNE MAP -->
+  <h2><span class="num">03</span>The City That Drinks It</h2>
+  <p>The City of Melbourne alone hosts around 3,000 cafés and restaurants, packed into a few square kilometres. The CBD dominates, but Carlton's Lygon Street has been the cultural heart of Melbourne's coffee scene since Italian and Greek migrants brought espresso here in the 1950s.</p>
+  <div id="chart4" class="chart"></div>
+
+  <!-- SECTION 5: TREEMAP -->
+  <p>Looking at the numbers another way: Melbourne CBD has more cafés than every other neighbourhood combined.</p>
+  <div id="chart5" class="chart"></div>
+
+  <!-- SECTION 6: COFFEE CUP -->
+  <h2><span class="num">04</span>Where Your $5 Goes</h2>
+  <p>So why does a flat white cost what it does? Most of your money isn't going to the beans or the milk — it's going to the barista, the rent, and the GST. Even before paying any overheads, the café only nets $2.22 from a $5 cup. And in 2024–25, most Melbourne cafés have pushed prices to $6 just to keep the lights on.</p>
+  <div id="chart6" class="chart"></div>
+
+  <!-- WHAT MAKES MELBOURNE SPECIAL -->
+  <h2><span class="num">05</span>What Makes Melbourne Coffee Special</h2>
+  <p>It's not just the cafés — it's the network behind every cup. Fresh roasting from local independents like Market Lane and Padre. Soft Melbourne water that extracts beans differently from Sydney's harder supply. A post-war migration history that brought espresso culture here in the 1950s. Baristas treated as professionals, not casuals. The result is a city where mediocrity gets driven out of business by the café two doors down.</p>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>Sources & Methodology</h3>
+    <ul>
+      <li>Coffee import data: UN Comtrade via World Bank WITS, 2023 (HS code 090111)</li>
+      <li>Melbourne cafe data: City of Melbourne Open Data — CLUE Census, 2024</li>
+      <li>CLUE area boundaries: City of Melbourne Open Data Portal</li>
+      <li>Coffee cost breakdown: <a href="https://www.fishriverroasters.com.au/blog/how-much-does-it-cost-to-make-a-cup-of-coffee">Fish River Roasters, 2024</a></li>
+      <li>World map projection: TopoJSON world-atlas</li>
+    </ul>
+    <p style="margin-top:16px;font-size:13px;color:#666">Visualisations built with Vega-Lite v5. Source code and data available on this <a href="https://github.com/dhruv-mehta-19/datavis2">GitHub repository</a>.</p>
+  </div>
+
+</div>
+
+<script>
+  // Load each chart spec from the specs/ folder
+  const charts = [
+    {div: '#chart1', spec: 'specs/worldmap.vg.json'},
+    {div: '#chart2', spec: 'specs/topsuppliers.vg.json'},
+    {div: '#chart3', spec: 'specs/beans_kg.vg.json'},
+    {div: '#chart4', spec: 'specs/melbournemap.vg.json'},
+    {div: '#chart5', spec: 'specs/treemap.vg.json'},
+    {div: '#chart6', spec: 'specs/coffecup.vg.json'}
+  ];
+
+  charts.forEach(c => {
+    vegaEmbed(c.div, c.spec, {actions: false}).catch(console.error);
+  });
+</script>
+
+</body>
+</html>
