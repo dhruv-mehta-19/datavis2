@@ -1,10 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "The Rising Price of Your Coffee",
+    "text": "When the City Comes Out for Coffee",
     "subtitle": [
-      "How much more Melbourne pays for coffee than at the start of 2018 (the 0% baseline).",
-      "Source: ABS Consumer Price Index, Melbourne. Shows percentage price change since 2017, not the dollar cost."
+      "Average pedestrians per hour across 102 City of Melbourne sensors, 2025 \u2014 during cafe hours (6am\u20133pm).",
+      "Source: City of Melbourne Pedestrian Counting System, 2025."
     ],
     "anchor": "start",
     "fontSize": 20,
@@ -13,166 +13,260 @@
     "color": "#3C1F0F"
   },
   "width": 660,
-  "height": 380,
+  "height": 400,
   "data": {
     "values": [
       {
-        "date": "2018-",
-        "pct": 0.0
+        "hour": 6,
+        "type": "Weekday",
+        "count": 96
       },
       {
-        "date": "2018-03",
-        "pct": 1.0
+        "hour": 6,
+        "type": "Weekend",
+        "count": 45
       },
       {
-        "date": "2018-06",
-        "pct": -3.0
+        "hour": 7,
+        "type": "Weekday",
+        "count": 230
       },
       {
-        "date": "2018-09",
-        "pct": -1.0
+        "hour": 7,
+        "type": "Weekend",
+        "count": 90
       },
       {
-        "date": "2018-12",
-        "pct": 2.2
+        "hour": 8,
+        "type": "Weekday",
+        "count": 505
       },
       {
-        "date": "2019-03",
-        "pct": 1.9
+        "hour": 8,
+        "type": "Weekend",
+        "count": 162
       },
       {
-        "date": "2019-06",
-        "pct": -2.0
+        "hour": 9,
+        "type": "Weekday",
+        "count": 418
       },
       {
-        "date": "2019-09",
-        "pct": 0.0
+        "hour": 9,
+        "type": "Weekend",
+        "count": 289
       },
       {
-        "date": "2019-12",
-        "pct": 1.8
+        "hour": 10,
+        "type": "Weekday",
+        "count": 417
       },
       {
-        "date": "2020-03",
-        "pct": 6.5
+        "hour": 10,
+        "type": "Weekend",
+        "count": 427
       },
       {
-        "date": "2020-06",
-        "pct": 2.1
+        "hour": 11,
+        "type": "Weekday",
+        "count": 503
       },
       {
-        "date": "2020-09",
-        "pct": 4.5
+        "hour": 11,
+        "type": "Weekend",
+        "count": 567
       },
       {
-        "date": "2020-12",
-        "pct": 3.3
+        "hour": 12,
+        "type": "Weekday",
+        "count": 738
       },
       {
-        "date": "2021-03",
-        "pct": 2.3
+        "hour": 12,
+        "type": "Weekend",
+        "count": 672
       },
       {
-        "date": "2021-06",
-        "pct": 1.9
+        "hour": 13,
+        "type": "Weekday",
+        "count": 735
       },
       {
-        "date": "2021-09",
-        "pct": 3.7
+        "hour": 13,
+        "type": "Weekend",
+        "count": 726
       },
       {
-        "date": "2021-12",
-        "pct": 5.6
+        "hour": 14,
+        "type": "Weekday",
+        "count": 636
       },
       {
-        "date": "2022-03",
-        "pct": 13.6
+        "hour": 14,
+        "type": "Weekend",
+        "count": 738
       },
       {
-        "date": "2022-06",
-        "pct": 11.6
+        "hour": 15,
+        "type": "Weekday",
+        "count": 643
       },
       {
-        "date": "2022-09",
-        "pct": 16.3
-      },
-      {
-        "date": "2022-12",
-        "pct": 18.6
-      },
-      {
-        "date": "2023-03",
-        "pct": 19.6
-      },
-      {
-        "date": "2023-06",
-        "pct": 18.5
-      },
-      {
-        "date": "2023-09",
-        "pct": 21.0
-      },
-      {
-        "date": "2023-12",
-        "pct": 23.6
-      },
-      {
-        "date": "2024-03",
-        "pct": 23.3
-      },
-      {
-        "date": "2024-06",
-        "pct": 19.9
-      },
-      {
-        "date": "2024-09",
-        "pct": 22.2
-      },
-      {
-        "date": "2024-12",
-        "pct": 26.6
-      },
-      {
-        "date": "2025-03",
-        "pct": 27.8
-      },
-      {
-        "date": "2025-06",
-        "pct": 35.6
-      },
-      {
-        "date": "2025-09",
-        "pct": 41.8
-      },
-      {
-        "date": "2025-12",
-        "pct": 46.2
-      },
-      {
-        "date": "2026-03",
-        "pct": 41.9
+        "hour": 15,
+        "type": "Weekend",
+        "count": 731
       }
     ]
   },
   "layer": [
     {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "hour",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              6,
+              15
+            ],
+            "nice": false
+          },
+          "title": "Hour of day",
+          "axis": {
+            "values": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "labelExpr": "datum.value < 12 ? datum.value + 'am' : datum.value == 12 ? '12pm' : (datum.value - 12) + 'pm'",
+            "labelColor": "#666",
+            "domainColor": "#D89651",
+            "titleColor": "#3C1F0F"
+          }
+        },
+        "y": {
+          "field": "count",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              800
+            ]
+          },
+          "title": "Average pedestrians per sensor, per hour",
+          "axis": {
+            "titleColor": "#3C1F0F",
+            "labelColor": "#666",
+            "grid": true,
+            "gridColor": "#f0f0f0"
+          }
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Weekday",
+              "Weekend"
+            ],
+            "range": [
+              "#6B3410",
+              "#D89651"
+            ]
+          },
+          "legend": {
+            "orient": "top-left",
+            "title": null,
+            "labelColor": "#3C1F0F",
+            "labelFontSize": 12,
+            "fillColor": "white",
+            "padding": 6
+          }
+        },
+        "tooltip": [
+          {
+            "field": "type",
+            "title": "Day type"
+          },
+          {
+            "field": "hour",
+            "title": "Hour"
+          },
+          {
+            "field": "count",
+            "title": "Avg pedestrians",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
       "data": {
         "values": [
           {
-            "y": 0
+            "x": 6.6,
+            "y": 640,
+            "x2": 8,
+            "y2": 505
           }
         ]
       },
       "mark": {
         "type": "rule",
-        "color": "#999",
-        "strokeDash": [
-          4,
-          3
-        ],
-        "strokeWidth": 1
+        "color": "#6B3410",
+        "strokeWidth": 0.7,
+        "opacity": 0.6
       },
       "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x2"
+        },
+        "y2": {
+          "field": "y2"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 8,
+            "y": 505
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#6B3410",
+        "size": 35,
+        "opacity": 0.8
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
         "y": {
           "field": "y",
           "type": "quantitative"
@@ -180,96 +274,98 @@
       }
     },
     {
+      "data": {
+        "values": [
+          {
+            "x": 6.5,
+            "y": 675,
+            "t": "8am rush -"
+          },
+          {
+            "x": 6.2,
+            "y": 650,
+            "t": "coffee's busy window"
+          }
+        ]
+      },
       "mark": {
-        "type": "line",
-        "color": "#6B3410",
-        "strokeWidth": 2.5,
-        "interpolate": "monotone"
+        "type": "text",
+        "align": "left",
+        "fontStyle": "italic",
+        "fontSize": 11,
+        "color": "#6B3410"
       },
       "encoding": {
         "x": {
-          "field": "date",
-          "type": "temporal",
-          "title": null,
-          "axis": {
-            "format": "%Y",
-            "tickCount": "year",
-            "labelColor": "#666",
-            "domainColor": "#D89651"
-          },
-          "scale": {
-            "padding": 0,
-            "nice": false
-          }
+          "field": "x",
+          "type": "quantitative"
         },
         "y": {
-          "field": "pct",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -8,
-              52
-            ]
-          },
-          "title": "Price change since 2017",
-          "axis": {
-            "format": "+.0f",
-            "labelExpr": "datum.value + '%'",
-            "titleColor": "#3C1F0F",
-            "labelColor": "#666",
-            "grid": true,
-            "gridColor": "#f0f0f0"
-          }
+          "field": "y",
+          "type": "quantitative"
         },
-        "tooltip": [
-          {
-            "field": "date",
-            "type": "temporal",
-            "title": "Quarter",
-            "format": "%b %Y"
-          },
-          {
-            "field": "pct",
-            "title": "Change since 2017",
-            "format": "+.1f"
-          }
-        ]
+        "text": {
+          "field": "t"
+        }
       }
     },
     {
       "data": {
         "values": [
           {
-            "date": "2020-03",
-            "pct": 6.5
-          },
+            "x": 11.5,
+            "y": 300,
+            "x2": 11,
+            "y2": 567
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B8702F",
+        "strokeWidth": 0.7,
+        "opacity": 0.6
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x2"
+        },
+        "y2": {
+          "field": "y2"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
           {
-            "date": "2024-06",
-            "pct": 19.9
-          },
-          {
-            "date": "2025-12",
-            "pct": 46.2
+            "x": 11,
+            "y": 567
           }
         ]
       },
       "mark": {
         "type": "point",
         "filled": true,
-        "color": "#3C1F0F",
-        "size": 55
+        "color": "#B8702F",
+        "size": 35,
+        "opacity": 0.8
       },
       "encoding": {
         "x": {
-          "field": "date",
-          "type": "temporal",
-          "scale": {
-            "padding": 0,
-            "nice": false
-          }
+          "field": "x",
+          "type": "quantitative"
         },
         "y": {
-          "field": "pct",
+          "field": "y",
           "type": "quantitative"
         }
       }
@@ -278,104 +374,31 @@
       "data": {
         "values": [
           {
-            "date": "2020-03",
-            "pct": 6.5,
-            "t": "+6.5% (early-2020 bump)"
+            "x": 10.7,
+            "y": 285,
+            "t": "By late morning the weekend crowd"
+          },
+          {
+            "x": 10.5,
+            "y": 260,
+            "t": "overtakes the commuters on the weekday"
           }
         ]
       },
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 8,
-        "dy": -4,
+        "fontStyle": "italic",
         "fontSize": 11,
-        "color": "#3C1F0F"
+        "color": "#B8702F"
       },
       "encoding": {
         "x": {
-          "field": "date",
-          "type": "temporal",
-          "scale": {
-            "padding": 0,
-            "nice": false
-          }
-        },
-        "y": {
-          "field": "pct",
+          "field": "x",
           "type": "quantitative"
         },
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "date": "2024-06",
-            "pct": 19.9,
-            "t": "+20% dip in 2024"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 8,
-        "dy": 12,
-        "fontSize": 11,
-        "color": "#3C1F0F"
-      },
-      "encoding": {
-        "x": {
-          "field": "date",
-          "type": "temporal",
-          "scale": {
-            "padding": 0,
-            "nice": false
-          }
-        },
         "y": {
-          "field": "pct",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "date": "2025-12",
-            "pct": 46.2,
-            "t": "+46% peak"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -6,
-        "dy": -10,
-        "fontWeight": "bold",
-        "fontSize": 11,
-        "color": "#3C1F0F"
-      },
-      "encoding": {
-        "x": {
-          "field": "date",
-          "type": "temporal",
-          "scale": {
-            "padding": 0,
-            "nice": false
-          }
-        },
-        "y": {
-          "field": "pct",
+          "field": "y",
           "type": "quantitative"
         },
         "text": {
