@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Heart of Coffee — Why Melbourne Earned the Title</title>
+<title>The Heart of Coffee — How Melbourne's Coffee World Works</title>
 
-<!-- Vega-Lite libraries (load from CDN, no install needed) -->
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-<!-- Pure.css for clean defaults -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 
 <style>
@@ -19,138 +17,122 @@
     color: #3C1F0F;
     background: #FAFAF5;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.65;
   }
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-  h1 {
-    font-size: 42px;
-    font-weight: 500;
-    margin: 0 0 8px;
-    color: #3C1F0F;
-  }
-  .subtitle {
-    font-size: 18px;
-    color: #6B3410;
-    font-style: italic;
-    margin: 0 0 32px;
-  }
-  .byline {
-    font-size: 13px;
-    color: #999;
-    margin-bottom: 40px;
-  }
+  .container { max-width: 820px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 44px; font-weight: 500; margin: 0 0 8px; letter-spacing: -0.5px; }
+  .subtitle { font-size: 19px; color: #6B3410; font-style: italic; margin: 0 0 28px; }
+  .byline { font-size: 13px; color: #999; margin-bottom: 8px; letter-spacing: 0.3px; }
+  .lede { font-size: 18px; color: #4a2a14; }
   h2 {
-    font-size: 28px;
-    font-weight: 500;
-    margin: 60px 0 12px;
-    color: #3C1F0F;
-    border-bottom: 1px solid #D89651;
-    padding-bottom: 8px;
+    font-size: 27px; font-weight: 500; margin: 64px 0 14px;
+    border-bottom: 1px solid #D89651; padding-bottom: 10px;
   }
-  h2 .num {
-    color: #B8702F;
-    font-size: 20px;
-    margin-right: 12px;
+  h2 .num { color: #B8702F; font-size: 19px; margin-right: 14px; font-style: italic; }
+  p { font-size: 16px; margin: 0 0 18px; }
+  .chart { margin: 28px 0 12px; display: flex; justify-content: center; }
+  .readwhy {
+    font-size: 14.5px; color: #5a4030; background: #F5F1E8;
+    border-left: 3px solid #B8702F; padding: 12px 16px; margin: 0 0 28px;
   }
-  p {
-    font-size: 16px;
-    margin: 0 0 20px;
-  }
-  .chart {
-    margin: 32px 0;
-    overflow-x: auto;
-  }
+  .readwhy strong { color: #6B3410; }
   .sources {
-    margin-top: 80px;
-    padding: 24px;
-    background: #F5F1E8;
-    border-radius: 8px;
-    font-size: 14px;
+    margin-top: 72px; padding: 28px; background: #F5F1E8;
+    border-radius: 8px; font-size: 14px;
   }
-  .sources h3 {
-    margin: 0 0 12px;
-    font-size: 16px;
-  }
-  .sources ul {
-    margin: 0;
-    padding-left: 20px;
-  }
-  .sources a {
-    color: #6B3410;
-  }
+  .sources h3 { margin: 0 0 14px; font-size: 17px; }
+  .sources ul { margin: 0; padding-left: 22px; }
+  .sources li { margin-bottom: 6px; }
+  .sources a { color: #6B3410; }
+  .note { font-size: 13px; color: #777; margin-top: 18px; }
 </style>
 </head>
 <body>
 <div class="container">
 
   <h1>The Heart of Coffee</h1>
-  <p class="subtitle">Why Melbourne earned the title — from bean to cup</p>
+  <p class="subtitle">How Melbourne's coffee world works — from bean to cup</p>
   <p class="byline">By Dhruv Mehta · FIT2179 Data Visualisation 2 · May 2026</p>
 
-  <p>Melbourne isn't the city where Australians drink the most coffee — that title belongs to Western Australia by some measures, or Canberra by others. So why is Melbourne famous for it? This is the story of how a city without the highest consumption built a culture that the world calls the coffee capital.</p>
+  <p class="lede">Melbourne isn't the city where Australians drink the most coffee — by national figures, other capitals rival or beat it. So why is Melbourne famous for it? Rather than claim Melbourne is "best," this is a look at how the city's coffee world actually works: where the beans come from, where they're drunk, and what ends up in your cup.</p>
 
-  <!-- SECTION 1: WORLD MAP -->
   <h2><span class="num">01</span>The World That Supplies It</h2>
-  <p>Before it lands in a Carlton café, every bean travels through Australia's import network. In 2023, Australia imported coffee from over 50 countries — but a handful do almost all the work. Brazil alone supplies nearly twice what Colombia does, our second biggest supplier.</p>
+  <p>Before a bean lands in a Carlton café, it travels through Australia's national import network. In 2023, Australia imported unroasted coffee from over 50 countries — but a handful do almost all the work. Brazil alone supplies nearly twice the value of Colombia, our second-largest source.</p>
   <div id="chart1" class="chart"></div>
+  <p class="readwhy"><strong>Reading the map:</strong> a choropleth shades each country by import value. The dark band across Latin America shows where Australia's coffee overwhelmingly originates, while most of the world contributes little or nothing — making our supply geographically narrow.</p>
 
-  <!-- SECTION 2: TOP SUPPLIERS BAR -->
-  <p>Ranked by value, the top suppliers tell a clear story: Latin America dominates Australian imports, with South-East Asia (Vietnam, Indonesia) and Africa (Ethiopia, Kenya) playing supporting roles.</p>
+  <p>Ranked by value, that concentration becomes stark. The largest suppliers carry a hugely disproportionate share of the total.</p>
   <div id="chart2" class="chart"></div>
+  <p class="readwhy"><strong>Reading the chart:</strong> the bars rank suppliers by import value; the line tracks the running cumulative share. Just three countries supply almost half of all imports, and the top ten cover roughly 85% — a concentrated, and therefore vulnerable, supply chain.</p>
 
-  <!-- SECTION 3: SCATTER (PREMIUM vs BULK) -->
+  <p>The same suppliers, ranked simply by value, confirm the pecking order at a glance.</p>
+  <div id="chart7bar" class="chart"></div>
+  <p class="readwhy"><strong>Reading the chart:</strong> a horizontal bar ranks each country's total import value, making the gap between Brazil and everyone else immediately legible.</p>
+
   <h2><span class="num">02</span>Premium Beans vs Bulk Beans</h2>
-  <p>Not every bean is created equal. Vietnam supplies us with cheap robusta at $2.58 per kilogram — by far the lowest price of any major partner. At the other end, Jamaica Blue Mountain commands $62 per kilogram in tiny boutique quantities. Australia imports both — the workhorses that fill chain-store espressos, and the luxury beans that end up in specialty cafés.</p>
+  <p>Not every bean is equal. Vietnam supplies cheap robusta at the lowest price of any major partner; at the other extreme, tiny quantities of Jamaican Blue Mountain command many times that price. Australia imports both — the workhorses that fill chain-store espressos, and the luxury beans bound for specialty cafés.</p>
   <div id="chart3" class="chart"></div>
+  <p class="readwhy"><strong>Reading the chart:</strong> each bubble is a country, positioned by quantity (log scale) against price per kilogram, sized by total value. The spread from the cheap, high-volume bottom-right to the premium, low-volume top-left visualises the entire premium-versus-bulk trade in one view.</p>
 
-  <!-- SECTION 4: MELBOURNE MAP -->
   <h2><span class="num">03</span>The City That Drinks It</h2>
-  <p>The City of Melbourne alone hosts around 3,000 cafés and restaurants, packed into a few square kilometres. The CBD dominates, but Carlton's Lygon Street has been the cultural heart of Melbourne's coffee scene since Italian and Greek migrants brought espresso here in the 1950s.</p>
+  <p>The City of Melbourne council alone hosts thousands of cafés and restaurants packed into a few square kilometres. The CBD dominates, but Carlton's Lygon Street has been a cultural heart of Melbourne's coffee scene since Italian and Greek migrants brought espresso here in the mid-20th century.</p>
   <div id="chart4" class="chart"></div>
+  <p class="readwhy"><strong>Reading the map:</strong> every café is a point, sized by total seats and coloured by size category, over the council's neighbourhood boundaries. Click the legend to filter. The dense dark cluster shows how venues concentrate in the CBD and along Lygon Street. <em>(Data covers the City of Melbourne council only — St Kilda, Richmond and most of South Yarra fall under other councils.)</em></p>
 
-  <!-- SECTION 5: TREEMAP -->
-  <p>Looking at the numbers another way: Melbourne CBD has more cafés than every other neighbourhood combined.</p>
+  <p>Counted another way, the imbalance is even clearer.</p>
   <div id="chart5" class="chart"></div>
+  <p class="readwhy"><strong>Reading the chart:</strong> a treemap sizes each neighbourhood by its number of venues. The CBD's single block dwarfs every other area combined — the spatial heart of the city's hospitality.</p>
 
-  <!-- SECTION 6: COFFEE CUP -->
-  <h2><span class="num">04</span>Where Your $5 Goes</h2>
-  <p>So why does a flat white cost what it does? Most of your money isn't going to the beans or the milk — it's going to the barista, the rent, and the GST. Even before paying any overheads, the café only nets $2.22 from a $5 cup. And in 2024–25, most Melbourne cafés have pushed prices to $6 just to keep the lights on.</p>
+  <p>This concentration didn't appear overnight. It's the result of two decades of steady growth in the city's dining scene.</p>
   <div id="chart6" class="chart"></div>
+  <p class="readwhy"><strong>Reading the chart:</strong> an area chart tracks distinct cafés and restaurants from 2002 to 2024 — the hospitality scene Melbourne's coffee culture grew within. It climbs steadily to a 2019 peak, dips with the COVID-19 closures, then recovers. <em>(This counts all cafés and restaurants, ANZSIC class 4511, not coffee venues specifically.)</em></p>
 
-  <!-- WHAT MAKES MELBOURNE SPECIAL -->
-  <h2><span class="num">05</span>What Makes Melbourne Coffee Special</h2>
-  <p>It's not just the cafés — it's the network behind every cup. Fresh roasting from local independents like Market Lane and Padre. Soft Melbourne water that extracts beans differently from Sydney's harder supply. A post-war migration history that brought espresso culture here in the 1950s. Baristas treated as professionals, not casuals. The result is a city where mediocrity gets driven out of business by the café two doors down.</p>
+  <h2><span class="num">04</span>Your Cup: Its Rhythm and Its Price</h2>
+  <p>When is the city actually out and about? Pedestrian sensors reveal a daily rhythm that maps closely onto when coffee is bought — a morning ritual more than an all-day habit.</p>
+  <div id="chart8ped" class="chart"></div>
+  <p class="readwhy"><strong>Reading the chart:</strong> two lines compare average foot traffic by hour on weekdays versus weekends, during café trading hours (6am–3pm). Weekdays spike sharply with the 8am commute — coffee's busiest window — while weekends start slow and build to a midday brunch crowd. Foot traffic is a proxy for when demand peaks, not a direct count of coffee buyers.</p>
 
-  <!-- SOURCES -->
+  <p>So why does a flat white cost what it does? Most of your money isn't going to the beans or the milk.</p>
+  <div id="chart9cup" class="chart"></div>
+  <p class="readwhy"><strong>Reading the chart:</strong> a stacked bar breaks a $5 cup into its costs on a busy day versus a quiet one. Because labour is paid per shift regardless of cups sold, a slow day doubles labour-per-cup and collapses the café's margin — showing how thin the economics are. <em>(Cost breakdown from Fish River Roasters; quiet-day profit is the exact arithmetic figure, ≈$0.89 per the source.)</em></p>
+
+  <p>And that cup has been getting steadily more expensive.</p>
+  <div id="chart10price" class="chart"></div>
+  <p class="readwhy"><strong>Reading the chart:</strong> a line shows the percentage change in Melbourne coffee prices since 2017. Flat for years, prices climbed sharply from 2022 as global bean supply tightened — the same shortage visible at the origin end of this story now showing up in your cup. <em>(ABS index for the "coffee, tea &amp; cocoa" class; shows price change, not dollar cost.)</em></p>
+
+  <h2><span class="num">05</span>What Makes Melbourne's Coffee World Distinctive</h2>
+  <p>Across these ten views, a pattern emerges. Melbourne's coffee world rests on a narrow, premium-leaning supply chain; a dense, decades-deep concentration of independent venues; an economics so tight that quality is enforced by competition; and a price now rising with global bean shortages. It is less a story of drinking the most coffee than of a city whose whole system — from import to cup — is organised around taking coffee seriously.</p>
+
   <div class="sources">
-    <h3>Sources & Methodology</h3>
+    <h3>Sources &amp; Methodology</h3>
     <ul>
       <li>Coffee import data: UN Comtrade via World Bank WITS, 2023 (HS code 090111)</li>
-      <li>Melbourne cafe data: City of Melbourne Open Data — CLUE Census, 2024</li>
-      <li>CLUE area boundaries: City of Melbourne Open Data Portal</li>
-      <li>Coffee cost breakdown: <a href="https://www.fishriverroasters.com.au/blog/how-much-does-it-cost-to-make-a-cup-of-coffee">Fish River Roasters, 2024</a></li>
-      <li>World map projection: TopoJSON world-atlas</li>
+      <li>Melbourne café &amp; seating data: City of Melbourne Open Data — CLUE Census (2024 snapshot and 2002–2024 series)</li>
+      <li>CLUE neighbourhood boundaries: City of Melbourne Open Data Portal (GeoJSON)</li>
+      <li>Pedestrian foot traffic: City of Melbourne Pedestrian Counting System, 2025</li>
+      <li>Coffee price index: Australian Bureau of Statistics, Consumer Price Index, Melbourne, "Coffee, tea and cocoa" expenditure class</li>
+      <li>Cup cost breakdown: <a href="https://www.fishriverroasters.com.au/blog/how-much-does-it-cost-to-make-a-cup-of-coffee">Fish River Roasters, 2024</a></li>
+      <li>World basemap: TopoJSON world-atlas</li>
     </ul>
-    <p style="margin-top:16px;font-size:13px;color:#666">Visualisations built with Vega-Lite v5. Source code and data available on this <a href="https://github.com/dhruv-mehta-19/datavis2">GitHub repository</a>.</p>
+    <p class="note"><strong>Use of AI:</strong> Generative AI (Anthropic's Claude) was used to assist with planning the visualisation set, debugging and refining Vega-Lite specifications, aggregating large source datasets into chart-ready summaries, and checking the clarity and grammar of the narrative text. All data is real and drawn from the cited sources; all charts were assembled, reviewed and finalised by the author.</p>
+    <p class="note">Visualisations built with Vega-Lite v5. Source code, chart specifications and data are available in this <a href="https://github.com/dhruv-mehta-19/datavis2">GitHub repository</a>. © Dhruv Mehta, 2026.</p>
   </div>
 
 </div>
 
 <script>
-  // Load each chart spec from the specs/ folder
   const charts = [
-    {div: '#chart1', spec: 'files/worldmap.vg.json'},
-    {div: '#chart2', spec: 'files/topsuppliers.vg.json'},
-    {div: '#chart3', spec: 'files/beans_kg.vg.json'},
-    {div: '#chart4', spec: 'files/melbournemap.vg.json'},
-    {div: '#chart5', spec: 'files/treemap.vg.json'},
-    {div: '#chart6', spec: 'files/coffecup.vg.json'}
+    {div: '#chart1',      spec: 'files/worldmap.vg.json'},
+    {div: '#chart2',      spec: 'files/topsuppliers.vg.json'},
+    {div: '#chart7bar',   spec: 'files/topimports.vg.json'},
+    {div: '#chart3',      spec: 'files/beans_kg.vg.json'},
+    {div: '#chart4',      spec: 'files/melbournemap.vg.json'},
+    {div: '#chart5',      spec: 'files/treemap.vg.json'},
+    {div: '#chart6',      spec: 'files/diningboom.vg.js'},
+    {div: '#chart8ped',   spec: 'files/timetrend.vg.json'},
+    {div: '#chart9cup',   spec: 'files/coffecup.vg.json'},
+    {div: '#chart10price',spec: 'files/risingprice.vg.json'}
   ];
-
   charts.forEach(c => {
     vegaEmbed(c.div, c.spec, {actions: false}).catch(console.error);
   });
