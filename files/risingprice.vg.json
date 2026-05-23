@@ -1,0 +1,392 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "The Rising Price of Your Coffee",
+    "subtitle": [
+      "How much more Melbourne pays for coffee than at the start of 2018 (the 0% baseline).",
+      "Source: ABS Consumer Price Index, Melbourne. Shows percentage price change since 2017, not the dollar cost."
+    ],
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666",
+    "color": "#3C1F0F"
+  },
+  "width": 660,
+  "height": 380,
+  "data": {
+    "values": [
+      {
+        "date": "2018-",
+        "pct": 0.0
+      },
+      {
+        "date": "2018-03",
+        "pct": 1.0
+      },
+      {
+        "date": "2018-06",
+        "pct": -3.0
+      },
+      {
+        "date": "2018-09",
+        "pct": -1.0
+      },
+      {
+        "date": "2018-12",
+        "pct": 2.2
+      },
+      {
+        "date": "2019-03",
+        "pct": 1.9
+      },
+      {
+        "date": "2019-06",
+        "pct": -2.0
+      },
+      {
+        "date": "2019-09",
+        "pct": 0.0
+      },
+      {
+        "date": "2019-12",
+        "pct": 1.8
+      },
+      {
+        "date": "2020-03",
+        "pct": 6.5
+      },
+      {
+        "date": "2020-06",
+        "pct": 2.1
+      },
+      {
+        "date": "2020-09",
+        "pct": 4.5
+      },
+      {
+        "date": "2020-12",
+        "pct": 3.3
+      },
+      {
+        "date": "2021-03",
+        "pct": 2.3
+      },
+      {
+        "date": "2021-06",
+        "pct": 1.9
+      },
+      {
+        "date": "2021-09",
+        "pct": 3.7
+      },
+      {
+        "date": "2021-12",
+        "pct": 5.6
+      },
+      {
+        "date": "2022-03",
+        "pct": 13.6
+      },
+      {
+        "date": "2022-06",
+        "pct": 11.6
+      },
+      {
+        "date": "2022-09",
+        "pct": 16.3
+      },
+      {
+        "date": "2022-12",
+        "pct": 18.6
+      },
+      {
+        "date": "2023-03",
+        "pct": 19.6
+      },
+      {
+        "date": "2023-06",
+        "pct": 18.5
+      },
+      {
+        "date": "2023-09",
+        "pct": 21.0
+      },
+      {
+        "date": "2023-12",
+        "pct": 23.6
+      },
+      {
+        "date": "2024-03",
+        "pct": 23.3
+      },
+      {
+        "date": "2024-06",
+        "pct": 19.9
+      },
+      {
+        "date": "2024-09",
+        "pct": 22.2
+      },
+      {
+        "date": "2024-12",
+        "pct": 26.6
+      },
+      {
+        "date": "2025-03",
+        "pct": 27.8
+      },
+      {
+        "date": "2025-06",
+        "pct": 35.6
+      },
+      {
+        "date": "2025-09",
+        "pct": 41.8
+      },
+      {
+        "date": "2025-12",
+        "pct": 46.2
+      },
+      {
+        "date": "2026-03",
+        "pct": 41.9
+      }
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "y": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#999",
+        "strokeDash": [
+          4,
+          3
+        ],
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#6B3410",
+        "strokeWidth": 2.5,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": null,
+          "axis": {
+            "format": "%Y",
+            "tickCount": "year",
+            "labelColor": "#666",
+            "domainColor": "#D89651"
+          },
+          "scale": {
+            "padding": 0,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -8,
+              52
+            ]
+          },
+          "title": "Price change since 2017",
+          "axis": {
+            "format": "+.0f",
+            "labelExpr": "datum.value + '%'",
+            "titleColor": "#3C1F0F",
+            "labelColor": "#666",
+            "grid": true,
+            "gridColor": "#f0f0f0"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "date",
+            "type": "temporal",
+            "title": "Quarter",
+            "format": "%b %Y"
+          },
+          {
+            "field": "pct",
+            "title": "Change since 2017",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "date": "2020-03",
+            "pct": 6.5
+          },
+          {
+            "date": "2024-06",
+            "pct": 19.9
+          },
+          {
+            "date": "2025-12",
+            "pct": 46.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#3C1F0F",
+        "size": 55
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "scale": {
+            "padding": 0,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "pct",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "date": "2020-03",
+            "pct": 6.5,
+            "t": "+6.5% (early 2020 bump)"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -4,
+        "fontSize": 11,
+        "color": "#3C1F0F"
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "scale": {
+            "padding": 0,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "date": "2024-06",
+            "pct": 19.9,
+            "t": "+20% dip in 2024"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 12,
+        "fontSize": 11,
+        "color": "#3C1F0F"
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "scale": {
+            "padding": 0,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "date": "2025-12",
+            "pct": 46.2,
+            "t": "+46% peak"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "dy": -10,
+        "fontSize": 11,
+        "color": "#3C1F0F"
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "scale": {
+            "padding": 0,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "white"
+  }
+}
