@@ -2,10 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Where Your $5 Goes",
-    "subtitle": [
-      "The same $5 flat white on a busy day vs a quiet day, City of Melbourne, 2024.",
-      "Labour is paid per shift, not per cup — so when fewer cups are sold, labour per cup doubles and profit collapses."
-    ],
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 12,
@@ -18,17 +14,14 @@
     "values": [
       {"scenario": "Busy day (200 cups)", "component": "GST", "amount": 0.45, "order": 1},
       {"scenario": "Busy day (200 cups)", "component": "Beans", "amount": 0.38, "order": 2},
-      {"scenario": "Busy day (200 cups)", "component": "Milk", "amount": 0.40, "order": 3},
-      {"scenario": "Busy day (200 cups)", "component": "Cup & lid", "amount": 0.20, "order": 4},
-      {"scenario": "Busy day (200 cups)", "component": "Labour", "amount": 1.35, "order": 5},
-      {"scenario": "Busy day (200 cups)", "component": "Gross profit", "amount": 2.22, "order": 6},
-
+      {"scenario": "Busy day (200 cups)", "component": "Milk & cup", "amount": 0.60, "order": 3},
+      {"scenario": "Busy day (200 cups)", "component": "Labour", "amount": 1.35, "order": 4},
+      {"scenario": "Busy day (200 cups)", "component": "Gross profit", "amount": 2.22, "order": 5},
       {"scenario": "Quiet day (100 cups)", "component": "GST", "amount": 0.45, "order": 1},
       {"scenario": "Quiet day (100 cups)", "component": "Beans", "amount": 0.38, "order": 2},
-      {"scenario": "Quiet day (100 cups)", "component": "Milk", "amount": 0.40, "order": 3},
-      {"scenario": "Quiet day (100 cups)", "component": "Cup & lid", "amount": 0.20, "order": 4},
-      {"scenario": "Quiet day (100 cups)", "component": "Labour", "amount": 2.70, "order": 5},
-      {"scenario": "Quiet day (100 cups)", "component": "Gross profit", "amount": 0.87, "order": 6}
+      {"scenario": "Quiet day (100 cups)", "component": "Milk & cup", "amount": 0.60, "order": 3},
+      {"scenario": "Quiet day (100 cups)", "component": "Labour", "amount": 2.70, "order": 4},
+      {"scenario": "Quiet day (100 cups)", "component": "Gross profit", "amount": 0.87, "order": 5}
     ]
   },
   "encoding": {
@@ -50,10 +43,10 @@
       "field": "component",
       "type": "nominal",
       "title": "Where the money goes",
-      "sort": ["GST", "Beans", "Milk", "Cup & lid", "Labour", "Gross profit"],
+      "sort": ["GST", "Beans", "Milk & cup", "Labour", "Gross profit"],
       "scale": {
-        "domain": ["GST", "Beans", "Milk", "Cup & lid", "Labour", "Gross profit"],
-        "range": ["#E8D5B7", "#D89651", "#C17A3A", "#A0612A", "#6B3410", "#3C1F0F"]
+        "domain": ["GST", "Beans", "Milk & cup", "Labour", "Gross profit"],
+        "range": ["#E8D5B7", "#D89651", "#B8702F", "#6B3410", "#3C1F0F"]
       },
       "legend": {"orient": "right", "offset": 10, "titleColor": "#3C1F0F", "labelColor": "#3C1F0F"}
     },
@@ -61,7 +54,14 @@
   },
   "layer": [
     {
-      "mark": {"type": "bar", "width": {"band": 0.55}, "stroke": "white", "strokeWidth": 1}
+      "mark": {"type": "bar", "width": {"band": 0.55}, "stroke": "white", "strokeWidth": 1},
+      "encoding": {
+        "tooltip": [
+          {"field": "scenario", "type": "nominal", "title": "Day"},
+          {"field": "component", "type": "nominal", "title": "Where the money goes"},
+          {"field": "amount", "type": "quantitative", "title": "Amount", "format": "$.2f"}
+        ]
+      }
     },
     {
       "mark": {"type": "text", "fontSize": 10, "fontWeight": "bold"},
