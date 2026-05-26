@@ -2,14 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "The Rising Price of Your Coffee",
-    "subtitle": [
-      "How much more Melbourne pays for coffee than at the start of 2018 (the 0% baseline).",
-      "Source: ABS Consumer Price Index, Melbourne. Shows percentage price change since 2017, not the dollar cost."
-    ],
     "anchor": "start",
     "fontSize": 20,
-    "subtitleFontSize": 12,
-    "subtitleColor": "#666",
     "color": "#3C1F0F"
   },
   "width": 660,
@@ -17,7 +11,7 @@
   "data": {
     "values": [
       {
-        "date": "2018-",
+        "date": "2017-12",
         "pct": 0.0
       },
       {
@@ -190,10 +184,11 @@
         "x": {
           "field": "date",
           "type": "temporal",
-          "title": null,
+          "title": "Year",
           "axis": {
             "format": "%Y",
             "tickCount": "year",
+            "titleColor": "#3C1F0F",
             "labelColor": "#666",
             "domainColor": "#D89651"
           },
@@ -211,7 +206,7 @@
               52
             ]
           },
-          "title": "Price change since 2017",
+          "title": "Price change since 2017 (%)",
           "axis": {
             "format": "+.0f",
             "labelExpr": "datum.value + '%'",
@@ -279,18 +274,62 @@
         "values": [
           {
             "date": "2020-03",
-            "pct": 6.5,
-            "t": "+6.5% (early 2020 bump)"
+            "pct": 24,
+            "t": "+6.5%: a brief early-2020"
+          },
+          {
+            "date": "2020-03",
+            "pct": 22,
+            "t": "supply wobble"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "fontSize": 11,
+        "color": "#6B3410",
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "scale": {
+            "padding": 0,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "date": "2022-09",
+            "pct": 11,
+            "t": "+20%: prices ease as"
+          },
+          {
+            "date": "2022-09",
+            "pct": 9,
+            "t": "early shortages settle"
           }
         ]
       },
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 8,
-        "dy": -4,
         "fontSize": 11,
-        "color": "#3C1F0F"
+        "color": "#6B3410",
+        "fontStyle": "italic"
       },
       "encoding": {
         "x": {
@@ -315,18 +354,22 @@
         "values": [
           {
             "date": "2024-06",
-            "pct": 19.9,
-            "t": "+20% dip in 2024"
+            "pct": 53,
+            "t": "+46% since 2017"
+          },
+          {
+            "date": "2024-06",
+            "pct": 51,
+            "t": "Brazil droughts and frost hit global supply"
           }
         ]
       },
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 8,
-        "dy": 12,
+        "align": "center",
         "fontSize": 11,
-        "color": "#3C1F0F"
+        "fontStyle": "italic",
+        "color": "#6B3410"
       },
       "encoding": {
         "x": {
@@ -350,28 +393,27 @@
       "data": {
         "values": [
           {
-            "date": "2025-12",
-            "pct": 46.2,
-            "t": "+46% peak"
+            "date": "2021-06",
+            "pct": 47,
+            "t": "How much more Melbourne pays for coffee than in 2017"
+          },
+          {
+            "date": "2021-06",
+            "pct": 44,
+            "t": "compared to 2026 due to multiple factors including climate and economic"
           }
         ]
       },
       "mark": {
         "type": "text",
-        "align": "right",
-        "dx": -6,
-        "dy": -10,
-        "fontSize": 11,
-        "color": "#3C1F0F"
+        "align": "center",
+        "fontSize": 10.5,
+        "color": "#696969"
       },
       "encoding": {
         "x": {
           "field": "date",
-          "type": "temporal",
-          "scale": {
-            "padding": 0,
-            "nice": false
-          }
+          "type": "temporal"
         },
         "y": {
           "field": "pct",
@@ -379,6 +421,108 @@
         },
         "text": {
           "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": "2020-03",
+            "y": 21,
+            "x2": "2020-03",
+            "y2": 7.5
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B8702F",
+        "strokeWidth": 0.6,
+        "opacity": 0.55
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x2"
+        },
+        "y2": {
+          "field": "y2"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": "2023-06",
+            "y": 12,
+            "x2": "2024-06",
+            "y2": 19.9
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#6B3410",
+        "strokeWidth": 0.6,
+        "opacity": 0.55
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x2"
+        },
+        "y2": {
+          "field": "y2"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": "2025-03",
+            "y": 50,
+            "x2": "2025-12",
+            "y2": 46.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#6B3410",
+        "strokeWidth": 0.6,
+        "opacity": 0.55
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x2"
+        },
+        "y2": {
+          "field": "y2"
         }
       }
     }
