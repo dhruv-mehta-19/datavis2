@@ -1,89 +1,77 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Australia's Top 10 Coffee Suppliers",
-    "subtitle": "By import value, 2023 (USD)",
+    "text": "Explore Australia's Coffee Suppliers by Region",
+    "subtitle": "Use the dropdown to filter suppliers by region. Import value, 2023.",
     "anchor": "start",
     "fontSize": 20,
-    "subtitleFontSize": 13,
-    "subtitleColor": "#666"
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666",
+    "color": "#3C1F0F"
   },
-  "width": 500,
-  "height": 380,
+  "width": 600,
+  "height": 400,
   "data": {
-    "url": "https://raw.githubusercontent.com/dhruv-mehta-19/datavis2/refs/heads/main/coffee_imports_2023.csv"
+    "values": [
+      {"country": "Brazil", "value": 112085, "region": "Latin America"},
+      {"country": "Colombia", "value": 63675, "region": "Latin America"},
+      {"country": "Honduras", "value": 38887, "region": "Latin America"},
+      {"country": "Papua New Guinea", "value": 35247, "region": "Asia-Pacific"},
+      {"country": "Vietnam", "value": 32197, "region": "Asia-Pacific"},
+      {"country": "Ethiopia", "value": 29361, "region": "Africa"},
+      {"country": "India", "value": 19416, "region": "Asia-Pacific"},
+      {"country": "Nicaragua", "value": 14133, "region": "Latin America"},
+      {"country": "Peru", "value": 13477, "region": "Latin America"},
+      {"country": "Guatemala", "value": 13246, "region": "Latin America"},
+      {"country": "Kenya", "value": 12135, "region": "Africa"},
+      {"country": "Indonesia", "value": 8618, "region": "Asia-Pacific"},
+      {"country": "El Salvador", "value": 6475, "region": "Latin America"},
+      {"country": "Costa Rica", "value": 6411, "region": "Latin America"},
+      {"country": "Tanzania", "value": 4200, "region": "Africa"},
+      {"country": "Uganda", "value": 3100, "region": "Africa"}
+    ]
   },
-  "transform": [
-    {"calculate": "datum.value_usd_thousands * 1000", "as": "value_usd_full"},
+  "params": [
     {
-      "window": [{"op": "rank", "as": "rank"}],
-      "sort": [{"field": "value_usd_full", "order": "descending"}]
-    },
-    {"filter": "datum.rank <= 10"}
+      "name": "Region",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "Latin America", "Asia-Pacific", "Africa"],
+        "name": "Choose region: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "Region == 'All' || datum.region == Region"}
   ],
   "layer": [
     {
-      "mark": {"type": "bar", "cornerRadiusEnd": 3, "color": "#744c30"},
+      "mark": {"type": "bar", "cornerRadiusEnd": 2},
       "encoding": {
-        "y": {
-          "field": "partner",
-          "type": "nominal",
-          "sort": {"field": "rank", "order": "ascending"},
-          "title": null,
-          "axis": {"labelFontSize": 12}
-        },
-        "x": {
-          "field": "value_usd_full",
-          "type": "quantitative",
-          "title": "Import value (USD)",
-          "axis": {"format": "$,.0s", "values": [0, 20000000, 40000000, 60000000, 80000000, 100000000, 120000000]}
-        },
+        "y": {"field": "country", "type": "nominal", "sort": "-x", "title": null,
+              "axis": {"labelFontSize": 12, "labelColor": "#3C1F0F"}},
+        "x": {"field": "value", "type": "quantitative", "title": "Import value (USD thousands)",
+              "axis": {"titleColor": "#3C1F0F", "labelColor": "#666", "grid": false}},
+        "color": {"field": "region", "type": "nominal",
+                  "scale": {"domain": ["Latin America", "Asia-Pacific", "Africa"],
+                            "range": ["#6B3410", "#B8702F", "#D89651"]},
+                  "legend": {"title": "Region", "orient": "bottom-right"}},
         "tooltip": [
-          {"field": "partner", "type": "nominal", "title": "Country"},
-          {"field": "value_usd_full", "type": "quantitative", "title": "Import value", "format": "$,.0f"}
+          {"field": "country", "type": "nominal", "title": "Country"},
+          {"field": "region", "type": "nominal", "title": "Region"},
+          {"field": "value", "type": "quantitative", "title": "Value (USD '000)", "format": ","}
         ]
       }
     },
     {
-      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 5, "fontSize": 11, "color": "#000000"},
+      "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 10, "color": "#3C1F0F"},
       "encoding": {
-        "y": {
-          "field": "partner",
-          "type": "nominal",
-          "sort": {"field": "value_usd_full", "op": "max", "order": "descending"}
-        },
-        "x": {"field": "value_usd_full", "type": "quantitative"},
-        "text": {"field": "value_usd_full", "type": "quantitative", "format": "$,.0f"}
+        "y": {"field": "country", "type": "nominal", "sort": "-x"},
+        "x": {"field": "value", "type": "quantitative"},
+        "text": {"field": "value", "type": "quantitative", "format": ","}
       }
-    },
-    {
-      "data": {
-        "values": [
-          {"y_anchor": "Brazil", "x_anchor": 112085000, "y_label": "Colombia", "x_label": 95000000, "label": "Nearly double  the amount Colombia imports"}
-        ]
-      },
-      "layer": [
-        {
-          "mark": {"type": "rule", "stroke": "#000000", "strokeWidth": 1},
-          "encoding": {
-            "x": {"field": "x_anchor", "type": "quantitative"},
-            "x2": {"field": "x_label"},
-            "y": {"field": "y_anchor", "type": "nominal"},
-            "y2": {"field": "y_label"}
-          }
-        },
-        {
-          "mark": {"type": "text", "align": "left", "baseline": "middle", "fontSize": 11, "fontStyle": "italic", "color": "#000000", "dx": 5},
-          "encoding": {
-            "x": {"field": "x_label", "type": "quantitative"},
-            "y": {"field": "y_label", "type": "nominal"},
-            "text": {"field": "label"}
-          }
-        }
-      ]
     }
   ],
-  "config": {
-    "view": {"stroke": null}
-  }
+  "config": {"view": {"stroke": null}, "background": "white", "axis": {"domainColor": "#D89651"}}
 }
