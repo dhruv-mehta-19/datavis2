@@ -9,8 +9,8 @@
     "subtitleColor": "#666",
     "color": "#3C1F0F"
   },
-  "width": 650,
-  "height": 450,
+  "width": 750,
+  "height": 550,
   "data": {
     "url": "https://raw.githubusercontent.com/dhruv-mehta-19/datavis2/refs/heads/main/coffee_imports_2023.csv"
   },
@@ -61,7 +61,7 @@
         "x": {
           "field": "quantity",
           "type": "quantitative",
-          "title": "Quantity imported (kg, log scale)",
+          "title": "Quantity imported (kg - log scale)",
           "scale": {"type": "log"},
           "axis": {
             "format": ",.0s",
