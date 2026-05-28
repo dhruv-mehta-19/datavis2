@@ -26,152 +26,233 @@
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  .container { max-width: 800px; margin: 0 auto; padding: 56px 24px 0; }
+  .col { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  .wide { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 
-  h1 { font-size: 46px; font-weight: 500; margin: 0 0 10px; letter-spacing: -0.6px; }
-  .subtitle { font-size: 20px; color: var(--brown); font-style: italic; margin: 0 0 14px; }
-  .byline { font-size: 13px; color: #9a8e7c; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 32px; }
-
-  .lede { font-size: 19px; color: #4a2c16; margin: 0 0 40px; }
+  header.hero {
+    text-align: center;
+    padding: 86px 24px 50px;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
+    border-bottom: 1px solid #e7ddca;
+    margin-bottom: 24px;
+  }
+  header.hero h1 { font-size: 50px; font-weight: 500; margin: 0 0 12px; letter-spacing: -0.8px; }
+  header.hero .sub { font-size: 21px; color: var(--brown); font-style: italic; margin: 0 0 18px; }
+  header.hero .byline { font-size: 12px; color: #9a8e7c; letter-spacing: 1.4px; text-transform: uppercase; }
 
   h2 {
-    font-size: 28px; font-weight: 500; margin: 70px 0 8px;
-    border-bottom: 1px solid #e0c9a8; padding-bottom: 10px; letter-spacing: -0.3px;
+    font-size: 30px; font-weight: 500; margin: 70px 0 8px;
+    text-align: center; letter-spacing: -0.4px;
   }
-  h2 .num { color: var(--tan); font-size: 17px; margin-right: 12px; font-style: italic; font-weight: normal; }
-  h3 { font-size: 19px; font-weight: 500; margin: 36px 0 6px; color: var(--brown); }
+  h2 .kicker {
+    display: block; font-size: 12px; font-style: italic; color: var(--tan);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;
+  }
+  h2 + p.intro {
+    text-align: center; max-width: 640px; margin: 0 auto 30px; font-size: 17px;
+  }
 
   p { font-size: 17px; margin: 0 0 20px; }
+  p.lede { font-size: 19px; color: #4a2c16; }
   p b, p strong { color: var(--brown); }
 
-  /* Charts blend into page background — no white box */
-  .chart {
-    margin: 26px 0 12px;
-    display: flex; justify-content: center;
-    background: transparent;
-    overflow-x: auto;
+  .chart-single {
+    display: flex; justify-content: center; align-items: flex-start;
+    margin: 30px auto 14px; background: transparent;
   }
-  .chart > div, .chart canvas, .chart svg { background: transparent !important; }
+
+  .chart-pair {
+    display: flex; gap: 36px;
+    justify-content: center; align-items: flex-start;
+    margin: 30px auto 14px;
+    flex-wrap: wrap;
+  }
+  .chart-pair > div { flex: 1 1 480px; min-width: 0; max-width: 560px;
+                       display: flex; justify-content: center; background: transparent; }
+
+  .map-with-notes {
+    display: flex; gap: 36px;
+    justify-content: center; align-items: flex-start;
+    margin: 30px auto 14px;
+    flex-wrap: wrap;
+  }
+  .map-with-notes .map-box { flex: 1 1 640px; max-width: 720px;
+                              display: flex; justify-content: center; background: transparent; }
+  .map-with-notes .notes {
+    flex: 0 1 300px; max-width: 320px;
+    padding-top: 20px;
+  }
+  .map-with-notes .notes h4 {
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--tan); font-weight: normal; margin: 0 0 12px;
+  }
+  .map-with-notes .stat {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #e7ddca;
+  }
+  .map-with-notes .stat:last-child { border-bottom: none; }
+  .map-with-notes .stat .big {
+    font-size: 34px; color: var(--brown); font-weight: 500; line-height: 1.1; margin: 0 0 4px;
+  }
+  .map-with-notes .stat p { font-size: 14.5px; color: #5a4030; margin: 0; line-height: 1.5; }
+
+  .chart-single > div, .chart-pair > div > div, .map-with-notes .map-box > div,
+  .chart-single canvas, .chart-single svg,
+  .chart-pair canvas, .chart-pair svg,
+  .map-with-notes canvas, .map-with-notes svg { background: transparent !important; }
 
   .readwhy {
     font-size: 14.5px; color: #5a4030; background: var(--cream);
-    border-left: 3px solid var(--tan); padding: 12px 16px;
-    margin: 0 0 28px; border-radius: 0 4px 4px 0;
+    border-left: 3px solid var(--tan); padding: 14px 18px;
+    margin: 6px auto 32px; max-width: 800px; border-radius: 0 4px 4px 0;
   }
   .readwhy strong { color: var(--brown); }
 
   .tip {
     font-size: 14.5px; color: var(--brown); background: var(--cream);
-    border-left: 3px solid var(--tan); padding: 11px 16px; margin: 0 0 18px;
-    border-radius: 0 4px 4px 0;
+    border-left: 3px solid var(--tan); padding: 11px 16px;
+    margin: 0 auto 18px; max-width: 800px; border-radius: 0 4px 4px 0;
+    text-align: center;
   }
 
-  .divider { text-align: center; color: var(--tan); margin: 56px 0 0; font-size: 18px; letter-spacing: 8px; }
+  .divider { text-align: center; color: var(--tan); margin: 60px 0 0; font-size: 18px; letter-spacing: 8px; }
 
   footer.sources {
-    margin-top: 84px; background: var(--cream); border-top: 1px solid #e7ddca;
-    padding: 38px 0 60px;
+    margin-top: 90px; background: var(--cream); border-top: 1px solid #e7ddca;
+    padding: 40px 0 60px;
   }
-  footer.sources .container { padding-top: 0; }
   footer.sources h3 { color: var(--ink); margin-top: 0; }
   footer.sources ul { padding-left: 20px; margin: 0 0 18px; }
-  footer.sources li { font-size: 14px; margin-bottom: 6px; }
+  footer.sources li { font-size: 14px; margin-bottom: 7px; }
   footer.sources a { color: var(--brown); }
   .note { font-size: 13px; color: #7c7060; }
+
+  @media (max-width: 880px) {
+    .chart-pair, .map-with-notes { gap: 24px; }
+    .map-with-notes .notes { padding-top: 0; }
+    h2 { font-size: 26px; }
+    header.hero h1 { font-size: 38px; }
+  }
 </style>
 </head>
 
 <body>
-<div class="container">
 
-<h1>The Heart of Coffee</h1>
-<p class="subtitle">Melbourne's café culture, from bean to cup</p>
-<p class="byline">Dhruv Mehta · FIT2179 Data Visualisation 2 · Monash University · 2026</p>
+<header class="hero">
+  <h1>The Heart of Coffee</h1>
+  <p class="sub">Melbourne's café culture, from bean to cup</p>
+  <p class="byline">Dhruv Mehta · FIT2179 Data Visualisation 2 · Monash University · 2026</p>
+</header>
 
-<p class="lede">
-Melbourne isn't where Australians drink the most coffee — and this isn't a story about being the best. It's a story about a <em>culture</em>: how a city turned coffee into a daily ritual, a livelihood, and an identity. To understand it, you have to follow the bean — from farms half a world away, through the laneways where it's poured, to the cup you pay five dollars for.
-</p>
+<div class="col">
+  <p class="lede">Melbourne isn't where Australians drink the most coffee — and this isn't a story about being the best. It's a story about a <em>culture</em>: how a city turned coffee into a daily ritual, a livelihood, and an identity. To understand it, you have to follow the bean — from farms half a world away, through the laneways where it's poured, to the cup you pay five dollars for.</p>
+</div>
 
-<h2><span class="num">01</span>The World That Supplies It</h2>
-<p>Every flat white begins somewhere far from Lygon Street. Before a bean is ground in Carlton, it travels through Australia's national import network — and that network reaches across the globe. In 2023, Australia imported coffee from more than fifty countries, yet a handful do almost all the work.</p>
+<h2><span class="kicker">Part One — The World in Your Cup</span>The Beans Behind the Ritual</h2>
+<p class="intro">Every flat white begins somewhere far from Lygon Street. Before a bean is ground in Carlton, it travels through a global supply network — one that turns out to be far narrower than it looks.</p>
 
-<div id="chart1" class="chart"></div>
-<p class="readwhy"><strong>Reading the map:</strong> a dark band across <strong>Latin America</strong> supplies most of the country's beans, with smaller contributions from <strong>Africa</strong> and <strong>South-East Asia</strong>. Brazil alone sends nearly twice the value of Colombia, the next largest source. Melbourne's café culture, for all its local identity, rests on a remarkably narrow supply chain.</p>
+<div class="wide">
+  <div class="map-with-notes">
+    <div class="map-box" id="chart1"></div>
+    <div class="notes">
+      <h4>Key figures, 2023</h4>
+      <div class="stat">
+        <p class="big">50+</p>
+        <p>countries Australia imported coffee from</p>
+      </div>
+      <div class="stat">
+        <p class="big">~$112M</p>
+        <p>Brazil's share alone — almost double the next largest source, Colombia</p>
+      </div>
+      <div class="stat">
+        <p class="big">Top 10</p>
+        <p>countries supply roughly <b>85%</b> of all Australian coffee imports</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="readwhy"><strong>Reading the map:</strong> a dark band across <strong>Latin America</strong> supplies the bulk of Australia's beans, with smaller contributions from <strong>Africa</strong> and <strong>South-East Asia</strong>. Melbourne's café culture, for all its local identity, rests on a remarkably global — and narrow — supply chain.</p>
 
-<h3>Explore where the beans come from</h3>
-<p class="tip">💡 Use the dropdown to filter suppliers by region — Latin America, Asia-Pacific, or Africa.</p>
-<div id="chart2" class="chart"></div>
-<p class="readwhy"><strong>Reading the chart:</strong> switch between regions and the pattern holds: a few origin countries carry the weight, and the rest are bit players. This is the invisible backbone behind every café menu in the city.</p>
-
-<h2><span class="num">02</span>Premium Beans vs Bulk Beans</h2>
-<p>Some beans are workhorses; others are luxuries. The split shows up starkly in what Australia actually pays per kilogram.</p>
-
-<div id="chart3" class="chart"></div>
-<p class="readwhy"><strong>Reading the chart:</strong> down in the bottom-right sits <strong>Vietnam</strong> — vast volumes of cheap robusta, the beans that fill chain-store espressos. Up in the top-left, tiny quantities of <strong>premium</strong> beans command many times the price, destined for the specialty roasters Melbourne is known for. A city that takes coffee seriously buys from both ends of this spectrum.</p>
-
-<div class="divider">✺</div>
-
-<h2><span class="num">03</span>The City That Drinks It</h2>
-<p>Once the beans land, they meet a city that has built its identity around them. The City of Melbourne packs thousands of cafés and restaurants into a few square kilometres — a density that began when Italian and Greek migrants brought espresso to Lygon Street in the mid-20th century, and never let go.</p>
-
-<p class="tip">💡 Click a neighbourhood or size in the legend to filter the map. Hover any dot to see the venue.</p>
-<div id="chart4" class="chart"></div>
-<p class="readwhy"><strong>Reading the map:</strong> the cluster speaks for itself — the <strong>CBD</strong> and <strong>Carlton</strong> glow with venues, the legacy of that migrant coffee heart. This isn't coffee spread thinly across a city; it's concentrated, competitive, and woven into the streets people walk every day.</p>
-
-<h3>Where the cafés cluster</h3>
-<div id="chart5" class="chart"></div>
-<p class="readwhy"><strong>Reading the chart:</strong> the CBD holds more cafés than the rest of the council's neighbourhoods combined — the gravitational centre of the city's coffee life.</p>
-
-<h3>How tightly are they packed?</h3>
-<p>Raw counts hide something. When you measure cafés per square kilometre, the lived experience of the culture comes into focus.</p>
-<div id="chart7density" class="chart"></div>
-<p class="readwhy"><strong>Reading the chart:</strong> the CBD isn't just biggest — it's <strong>over 500 cafés per km²</strong>, in a league of its own. Small, packed Southbank punches above its weight; sprawling Port Melbourne falls to the bottom. This is what "café on every corner" actually looks like as a number.</p>
-
-<h3>Two decades of growth</h3>
-<p>And this density didn't appear overnight.</p>
-<div id="chart6" class="chart"></div>
-<p class="readwhy"><strong>Reading the chart:</strong> from 2002 the number of cafés and restaurants climbed steadily, dipped through the COVID-19 closures, and recovered — the living, growing backdrop against which the coffee culture deepened.</p>
+<div class="col">
+  <h3 style="text-align:center; font-size:20px; color:var(--brown); margin: 50px 0 6px;">Explore the suppliers — and the spectrum from bulk to premium</h3>
+  <p class="tip">💡 Use the dropdown on the left to filter suppliers by region. The chart on the right shows the price-to-volume trade-off across origin countries.</p>
+</div>
+<div class="wide">
+  <div class="chart-pair">
+    <div id="chart2"></div>
+    <div id="chart3"></div>
+  </div>
+</div>
+<p class="readwhy"><strong>Reading the pair:</strong> on the left, a few origin countries dominate every region — supply is concentrated everywhere you look. On the right, the trade-off is stark: <strong>Vietnam</strong> sits in the bottom-right with vast volumes of cheap robusta, while tiny quantities of <strong>premium</strong> beans command many times the price. A city that takes coffee seriously buys from both ends.</p>
 
 <div class="divider">✺</div>
 
-<h2><span class="num">04</span>Your Cup: Rhythm, Cost, Price</h2>
-<p>So what does it feel like to actually be part of this culture? It has a rhythm, a cost, and a price — and each tells you something about how Melbourne drinks.</p>
+<h2><span class="kicker">Part Two — The City That Drinks It</span>A Culture Built in the Laneways</h2>
+<p class="intro">Once the beans land, they meet a city that has built its identity around them. The City of Melbourne packs thousands of cafés into a few square kilometres — a density that began when Italian and Greek migrants brought espresso to Lygon Street in the mid-20th century, and never let go.</p>
 
-<div id="chart8ped" class="chart"></div>
-<p class="readwhy"><strong>Reading the chart:</strong> the city's foot traffic reveals coffee as a <strong>morning ritual</strong>. Weekdays spike with the 8am commute — coffee's busiest window — while weekends start slow and build toward a long, late brunch. Melbourne doesn't gulp coffee on the run so much as build its mornings around it.</p>
+<p class="tip">💡 On the map, click a neighbourhood or size category in the legend to filter venues.</p>
+<div class="wide">
+  <div class="chart-pair">
+    <div id="chart4"></div>
+    <div id="chart5"></div>
+  </div>
+</div>
+<p class="readwhy"><strong>Reading the pair:</strong> the map shows <em>where</em> the cafés cluster — the <strong>CBD</strong> and <strong>Carlton</strong> glow with venues, the legacy of that migrant coffee heart. The treemap beside it counts them out: the CBD alone holds more cafés than every other neighbourhood combined. This isn't coffee spread thinly across a city; it's concentrated, competitive, and woven into the streets people walk every day.</p>
 
-<h3>Where your $5 goes</h3>
-<p>That ritual has a cost — and most of it isn't the coffee.</p>
-<div id="chart9cup" class="chart"></div>
-<p class="readwhy"><strong>Reading the chart:</strong> the beans are the cheapest part of your cup. Far more goes to <strong>labour</strong>, rent, and tax — and because wages are paid per shift, a quiet day can wipe out a café's slim margin entirely. The economics are tight, which is exactly why quality matters: in a city this saturated, a café survives only by being good.</p>
-
-<h3>The rising price of a ritual</h3>
-<div id="chart10price" class="chart"></div>
-<p class="readwhy"><strong>Reading the chart:</strong> after years of stability, Melbourne coffee prices have climbed sharply since 2022 — driven by the same global bean shortages visible at the very start of this story. The bean's journey ends here, in a price rise you feel every morning. The culture endures, but it's never been more costly to keep it brewing.</p>
+<div class="col">
+  <h3 style="text-align:center; font-size:20px; color:var(--brown); margin: 50px 0 18px;">How tight is the cluster — and how did it get this way?</h3>
+</div>
+<div class="wide">
+  <div class="chart-pair">
+    <div id="chart7density"></div>
+    <div id="chart6"></div>
+  </div>
+</div>
+<p class="readwhy"><strong>Reading the pair:</strong> on the left, the CBD isn't just biggest — it's <strong>over 500 cafés per square kilometre</strong>, in a league of its own; small Southbank punches above its weight while sprawling Port Melbourne falls to the bottom. On the right, the timeline shows this density didn't appear overnight — café and restaurant numbers climbed steadily from 2002, dipped through COVID-19, and recovered. The culture grew with the city.</p>
 
 <div class="divider">✺</div>
 
-<p class="lede" style="margin-top:38px">
-From a farm in Brazil to a five-dollar cup in a Carlton laneway, Melbourne's coffee is less a claim to greatness than a way of life — global in its roots, fiercely local in its expression, and built, cup by cup, into the rhythm of the city.
-</p>
+<h2><span class="kicker">Part Three — Your Cup</span>The Rhythm, the Cost, the Price</h2>
+<p class="intro">So what does it feel like to actually be part of this culture? It has a rhythm, a cost, and a price — and each tells you something about how Melbourne drinks.</p>
 
+<div class="wide">
+  <div class="chart-pair">
+    <div id="chart8ped"></div>
+    <div id="chart9cup"></div>
+  </div>
+</div>
+<p class="readwhy"><strong>Reading the pair:</strong> on the left, the city's foot traffic reveals coffee as a <strong>morning ritual</strong> — weekdays spike with the 8am commute, weekends build slowly toward a long, late brunch. On the right, the cost of that ritual: the beans are the cheapest part of your cup. Far more goes to <strong>labour</strong>, rent, and tax — and because wages are paid per shift, a quiet day can wipe out a café's slim margin. The economics are tight, which is exactly why quality matters: in a city this saturated, a café survives only by being good.</p>
+
+<div class="col">
+  <h3 style="text-align:center; font-size:20px; color:var(--brown); margin: 50px 0 6px;">The rising price of a ritual</h3>
+</div>
+<div class="wide">
+  <div class="chart-single" id="chart10price"></div>
+</div>
+<p class="readwhy"><strong>Reading the chart:</strong> after years of stability, Melbourne coffee prices have climbed sharply since 2022 — driven by the same global bean shortages visible at the very start of this story. The bean's journey ends here: in a price rise you feel every morning. The culture endures, but it has never been more costly to keep it brewing.</p>
+
+<div class="divider">✺</div>
+
+<div class="col">
+  <p class="lede" style="margin-top: 40px; text-align: center; font-size: 20px;">From a farm in Brazil to a five-dollar cup in a Carlton laneway, Melbourne's coffee is less a claim to greatness than a way of life — global in its roots, fiercely local in its expression, and built, cup by cup, into the rhythm of the city.</p>
 </div>
 
 <footer class="sources">
-<div class="container">
-  <h3>Sources &amp; Methodology</h3>
-  <ul>
-    <li>Coffee import data: UN Comtrade via World Bank WITS, 2023 (HS code 090111)</li>
-    <li>Melbourne café, seating &amp; boundary data: City of Melbourne Open Data — CLUE Census (2024 snapshot &amp; 2002–2024 series) and CLUE small-area GeoJSON</li>
-    <li>Pedestrian foot traffic: City of Melbourne Pedestrian Counting System, 2025</li>
-    <li>Coffee price index: Australian Bureau of Statistics, Consumer Price Index, Melbourne — "Coffee, tea and cocoa" expenditure class</li>
-    <li>Cup cost breakdown: <a href="https://www.fishriverroasters.com.au/blog/how-much-does-it-cost-to-make-a-cup-of-coffee">Fish River Roasters, 2024</a></li>
-    <li>World basemap: TopoJSON world-atlas</li>
-  </ul>
-  <p class="note">Café density was derived by dividing venue counts by CLUE small-area polygon areas. Several charts aggregate large source datasets (e.g. 800,000+ pedestrian records) into chart-ready summaries.</p>
-  <p class="note"><strong>Use of AI:</strong> Generative AI (Anthropic's Claude) assisted with planning the visualisation set, debugging Vega-Lite specifications, aggregating large datasets, and checking grammar and clarity of the narrative. All data is real and drawn from the cited sources; all charts were assembled, reviewed and finalised by the author.</p>
-  <p class="note">Visualisations built with Vega-Lite v5. Chart specifications and data are available in the project <a href="https://github.com/dhruv-mehta-19/datavis2">GitHub repository</a>. © Dhruv Mehta, 2026.</p>
-</div>
+  <div class="col">
+    <h3>Sources &amp; Methodology</h3>
+    <ul>
+      <li>Coffee import data: UN Comtrade via World Bank WITS, 2023 (HS code 090111)</li>
+      <li>Melbourne café, seating &amp; boundary data: City of Melbourne Open Data — CLUE Census (2024 snapshot &amp; 2002–2024 series) and CLUE small-area GeoJSON</li>
+      <li>Pedestrian foot traffic: City of Melbourne Pedestrian Counting System, 2025</li>
+      <li>Coffee price index: Australian Bureau of Statistics, Consumer Price Index, Melbourne — "Coffee, tea and cocoa" expenditure class</li>
+      <li>Cup cost breakdown: <a href="https://www.fishriverroasters.com.au/blog/how-much-does-it-cost-to-make-a-cup-of-coffee">Fish River Roasters, 2024</a></li>
+      <li>World basemap: TopoJSON world-atlas</li>
+    </ul>
+    <p class="note">Café density was derived by dividing venue counts by CLUE small-area polygon areas. Several charts aggregate large source datasets (e.g. 800,000+ pedestrian records) into chart-ready summaries.</p>
+    <p class="note"><strong>Use of AI:</strong> Generative AI (Anthropic's Claude) assisted with planning the visualisation set, debugging Vega-Lite specifications, aggregating large datasets, and checking grammar and clarity of the narrative. All data is real and drawn from the cited sources; all charts were assembled, reviewed and finalised by the author.</p>
+    <p class="note">Visualisations built with Vega-Lite v5. Chart specifications and data are available in the project <a href="https://github.com/dhruv-mehta-19/datavis2">GitHub repository</a>. © Dhruv Mehta, 2026.</p>
+  </div>
 </footer>
 
 <script>
@@ -190,7 +271,7 @@ From a farm in Brazil to a five-dollar cup in a Carlton laneway, Melbourne's cof
   charts.forEach(c => {
     vegaEmbed(c.div, c.spec, {actions: false, renderer: 'svg'}).catch(err => {
       const el = document.querySelector(c.div);
-      if (el) el.innerHTML = '<p style="color:#999;font-style:italic;font-size:13px">Chart could not load: ' + c.spec + '</p>';
+      if (el) el.innerHTML = '<p style="color:#999;font-style:italic;font-size:13px">Chart could not load: '+c.spec+'</p>';
       console.error(c.spec, err);
     });
   });
