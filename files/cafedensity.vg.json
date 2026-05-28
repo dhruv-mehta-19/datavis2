@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "How Tightly Packed Are the Cafes?",
+    "subtitle": "Cafes per km² by neighbourhood, City of Melbourne, 2024",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666",
+    "color": "#3C1F0F"
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "values": [
+      {"neighbourhood": "Melbourne (CBD)", "density": 522.1, "count": 1298, "km2": 2.49},
+      {"neighbourhood": "Southbank", "density": 119.0, "count": 190, "km2": 1.60},
+      {"neighbourhood": "Carlton", "density": 112.3, "count": 306, "km2": 2.72},
+      {"neighbourhood": "Docklands", "density": 87.2, "count": 249, "km2": 2.86},
+      {"neighbourhood": "West Melbourne", "density": 68.6, "count": 59, "km2": 0.86},
+      {"neighbourhood": "North Melbourne", "density": 44.4, "count": 107, "km2": 2.41},
+      {"neighbourhood": "East Melbourne", "density": 25.1, "count": 48, "km2": 1.91},
+      {"neighbourhood": "Melbourne (Remainder)", "density": 22.1, "count": 59, "km2": 2.67},
+      {"neighbourhood": "South Yarra", "density": 14.2, "count": 15, "km2": 1.06},
+      {"neighbourhood": "Parkville", "density": 9.9, "count": 40, "km2": 4.05},
+      {"neighbourhood": "Kensington", "density": 9.7, "count": 37, "km2": 3.81},
+      {"neighbourhood": "Port Melbourne", "density": 4.9, "count": 27, "km2": 5.47}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "bar", "size": 2, "color": "#D89651"},
+      "encoding": {
+        "y": {"field": "neighbourhood", "type": "nominal", "sort": "-x", "title": null},
+        "x": {"field": "density", "type": "quantitative", "title": "Cafes per km²"}
+      }
+    },
+    {
+      "mark": {"type": "circle", "size": 200},
+      "encoding": {
+        "y": {"field": "neighbourhood", "type": "nominal", "sort": "-x"},
+        "x": {"field": "density", "type": "quantitative"},
+        "color": {"field": "density", "type": "quantitative", "scale": {"range": ["#D89651", "#3C1F0F"]}, "legend": null},
+        "tooltip": [
+          {"field": "neighbourhood", "type": "nominal", "title": "Neighbourhood"},
+          {"field": "density", "type": "quantitative", "title": "Cafes per km²", "format": ".0f"},
+          {"field": "count", "type": "quantitative", "title": "Total cafes"},
+          {"field": "km2", "type": "quantitative", "title": "Area (km²)", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}, "background": "white", "axis": {"domainColor": "#D89651"}}
+}
