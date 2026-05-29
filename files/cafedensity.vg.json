@@ -4,111 +4,671 @@
     "text": "Every Cafe in Melbourne, by Size",
     "subtitle": [
       "Each dot is one cafe or restaurant, placed by its seat count and grouped by neighbourhood.",
-      "Most are small; a scattered few are large. The CBD has the most of both — and the biggest outliers."
+      "Most are small; a scattered few are large. The CBD has the most of both \u2014 and the biggest outliers."
     ],
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 12,
     "subtitleColor": "#666",
-    "color": "#3C1F0F"
+    "color": "#3C1F0F",
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Georgia, Times New Roman, serif"
   },
-  "width": 560,
-  "height": 420,
+  "width": 420,
+  "height": 380,
   "data": {
     "values": [
-      {"name":"Noulboo Korean chicken & pork","area":"Melbourne (CBD)","seats":46,"xband":0,"jx":0.098},
-      {"name":"The Fresh Collective","area":"Melbourne (CBD)","seats":180,"xband":0,"jx":-0.332},
-      {"name":"Taxi Kitchen","area":"Melbourne (CBD)","seats":160,"xband":0,"jx":-0.157},
-      {"name":"State Of Grace","area":"Melbourne (CBD)","seats":297,"xband":0,"jx":0.275},
-      {"name":"Stubby Cafe Bar & Restaurant","area":"Melbourne (CBD)","seats":50,"xband":0,"jx":-0.289},
-      {"name":"Williams Bar & Café","area":"Melbourne (CBD)","seats":116,"xband":0,"jx":-0.197},
-      {"name":"Koffi Bar","area":"Melbourne (CBD)","seats":52,"xband":0,"jx":0.105},
-      {"name":"Oh! Pho","area":"Melbourne (CBD)","seats":73,"xband":0,"jx":-0.196},
-      {"name":"Cuff","area":"Melbourne (CBD)","seats":120,"xband":0,"jx":0.062},
-      {"name":"Magic Momo Kafe On Flinders","area":"Melbourne (CBD)","seats":75,"xband":0,"jx":0.217},
-      {"name":"The Journal Cafe","area":"Melbourne (CBD)","seats":97,"xband":0,"jx":0.139},
-      {"name":"Cafe Andiamo","area":"Melbourne (CBD)","seats":112,"xband":0,"jx":-0.241},
-      {"name":"Grill'd","area":"Melbourne (CBD)","seats":154,"xband":0,"jx":-0.114},
-      {"name":"Kisume","area":"Melbourne (CBD)","seats":150,"xband":0,"jx":-0.282},
-      {"name":"Axil Coffee Roasters","area":"Melbourne (CBD)","seats":333,"xband":0,"jx":-0.203},
-      {"name":"Vapiano","area":"Melbourne (CBD)","seats":400,"xband":0,"jx":0.104},
-      {"name":"Kim Sing Restaurant","area":"Melbourne (CBD)","seats":162,"xband":0,"jx":-0.236},
-      {"name":"Brunetti Oro Flinders Lane","area":"Melbourne (CBD)","seats":320,"xband":0,"jx":0.04},
-      {"name":"Spaghetti Tree","area":"Melbourne (CBD)","seats":280,"xband":0,"jx":0.232},
-      {"name":"La Di Da","area":"Melbourne (CBD)","seats":330,"xband":0,"jx":-0.302},
-      {"name":"Grossi Florentino","area":"Melbourne (CBD)","seats":264,"xband":0,"jx":0.199},
-      {"name":"Hofbrauhaus Restaurant","area":"Melbourne (CBD)","seats":211,"xband":0,"jx":-0.019},
-      {"name":"Bossley Bar & Restaurant","area":"Melbourne (CBD)","seats":212,"xband":0,"jx":0.16},
-      {"name":"Arbory Bar and Eatery / Afloat","area":"Melbourne (CBD)","seats":375,"xband":0,"jx":-0.29},
-      {"name":"Chin Chin Restaurant","area":"Melbourne (CBD)","seats":155,"xband":0,"jx":-0.22},
-      {"name":"Yakimono","area":"Melbourne (CBD)","seats":339,"xband":0,"jx":0.145},
-      {"name":"Tazio","area":"Melbourne (CBD)","seats":322,"xband":0,"jx":-0.266},
-      {"name":"Collins Kitchen","area":"Melbourne (CBD)","seats":360,"xband":0,"jx":0.122},
-      {"name":"TGI Fridays Restaurant & Bar","area":"Melbourne (CBD)","seats":330,"xband":0,"jx":-0.158},
-      {"name":"Pepe's Italian & Liquor","area":"Melbourne (CBD)","seats":290,"xband":0,"jx":-0.269},
-      {"name":"China Bar","area":"Melbourne (CBD)","seats":290,"xband":0,"jx":0.144},
-      {"name":"Red Spice Road","area":"Melbourne (CBD)","seats":300,"xband":0,"jx":0.174},
-      {"name":"Secret Kitchen","area":"Melbourne (CBD)","seats":300,"xband":0,"jx":-0.017},
-      {"name":"Red Emperor In Chinatown","area":"Melbourne (CBD)","seats":300,"xband":0,"jx":0.159},
-      {"name":"Vapiano Bourke Street Mall","area":"Melbourne (CBD)","seats":253,"xband":0,"jx":0.31},
-      {"name":"Starbucks","area":"Melbourne (CBD)","seats":228,"xband":0,"jx":-0.035},
-      {"name":"Pretty Boy Italian Steak House","area":"Melbourne (CBD)","seats":250,"xband":0,"jx":-0.064},
-      {"name":"Surasang","area":"Melbourne (CBD)","seats":250,"xband":0,"jx":0.102},
-      {"name":"Grill Steak Seafood","area":"Melbourne (CBD)","seats":250,"xband":0,"jx":0.244},
-      {"name":"Henry and the Fox","area":"Melbourne (CBD)","seats":281,"xband":0,"jx":-0.27},
-      {"name":"Dosa Hut Melbourne CBD","area":"Melbourne (CBD)","seats":178,"xband":0,"jx":0.253},
-      {"name":"Higher Ground","area":"Melbourne (CBD)","seats":202,"xband":0,"jx":-0.217},
-      {"name":"Bar Margaux","area":"Melbourne (CBD)","seats":213,"xband":0,"jx":0.123},
-      {"name":"Shark Fin Inn City","area":"Melbourne (CBD)","seats":220,"xband":0,"jx":0.304},
-      {"name":"Old Beijing","area":"Melbourne (CBD)","seats":220,"xband":0,"jx":-0.318},
-      {"name":"Ginza Teppanyaki Japanese Restaurant","area":"Melbourne (CBD)","seats":200,"xband":0,"jx":-0.2},
-      {"name":"Nelayan Indonesian Restaurant","area":"Melbourne (CBD)","seats":192,"xband":0,"jx":0.039},
-      {"name":"Cecconi's Flinders Lane","area":"Melbourne (CBD)","seats":192,"xband":0,"jx":0.083},
-      {"name":"Byblos Bar & Restaurant","area":"Docklands","seats":280,"xband":2,"jx":2.329},
-      {"name":"Brunetti Classico Carlton","area":"Carlton","seats":400,"xband":1,"jx":1.169},
-      {"name":"Tiamo","area":"Carlton","seats":240,"xband":1,"jx":1.336},
-      {"name":"Universal Restaurant","area":"Carlton","seats":240,"xband":1,"jx":1.189},
-      {"name":"Il Gambero","area":"Carlton","seats":249,"xband":1,"jx":1.091},
-      {"name":"Johnny, Vince And Sam's","area":"Carlton","seats":257,"xband":1,"jx":1.154},
-      {"name":"Market Cafe / Station Cafe / Mercury Restaurant","area":"Carlton","seats":235,"xband":1,"jx":1.245},
-      {"name":"Waterfront (Southgate)","area":"Southbank","seats":380,"xband":3,"jx":3.317},
-      {"name":"BangPop","area":"Southbank","seats":360,"xband":3,"jx":2.664},
-      {"name":"Mr Hive Kitchen & Bar","area":"Southbank","seats":358,"xband":3,"jx":3.35},
-      {"name":"Mesh","area":"Southbank","seats":350,"xband":3,"jx":2.815},
-      {"name":"The General Assembly","area":"Southbank","seats":314,"xband":3,"jx":3.232},
-      {"name":"Melbourne Cellar Door","area":"Southbank","seats":310,"xband":3,"jx":2.879},
-      {"name":"Rockpool Bar & Grill Melbourne","area":"Southbank","seats":300,"xband":3,"jx":2.726},
-      {"name":"The Meat & Wine Co","area":"Southbank","seats":280,"xband":3,"jx":2.841},
-      {"name":"Hophaus","area":"Southbank","seats":260,"xband":3,"jx":3.038},
-      {"name":"Bluetrain","area":"Southbank","seats":260,"xband":3,"jx":2.772},
-      {"name":"Kitchen Workshop","area":"Southbank","seats":260,"xband":3,"jx":3.198},
-      {"name":"Pure South Kitchen","area":"Southbank","seats":270,"xband":3,"jx":2.943},
-      {"name":"Lucky Chan's","area":"Southbank","seats":270,"xband":3,"jx":3.1},
-      {"name":"Ludlow Bar & Dining Room","area":"Southbank","seats":400,"xband":3,"jx":3.125},
-      {"name":"Berth","area":"Docklands","seats":300,"xband":2,"jx":2.027},
-      {"name":"Gold Leaf Harbour View Restaurant","area":"Docklands","seats":260,"xband":2,"jx":2.206},
-      {"name":"Cargo","area":"Docklands","seats":280,"xband":2,"jx":1.988},
-      {"name":"Almina @ Docklands","area":"Docklands","seats":220,"xband":2,"jx":2.167},
-      {"name":"The Coffee Club","area":"Docklands","seats":220,"xband":2,"jx":2.116},
-      {"name":"Roasting Warehouse","area":"North Melbourne","seats":108,"xband":4,"jx":3.736},
-      {"name":"Auction Rooms Cafe","area":"North Melbourne","seats":132,"xband":4,"jx":3.831},
-      {"name":"La Porchetta North Melbourne","area":"North Melbourne","seats":130,"xband":4,"jx":3.823},
-      {"name":"Joe's Eatery","area":"North Melbourne","seats":132,"xband":4,"jx":3.738},
-      {"name":"KATHMANDU BANQUET","area":"North Melbourne","seats":200,"xband":4,"jx":3.847},
-      {"name":"Yeonga","area":"North Melbourne","seats":150,"xband":4,"jx":3.917},
-      {"name":"BBQ Brothers 10","area":"North Melbourne","seats":88,"xband":4,"jx":4.211},
-      {"name":"Code Black Howard Street","area":"North Melbourne","seats":96,"xband":4,"jx":4.096},
-      {"name":"Ample Cafe Bar","area":"North Melbourne","seats":63,"xband":4,"jx":4.186},
-      {"name":"Sosta Cucina","area":"North Melbourne","seats":82,"xband":4,"jx":3.929},
-      {"name":"El Sabor","area":"North Melbourne","seats":74,"xband":4,"jx":4.244},
-      {"name":"Maria's Trattoria","area":"North Melbourne","seats":84,"xband":4,"jx":4.114},
-      {"name":"Errol's Cafe","area":"North Melbourne","seats":70,"xband":4,"jx":3.72},
-      {"name":"New Lanna Thai","area":"North Melbourne","seats":68,"xband":4,"jx":4.028},
-      {"name":"Snax Cafe","area":"North Melbourne","seats":54,"xband":4,"jx":4.13},
-      {"name":"Toast Kitchen Cafe","area":"North Melbourne","seats":58,"xband":4,"jx":3.96},
-      {"name":"Thyme Square","area":"North Melbourne","seats":58,"xband":4,"jx":4.079},
-      {"name":"Dancing Flame Charcoal Grill","area":"North Melbourne","seats":58,"xband":4,"jx":4.068},
-      {"name":"Gai Wong","area":"North Melbourne","seats":58,"xband":4,"jx":3.665}
+      {
+        "name": "Noulboo Korean chicken & pork",
+        "area": "Melbourne (CBD)",
+        "seats": 46,
+        "xband": 0,
+        "jx": 0.098
+      },
+      {
+        "name": "The Fresh Collective",
+        "area": "Melbourne (CBD)",
+        "seats": 180,
+        "xband": 0,
+        "jx": -0.332
+      },
+      {
+        "name": "Taxi Kitchen",
+        "area": "Melbourne (CBD)",
+        "seats": 160,
+        "xband": 0,
+        "jx": -0.157
+      },
+      {
+        "name": "State Of Grace",
+        "area": "Melbourne (CBD)",
+        "seats": 297,
+        "xband": 0,
+        "jx": 0.275
+      },
+      {
+        "name": "Stubby Cafe Bar & Restaurant",
+        "area": "Melbourne (CBD)",
+        "seats": 50,
+        "xband": 0,
+        "jx": -0.289
+      },
+      {
+        "name": "Williams Bar & Caf\u00e9",
+        "area": "Melbourne (CBD)",
+        "seats": 116,
+        "xband": 0,
+        "jx": -0.197
+      },
+      {
+        "name": "Koffi Bar",
+        "area": "Melbourne (CBD)",
+        "seats": 52,
+        "xband": 0,
+        "jx": 0.105
+      },
+      {
+        "name": "Oh! Pho",
+        "area": "Melbourne (CBD)",
+        "seats": 73,
+        "xband": 0,
+        "jx": -0.196
+      },
+      {
+        "name": "Cuff",
+        "area": "Melbourne (CBD)",
+        "seats": 120,
+        "xband": 0,
+        "jx": 0.062
+      },
+      {
+        "name": "Magic Momo Kafe On Flinders",
+        "area": "Melbourne (CBD)",
+        "seats": 75,
+        "xband": 0,
+        "jx": 0.217
+      },
+      {
+        "name": "The Journal Cafe",
+        "area": "Melbourne (CBD)",
+        "seats": 97,
+        "xband": 0,
+        "jx": 0.139
+      },
+      {
+        "name": "Cafe Andiamo",
+        "area": "Melbourne (CBD)",
+        "seats": 112,
+        "xband": 0,
+        "jx": -0.241
+      },
+      {
+        "name": "Grill'd",
+        "area": "Melbourne (CBD)",
+        "seats": 154,
+        "xband": 0,
+        "jx": -0.114
+      },
+      {
+        "name": "Kisume",
+        "area": "Melbourne (CBD)",
+        "seats": 150,
+        "xband": 0,
+        "jx": -0.282
+      },
+      {
+        "name": "Axil Coffee Roasters",
+        "area": "Melbourne (CBD)",
+        "seats": 333,
+        "xband": 0,
+        "jx": -0.203
+      },
+      {
+        "name": "Vapiano",
+        "area": "Melbourne (CBD)",
+        "seats": 400,
+        "xband": 0,
+        "jx": 0.104
+      },
+      {
+        "name": "Kim Sing Restaurant",
+        "area": "Melbourne (CBD)",
+        "seats": 162,
+        "xband": 0,
+        "jx": -0.236
+      },
+      {
+        "name": "Brunetti Oro Flinders Lane",
+        "area": "Melbourne (CBD)",
+        "seats": 320,
+        "xband": 0,
+        "jx": 0.04
+      },
+      {
+        "name": "Spaghetti Tree",
+        "area": "Melbourne (CBD)",
+        "seats": 280,
+        "xband": 0,
+        "jx": 0.232
+      },
+      {
+        "name": "La Di Da",
+        "area": "Melbourne (CBD)",
+        "seats": 330,
+        "xband": 0,
+        "jx": -0.302
+      },
+      {
+        "name": "Grossi Florentino",
+        "area": "Melbourne (CBD)",
+        "seats": 264,
+        "xband": 0,
+        "jx": 0.199
+      },
+      {
+        "name": "Hofbrauhaus Restaurant",
+        "area": "Melbourne (CBD)",
+        "seats": 211,
+        "xband": 0,
+        "jx": -0.019
+      },
+      {
+        "name": "Bossley Bar & Restaurant",
+        "area": "Melbourne (CBD)",
+        "seats": 212,
+        "xband": 0,
+        "jx": 0.16
+      },
+      {
+        "name": "Arbory Bar and Eatery / Afloat",
+        "area": "Melbourne (CBD)",
+        "seats": 375,
+        "xband": 0,
+        "jx": -0.29
+      },
+      {
+        "name": "Chin Chin Restaurant",
+        "area": "Melbourne (CBD)",
+        "seats": 155,
+        "xband": 0,
+        "jx": -0.22
+      },
+      {
+        "name": "Yakimono",
+        "area": "Melbourne (CBD)",
+        "seats": 339,
+        "xband": 0,
+        "jx": 0.145
+      },
+      {
+        "name": "Tazio",
+        "area": "Melbourne (CBD)",
+        "seats": 322,
+        "xband": 0,
+        "jx": -0.266
+      },
+      {
+        "name": "Collins Kitchen",
+        "area": "Melbourne (CBD)",
+        "seats": 360,
+        "xband": 0,
+        "jx": 0.122
+      },
+      {
+        "name": "TGI Fridays Restaurant & Bar",
+        "area": "Melbourne (CBD)",
+        "seats": 330,
+        "xband": 0,
+        "jx": -0.158
+      },
+      {
+        "name": "Pepe's Italian & Liquor",
+        "area": "Melbourne (CBD)",
+        "seats": 290,
+        "xband": 0,
+        "jx": -0.269
+      },
+      {
+        "name": "China Bar",
+        "area": "Melbourne (CBD)",
+        "seats": 290,
+        "xband": 0,
+        "jx": 0.144
+      },
+      {
+        "name": "Red Spice Road",
+        "area": "Melbourne (CBD)",
+        "seats": 300,
+        "xband": 0,
+        "jx": 0.174
+      },
+      {
+        "name": "Secret Kitchen",
+        "area": "Melbourne (CBD)",
+        "seats": 300,
+        "xband": 0,
+        "jx": -0.017
+      },
+      {
+        "name": "Red Emperor In Chinatown",
+        "area": "Melbourne (CBD)",
+        "seats": 300,
+        "xband": 0,
+        "jx": 0.159
+      },
+      {
+        "name": "Vapiano Bourke Street Mall",
+        "area": "Melbourne (CBD)",
+        "seats": 253,
+        "xband": 0,
+        "jx": 0.31
+      },
+      {
+        "name": "Starbucks",
+        "area": "Melbourne (CBD)",
+        "seats": 228,
+        "xband": 0,
+        "jx": -0.035
+      },
+      {
+        "name": "Pretty Boy Italian Steak House",
+        "area": "Melbourne (CBD)",
+        "seats": 250,
+        "xband": 0,
+        "jx": -0.064
+      },
+      {
+        "name": "Surasang",
+        "area": "Melbourne (CBD)",
+        "seats": 250,
+        "xband": 0,
+        "jx": 0.102
+      },
+      {
+        "name": "Grill Steak Seafood",
+        "area": "Melbourne (CBD)",
+        "seats": 250,
+        "xband": 0,
+        "jx": 0.244
+      },
+      {
+        "name": "Henry and the Fox",
+        "area": "Melbourne (CBD)",
+        "seats": 281,
+        "xband": 0,
+        "jx": -0.27
+      },
+      {
+        "name": "Dosa Hut Melbourne CBD",
+        "area": "Melbourne (CBD)",
+        "seats": 178,
+        "xband": 0,
+        "jx": 0.253
+      },
+      {
+        "name": "Higher Ground",
+        "area": "Melbourne (CBD)",
+        "seats": 202,
+        "xband": 0,
+        "jx": -0.217
+      },
+      {
+        "name": "Bar Margaux",
+        "area": "Melbourne (CBD)",
+        "seats": 213,
+        "xband": 0,
+        "jx": 0.123
+      },
+      {
+        "name": "Shark Fin Inn City",
+        "area": "Melbourne (CBD)",
+        "seats": 220,
+        "xband": 0,
+        "jx": 0.304
+      },
+      {
+        "name": "Old Beijing",
+        "area": "Melbourne (CBD)",
+        "seats": 220,
+        "xband": 0,
+        "jx": -0.318
+      },
+      {
+        "name": "Ginza Teppanyaki Japanese Restaurant",
+        "area": "Melbourne (CBD)",
+        "seats": 200,
+        "xband": 0,
+        "jx": -0.2
+      },
+      {
+        "name": "Nelayan Indonesian Restaurant",
+        "area": "Melbourne (CBD)",
+        "seats": 192,
+        "xband": 0,
+        "jx": 0.039
+      },
+      {
+        "name": "Cecconi's Flinders Lane",
+        "area": "Melbourne (CBD)",
+        "seats": 192,
+        "xband": 0,
+        "jx": 0.083
+      },
+      {
+        "name": "Byblos Bar & Restaurant",
+        "area": "Docklands",
+        "seats": 280,
+        "xband": 2,
+        "jx": 2.329
+      },
+      {
+        "name": "Brunetti Classico Carlton",
+        "area": "Carlton",
+        "seats": 400,
+        "xband": 1,
+        "jx": 1.169
+      },
+      {
+        "name": "Tiamo",
+        "area": "Carlton",
+        "seats": 240,
+        "xband": 1,
+        "jx": 1.336
+      },
+      {
+        "name": "Universal Restaurant",
+        "area": "Carlton",
+        "seats": 240,
+        "xband": 1,
+        "jx": 1.189
+      },
+      {
+        "name": "Il Gambero",
+        "area": "Carlton",
+        "seats": 249,
+        "xband": 1,
+        "jx": 1.091
+      },
+      {
+        "name": "Johnny, Vince And Sam's",
+        "area": "Carlton",
+        "seats": 257,
+        "xband": 1,
+        "jx": 1.154
+      },
+      {
+        "name": "Market Cafe / Station Cafe / Mercury Restaurant",
+        "area": "Carlton",
+        "seats": 235,
+        "xband": 1,
+        "jx": 1.245
+      },
+      {
+        "name": "Waterfront (Southgate)",
+        "area": "Southbank",
+        "seats": 380,
+        "xband": 3,
+        "jx": 3.317
+      },
+      {
+        "name": "BangPop",
+        "area": "Southbank",
+        "seats": 360,
+        "xband": 3,
+        "jx": 2.664
+      },
+      {
+        "name": "Mr Hive Kitchen & Bar",
+        "area": "Southbank",
+        "seats": 358,
+        "xband": 3,
+        "jx": 3.35
+      },
+      {
+        "name": "Mesh",
+        "area": "Southbank",
+        "seats": 350,
+        "xband": 3,
+        "jx": 2.815
+      },
+      {
+        "name": "The General Assembly",
+        "area": "Southbank",
+        "seats": 314,
+        "xband": 3,
+        "jx": 3.232
+      },
+      {
+        "name": "Melbourne Cellar Door",
+        "area": "Southbank",
+        "seats": 310,
+        "xband": 3,
+        "jx": 2.879
+      },
+      {
+        "name": "Rockpool Bar & Grill Melbourne",
+        "area": "Southbank",
+        "seats": 300,
+        "xband": 3,
+        "jx": 2.726
+      },
+      {
+        "name": "The Meat & Wine Co",
+        "area": "Southbank",
+        "seats": 280,
+        "xband": 3,
+        "jx": 2.841
+      },
+      {
+        "name": "Hophaus",
+        "area": "Southbank",
+        "seats": 260,
+        "xband": 3,
+        "jx": 3.038
+      },
+      {
+        "name": "Bluetrain",
+        "area": "Southbank",
+        "seats": 260,
+        "xband": 3,
+        "jx": 2.772
+      },
+      {
+        "name": "Kitchen Workshop",
+        "area": "Southbank",
+        "seats": 260,
+        "xband": 3,
+        "jx": 3.198
+      },
+      {
+        "name": "Pure South Kitchen",
+        "area": "Southbank",
+        "seats": 270,
+        "xband": 3,
+        "jx": 2.943
+      },
+      {
+        "name": "Lucky Chan's",
+        "area": "Southbank",
+        "seats": 270,
+        "xband": 3,
+        "jx": 3.1
+      },
+      {
+        "name": "Ludlow Bar & Dining Room",
+        "area": "Southbank",
+        "seats": 400,
+        "xband": 3,
+        "jx": 3.125
+      },
+      {
+        "name": "Berth",
+        "area": "Docklands",
+        "seats": 300,
+        "xband": 2,
+        "jx": 2.027
+      },
+      {
+        "name": "Gold Leaf Harbour View Restaurant",
+        "area": "Docklands",
+        "seats": 260,
+        "xband": 2,
+        "jx": 2.206
+      },
+      {
+        "name": "Cargo",
+        "area": "Docklands",
+        "seats": 280,
+        "xband": 2,
+        "jx": 1.988
+      },
+      {
+        "name": "Almina @ Docklands",
+        "area": "Docklands",
+        "seats": 220,
+        "xband": 2,
+        "jx": 2.167
+      },
+      {
+        "name": "The Coffee Club",
+        "area": "Docklands",
+        "seats": 220,
+        "xband": 2,
+        "jx": 2.116
+      },
+      {
+        "name": "Roasting Warehouse",
+        "area": "North Melbourne",
+        "seats": 108,
+        "xband": 4,
+        "jx": 3.736
+      },
+      {
+        "name": "Auction Rooms Cafe",
+        "area": "North Melbourne",
+        "seats": 132,
+        "xband": 4,
+        "jx": 3.831
+      },
+      {
+        "name": "La Porchetta North Melbourne",
+        "area": "North Melbourne",
+        "seats": 130,
+        "xband": 4,
+        "jx": 3.823
+      },
+      {
+        "name": "Joe's Eatery",
+        "area": "North Melbourne",
+        "seats": 132,
+        "xband": 4,
+        "jx": 3.738
+      },
+      {
+        "name": "KATHMANDU BANQUET",
+        "area": "North Melbourne",
+        "seats": 200,
+        "xband": 4,
+        "jx": 3.847
+      },
+      {
+        "name": "Yeonga",
+        "area": "North Melbourne",
+        "seats": 150,
+        "xband": 4,
+        "jx": 3.917
+      },
+      {
+        "name": "BBQ Brothers 10",
+        "area": "North Melbourne",
+        "seats": 88,
+        "xband": 4,
+        "jx": 4.211
+      },
+      {
+        "name": "Code Black Howard Street",
+        "area": "North Melbourne",
+        "seats": 96,
+        "xband": 4,
+        "jx": 4.096
+      },
+      {
+        "name": "Ample Cafe Bar",
+        "area": "North Melbourne",
+        "seats": 63,
+        "xband": 4,
+        "jx": 4.186
+      },
+      {
+        "name": "Sosta Cucina",
+        "area": "North Melbourne",
+        "seats": 82,
+        "xband": 4,
+        "jx": 3.929
+      },
+      {
+        "name": "El Sabor",
+        "area": "North Melbourne",
+        "seats": 74,
+        "xband": 4,
+        "jx": 4.244
+      },
+      {
+        "name": "Maria's Trattoria",
+        "area": "North Melbourne",
+        "seats": 84,
+        "xband": 4,
+        "jx": 4.114
+      },
+      {
+        "name": "Errol's Cafe",
+        "area": "North Melbourne",
+        "seats": 70,
+        "xband": 4,
+        "jx": 3.72
+      },
+      {
+        "name": "New Lanna Thai",
+        "area": "North Melbourne",
+        "seats": 68,
+        "xband": 4,
+        "jx": 4.028
+      },
+      {
+        "name": "Snax Cafe",
+        "area": "North Melbourne",
+        "seats": 54,
+        "xband": 4,
+        "jx": 4.13
+      },
+      {
+        "name": "Toast Kitchen Cafe",
+        "area": "North Melbourne",
+        "seats": 58,
+        "xband": 4,
+        "jx": 3.96
+      },
+      {
+        "name": "Thyme Square",
+        "area": "North Melbourne",
+        "seats": 58,
+        "xband": 4,
+        "jx": 4.079
+      },
+      {
+        "name": "Dancing Flame Charcoal Grill",
+        "area": "North Melbourne",
+        "seats": 58,
+        "xband": 4,
+        "jx": 4.068
+      },
+      {
+        "name": "Gai Wong",
+        "area": "North Melbourne",
+        "seats": 58,
+        "xband": 4,
+        "jx": 3.665
+      }
     ]
   },
   "layer": [
@@ -124,9 +684,20 @@
         "x": {
           "field": "jx",
           "type": "quantitative",
-          "scale": {"domain": [-0.6, 4.6]},
+          "scale": {
+            "domain": [
+              -0.6,
+              4.6
+            ]
+          },
           "axis": {
-            "values": [0, 1, 2, 3, 4],
+            "values": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
             "labelExpr": "['CBD','Carlton','Docklands','Southbank','North Melb'][datum.value]",
             "title": null,
             "labelFontSize": 12,
@@ -150,7 +721,12 @@
           "field": "seats",
           "type": "quantitative",
           "scale": {
-            "range": ["#E8C9A0", "#D89651", "#6B3410", "#3C1F0F"]
+            "range": [
+              "#E8C9A0",
+              "#D89651",
+              "#6B3410",
+              "#3C1F0F"
+            ]
           },
           "legend": {
             "title": "Seats",
@@ -158,15 +734,30 @@
           }
         },
         "tooltip": [
-          {"field": "name", "type": "nominal", "title": "Venue"},
-          {"field": "area", "type": "nominal", "title": "Neighbourhood"},
-          {"field": "seats", "type": "quantitative", "title": "Seats"}
+          {
+            "field": "name",
+            "type": "nominal",
+            "title": "Venue"
+          },
+          {
+            "field": "area",
+            "type": "nominal",
+            "title": "Neighbourhood"
+          },
+          {
+            "field": "seats",
+            "type": "quantitative",
+            "title": "Seats"
+          }
         ]
       }
     }
   ],
   "config": {
-    "view": {"stroke": null},
-    "background": "transparent"
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "font": "Georgia, Times New Roman, serif"
   }
 }
