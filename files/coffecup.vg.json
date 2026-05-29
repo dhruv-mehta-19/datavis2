@@ -12,16 +12,16 @@
   "height": 380,
   "data": {
     "values": [
-      {"scenario": "Busy day (200 cups)", "component": "GST", "amount": 0.45, "order": 1},
-      {"scenario": "Busy day (200 cups)", "component": "Beans", "amount": 0.38, "order": 2},
-      {"scenario": "Busy day (200 cups)", "component": "Milk & cup", "amount": 0.60, "order": 3},
-      {"scenario": "Busy day (200 cups)", "component": "Labour", "amount": 1.35, "order": 4},
-      {"scenario": "Busy day (200 cups)", "component": "Gross profit", "amount": 2.22, "order": 5},
-      {"scenario": "Quiet day (100 cups)", "component": "GST", "amount": 0.45, "order": 1},
-      {"scenario": "Quiet day (100 cups)", "component": "Beans", "amount": 0.38, "order": 2},
-      {"scenario": "Quiet day (100 cups)", "component": "Milk & cup", "amount": 0.60, "order": 3},
-      {"scenario": "Quiet day (100 cups)", "component": "Labour", "amount": 2.70, "order": 4},
-      {"scenario": "Quiet day (100 cups)", "component": "Gross profit", "amount": 0.87, "order": 5}
+      {"scenario": "Busy day (approx. 200 cups)", "component": "GST", "amount": 0.45, "order": 1},
+      {"scenario": "Busy day (approx. 200 cups)", "component": "Beans", "amount": 0.38, "order": 2},
+      {"scenario": "Busy day (approx. 200 cups)", "component": "Milk & cup", "amount": 0.60, "order": 3},
+      {"scenario": "Busy day (approx. 200 cups)", "component": "Labour", "amount": 1.35, "order": 4},
+      {"scenario": "Busy day (approx. 200 cups)", "component": "Gross profit", "amount": 2.22, "order": 5},
+      {"scenario": "Quiet day (approx. 100 cups)", "component": "GST", "amount": 0.45, "order": 1},
+      {"scenario": "Quiet day (approx. 100 cups)", "component": "Beans", "amount": 0.38, "order": 2},
+      {"scenario": "Quiet day (approx. 100 cups)", "component": "Milk & cup", "amount": 0.60, "order": 3},
+      {"scenario": "Quiet day (approx. 100 cups)", "component": "Labour", "amount": 2.70, "order": 4},
+      {"scenario": "Quiet day (approx. 100 cups)", "component": "Gross profit", "amount": 0.87, "order": 5}
     ]
   },
   "encoding": {
@@ -29,7 +29,7 @@
       "field": "scenario",
       "type": "nominal",
       "title": null,
-      "sort": ["Busy day (200 cups)", "Quiet day (100 cups)"],
+      "sort": ["Busy day (approx. 200 cups)", "Quiet day (approx. 100 cups)"],
       "axis": {"labelFontSize": 12, "labelFontWeight": "bold", "labelColor": "#3C1F0F", "labelAngle": 0}
     },
     "y": {
