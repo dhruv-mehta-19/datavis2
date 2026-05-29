@@ -6,22 +6,74 @@
     "fontSize": 20,
     "subtitleFontSize": 12,
     "subtitleColor": "#666",
-    "color": "#3C1F0F"
+    "color": "#3C1F0F",
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Georgia, Times New Roman, serif"
   },
-  "width": 420,
+  "width": 380,
   "height": 380,
   "data": {
     "values": [
-      {"scenario": "Busy day (approx. 200 cups)", "component": "GST", "amount": 0.45, "order": 1},
-      {"scenario": "Busy day (approx. 200 cups)", "component": "Beans", "amount": 0.38, "order": 2},
-      {"scenario": "Busy day (approx. 200 cups)", "component": "Milk & cup", "amount": 0.60, "order": 3},
-      {"scenario": "Busy day (approx. 200 cups)", "component": "Labour", "amount": 1.35, "order": 4},
-      {"scenario": "Busy day (approx. 200 cups)", "component": "Gross profit", "amount": 2.22, "order": 5},
-      {"scenario": "Quiet day (approx. 100 cups)", "component": "GST", "amount": 0.45, "order": 1},
-      {"scenario": "Quiet day (approx. 100 cups)", "component": "Beans", "amount": 0.38, "order": 2},
-      {"scenario": "Quiet day (approx. 100 cups)", "component": "Milk & cup", "amount": 0.60, "order": 3},
-      {"scenario": "Quiet day (approx. 100 cups)", "component": "Labour", "amount": 2.70, "order": 4},
-      {"scenario": "Quiet day (approx. 100 cups)", "component": "Gross profit", "amount": 0.87, "order": 5}
+      {
+        "scenario": "Busy day (200 cups)",
+        "component": "GST",
+        "amount": 0.45,
+        "order": 1
+      },
+      {
+        "scenario": "Busy day (200 cups)",
+        "component": "Beans",
+        "amount": 0.38,
+        "order": 2
+      },
+      {
+        "scenario": "Busy day (200 cups)",
+        "component": "Milk & cup",
+        "amount": 0.6,
+        "order": 3
+      },
+      {
+        "scenario": "Busy day (200 cups)",
+        "component": "Labour",
+        "amount": 1.35,
+        "order": 4
+      },
+      {
+        "scenario": "Busy day (200 cups)",
+        "component": "Gross profit",
+        "amount": 2.22,
+        "order": 5
+      },
+      {
+        "scenario": "Quiet day (100 cups)",
+        "component": "GST",
+        "amount": 0.45,
+        "order": 1
+      },
+      {
+        "scenario": "Quiet day (100 cups)",
+        "component": "Beans",
+        "amount": 0.38,
+        "order": 2
+      },
+      {
+        "scenario": "Quiet day (100 cups)",
+        "component": "Milk & cup",
+        "amount": 0.6,
+        "order": 3
+      },
+      {
+        "scenario": "Quiet day (100 cups)",
+        "component": "Labour",
+        "amount": 2.7,
+        "order": 4
+      },
+      {
+        "scenario": "Quiet day (100 cups)",
+        "component": "Gross profit",
+        "amount": 0.87,
+        "order": 5
+      }
     ]
   },
   "encoding": {
@@ -29,44 +81,111 @@
       "field": "scenario",
       "type": "nominal",
       "title": null,
-      "sort": ["Busy day (approx. 200 cups)", "Quiet day (approx. 100 cups)"],
-      "axis": {"labelFontSize": 12, "labelFontWeight": "bold", "labelColor": "#3C1F0F", "labelAngle": 0}
+      "sort": [
+        "Busy day (200 cups)",
+        "Quiet day (100 cups)"
+      ],
+      "axis": {
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "labelColor": "#3C1F0F",
+        "labelAngle": 0
+      }
     },
     "y": {
       "field": "amount",
       "type": "quantitative",
       "title": "Cost / profit per cup (AUD)",
       "stack": "zero",
-      "axis": {"format": "$.2f", "titleColor": "#3C1F0F", "labelColor": "#666", "grid": false}
+      "axis": {
+        "format": "$.2f",
+        "titleColor": "#3C1F0F",
+        "labelColor": "#666",
+        "grid": false
+      }
     },
     "color": {
       "field": "component",
       "type": "nominal",
       "title": "Where the money goes",
-      "sort": ["GST", "Beans", "Milk & cup", "Labour", "Gross profit"],
+      "sort": [
+        "GST",
+        "Beans",
+        "Milk & cup",
+        "Labour",
+        "Gross profit"
+      ],
       "scale": {
-        "domain": ["GST", "Beans", "Milk & cup", "Labour", "Gross profit"],
-        "range": ["#E8D5B7", "#D89651", "#B8702F", "#6B3410", "#3C1F0F"]
+        "domain": [
+          "GST",
+          "Beans",
+          "Milk & cup",
+          "Labour",
+          "Gross profit"
+        ],
+        "range": [
+          "#E8D5B7",
+          "#D89651",
+          "#B8702F",
+          "#6B3410",
+          "#3C1F0F"
+        ]
       },
-      "legend": {"orient": "right", "offset": 10, "titleColor": "#3C1F0F", "labelColor": "#3C1F0F"}
+      "legend": {
+        "orient": "right",
+        "offset": 10,
+        "titleColor": "#3C1F0F",
+        "labelColor": "#3C1F0F"
+      }
     },
-    "order": {"field": "order", "type": "quantitative"}
+    "order": {
+      "field": "order",
+      "type": "quantitative"
+    }
   },
   "layer": [
     {
-      "mark": {"type": "bar", "width": {"band": 0.55}, "stroke": "white", "strokeWidth": 1},
+      "mark": {
+        "type": "bar",
+        "width": {
+          "band": 0.55
+        },
+        "stroke": "white",
+        "strokeWidth": 1
+      },
       "encoding": {
         "tooltip": [
-          {"field": "scenario", "type": "nominal", "title": "Day"},
-          {"field": "component", "type": "nominal", "title": "Where the money goes"},
-          {"field": "amount", "type": "quantitative", "title": "Amount", "format": "$.2f"}
+          {
+            "field": "scenario",
+            "type": "nominal",
+            "title": "Day"
+          },
+          {
+            "field": "component",
+            "type": "nominal",
+            "title": "Where the money goes"
+          },
+          {
+            "field": "amount",
+            "type": "quantitative",
+            "title": "Amount",
+            "format": "$.2f"
+          }
         ]
       }
     },
     {
-      "mark": {"type": "text", "fontSize": 10, "fontWeight": "bold"},
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": "bold"
+      },
       "encoding": {
-        "text": {"field": "amount", "type": "quantitative", "format": "$.2f"},
+        "text": {
+          "field": "amount",
+          "type": "quantitative",
+          "format": "$.2f"
+        },
         "color": {
           "condition": {
             "test": "datum.component === 'Labour' || datum.component === 'Gross profit'",
@@ -74,13 +193,23 @@
           },
           "value": "#3C1F0F"
         },
-        "y": {"field": "amount", "type": "quantitative", "stack": "zero", "bandPosition": 0.5}
+        "y": {
+          "field": "amount",
+          "type": "quantitative",
+          "stack": "zero",
+          "bandPosition": 0.5
+        }
       }
     }
   ],
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "background": "transparent",
-    "axis": {"domainColor": "#D89651"}
+    "axis": {
+      "domainColor": "#D89651"
+    },
+    "font": "Georgia, Times New Roman, serif"
   }
 }
