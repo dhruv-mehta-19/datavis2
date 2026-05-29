@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Explore Australia's Coffee Suppliers by Region",
-    "subtitle": "Use the dropdown to filter suppliers by region. Import value, 2023.",
+    "subtitle": "Use the dropdown to filter suppliers by region.",
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 12,
