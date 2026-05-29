@@ -8,11 +8,12 @@
     "subtitleFontSize": 12,
     "subtitleColor": "#666",
     "color": "#3C1F0F",
-    "font": "Georgia, Times New Roman, serif",
-    "subtitleFont": "Georgia, Times New Roman, serif"
+    "font": "Georgia, 'Times New Roman', serif",
+    "subtitleFont": "Georgia, 'Times New Roman', serif",
+    "labelFont": "Georgia, 'Times New Roman', serif"
   },
-  "width": 560,
-  "height": 480,
+  "width": 380,
+  "height": 520,
   "data": {
     "values": [
       {
@@ -118,7 +119,9 @@
       "mark": {
         "type": "rect",
         "stroke": "white",
-        "strokeWidth": 2
+        "strokeWidth": 2,
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       },
       "encoding": {
         "x": {
@@ -164,7 +167,9 @@
           "legend": {
             "title": "Cafes",
             "orient": "right",
-            "format": ",.0f"
+            "format": ",.0f",
+            "labelFont": "Georgia, 'Times New Roman', serif",
+            "titleFont": "Georgia, 'Times New Roman', serif"
           }
         },
         "tooltip": [
@@ -202,7 +207,9 @@
         "fontWeight": "bold",
         "color": "white",
         "align": "center",
-        "baseline": "middle"
+        "baseline": "middle",
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       },
       "encoding": {
         "x": {
@@ -267,7 +274,9 @@
         "align": "center",
         "baseline": "middle",
         "fontSize": 11,
-        "opacity": 0.85
+        "opacity": 0.85,
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       },
       "encoding": {
         "x": {
@@ -323,7 +332,9 @@
         "strokeDash": [
           3,
           2
-        ]
+        ],
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       },
       "encoding": {
         "x": {
@@ -377,7 +388,9 @@
         "baseline": "middle",
         "fontStyle": "italic",
         "fontSize": 11,
-        "color": "#3C1F0F"
+        "color": "#3C1F0F",
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       },
       "encoding": {
         "x": {
@@ -413,6 +426,23 @@
       "stroke": null
     },
     "background": "transparent",
-    "font": "Georgia, Times New Roman, serif"
+    "font": "Georgia, 'Times New Roman', serif",
+    "axis": {
+      "labelFont": "Georgia, 'Times New Roman', serif",
+      "titleFont": "Georgia, 'Times New Roman', serif"
+    },
+    "legend": {
+      "labelFont": "Georgia, 'Times New Roman', serif",
+      "titleFont": "Georgia, 'Times New Roman', serif"
+    },
+    "header": {
+      "labelFont": "Georgia, 'Times New Roman', serif",
+      "titleFont": "Georgia, 'Times New Roman', serif"
+    },
+    "title": {
+      "font": "Georgia, 'Times New Roman', serif",
+      "subtitleFont": "Georgia, 'Times New Roman', serif",
+      "labelFont": "Georgia, 'Times New Roman', serif"
+    }
   }
 }
