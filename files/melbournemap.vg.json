@@ -3,7 +3,7 @@
   "title": {
     "text": "Where Melbourne Drinks",
     "subtitle": [
-      "Every cafe and restaurant in the City of Melbourne, 2024.",
+      "Every cafe and restaurant in the City of Melbourne",
       "Click a neighbourhood or size category in the legend to filter. Click again to deselect, hold Shift for multiple.",
       "Note: data covers City of Melbourne council only — St Kilda, Richmond and most of South Yarra are in other councils."
     ],
@@ -13,8 +13,8 @@
     "subtitleColor": "#666",
     "color": "#3C1F0F"
   },
-  "width": 700,
-  "height": 600,
+  "width": 560,
+  "height": 480,
   "projection": {"type": "mercator"},
   "layer": [
     {
@@ -130,7 +130,7 @@
           "field": "CLUE small area",
           "type": "nominal",
           "legend": {
-            "title": "Size",
+            "title": "Neighbourhood",
             "orient": "right",
             "offset": 10,
             "labelLimit": 150,
@@ -185,84 +185,10 @@
           }
         }
       ]
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "lon_anchor": 144.9670,
-            "lat_anchor": -37.8160,
-            "lon_label": 144.9100,
-            "lat_label": -37.8420
-          },
-          {
-            "lon_anchor": 144.9710,
-            "lat_anchor": -37.8000,
-            "lon_label": 144.9870,
-            "lat_label": -37.7780
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "stroke": "#3C1F0F",
-        "strokeWidth": 1,
-        "strokeDash": [3, 2]
-      },
-      "encoding": {
-        "longitude": {"field": "lon_anchor", "type": "quantitative"},
-        "latitude": {"field": "lat_anchor", "type": "quantitative"},
-        "longitude2": {"field": "lon_label"},
-        "latitude2": {"field": "lat_label"}
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {"lon": 144.9100, "lat": -37.8420, "label": "The CBD cluster — small, quick venues"},
-          {"lon": 144.9100, "lat": -37.8435, "label": "built for corporate workers grabbing"},
-          {"lon": 144.9100, "lat": -37.8450, "label": "a coffee between meetings."},
-          {"lon": 144.9780, "lat": -37.7780, "label": "Lygon Street — Carlton's"},
-          {"lon": 144.9780, "lat": -37.7795, "label": "iconic coffee heart."}
-        ]
-      },
-      "layer": [
-        {
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "fontWeight": "bold",
-            "stroke": "white",
-            "strokeWidth": 4,
-            "fill": "white",
-            "fontSize": 11,
-            "fontStyle": "italic"
-          },
-          "encoding": {
-            "longitude": {"field": "lon", "type": "quantitative"},
-            "latitude": {"field": "lat", "type": "quantitative"},
-            "text": {"field": "label"}
-          }
-        },
-        {
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "fontStyle": "italic",
-            "color": "#3C1F0F",
-            "fontSize": 11
-          },
-          "encoding": {
-            "longitude": {"field": "lon", "type": "quantitative"},
-            "latitude": {"field": "lat", "type": "quantitative"},
-            "text": {"field": "label"}
-          }
-        }
-      ]
     }
   ],
   "config": {
     "view": {"stroke": null},
-    "background": "white"
+    "background": "transparent"
   }
 }
