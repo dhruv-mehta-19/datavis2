@@ -3,52 +3,155 @@
   "title": {
     "text": "When the City Comes Out for Coffee",
     "subtitle": [
-      "Average pedestrians per hour across 102 City of Melbourne sensors, 2025 — during cafe hours (6am–3pm).",
+      "Average pedestrians per hour across 102 City of Melbourne sensors, 2025 \u2014 during cafe hours (6am\u20133pm).",
       "Source: City of Melbourne Pedestrian Counting System, 2025."
     ],
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 12,
     "subtitleColor": "#666",
-    "color": "#3C1F0F"
+    "color": "#3C1F0F",
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Georgia, Times New Roman, serif"
   },
   "width": 520,
   "height": 380,
   "data": {
     "values": [
-      {"hour": 6, "type": "Weekday", "count": 96},
-      {"hour": 6, "type": "Weekend", "count": 45},
-      {"hour": 7, "type": "Weekday", "count": 230},
-      {"hour": 7, "type": "Weekend", "count": 90},
-      {"hour": 8, "type": "Weekday", "count": 505},
-      {"hour": 8, "type": "Weekend", "count": 162},
-      {"hour": 9, "type": "Weekday", "count": 418},
-      {"hour": 9, "type": "Weekend", "count": 289},
-      {"hour": 10, "type": "Weekday", "count": 417},
-      {"hour": 10, "type": "Weekend", "count": 427},
-      {"hour": 11, "type": "Weekday", "count": 503},
-      {"hour": 11, "type": "Weekend", "count": 567},
-      {"hour": 12, "type": "Weekday", "count": 738},
-      {"hour": 12, "type": "Weekend", "count": 672},
-      {"hour": 13, "type": "Weekday", "count": 735},
-      {"hour": 13, "type": "Weekend", "count": 726},
-      {"hour": 14, "type": "Weekday", "count": 636},
-      {"hour": 14, "type": "Weekend", "count": 738},
-      {"hour": 15, "type": "Weekday", "count": 643},
-      {"hour": 15, "type": "Weekend", "count": 731}
+      {
+        "hour": 6,
+        "type": "Weekday",
+        "count": 96
+      },
+      {
+        "hour": 6,
+        "type": "Weekend",
+        "count": 45
+      },
+      {
+        "hour": 7,
+        "type": "Weekday",
+        "count": 230
+      },
+      {
+        "hour": 7,
+        "type": "Weekend",
+        "count": 90
+      },
+      {
+        "hour": 8,
+        "type": "Weekday",
+        "count": 505
+      },
+      {
+        "hour": 8,
+        "type": "Weekend",
+        "count": 162
+      },
+      {
+        "hour": 9,
+        "type": "Weekday",
+        "count": 418
+      },
+      {
+        "hour": 9,
+        "type": "Weekend",
+        "count": 289
+      },
+      {
+        "hour": 10,
+        "type": "Weekday",
+        "count": 417
+      },
+      {
+        "hour": 10,
+        "type": "Weekend",
+        "count": 427
+      },
+      {
+        "hour": 11,
+        "type": "Weekday",
+        "count": 503
+      },
+      {
+        "hour": 11,
+        "type": "Weekend",
+        "count": 567
+      },
+      {
+        "hour": 12,
+        "type": "Weekday",
+        "count": 738
+      },
+      {
+        "hour": 12,
+        "type": "Weekend",
+        "count": 672
+      },
+      {
+        "hour": 13,
+        "type": "Weekday",
+        "count": 735
+      },
+      {
+        "hour": 13,
+        "type": "Weekend",
+        "count": 726
+      },
+      {
+        "hour": 14,
+        "type": "Weekday",
+        "count": 636
+      },
+      {
+        "hour": 14,
+        "type": "Weekend",
+        "count": 738
+      },
+      {
+        "hour": 15,
+        "type": "Weekday",
+        "count": 643
+      },
+      {
+        "hour": 15,
+        "type": "Weekend",
+        "count": 731
+      }
     ]
   },
   "layer": [
     {
-      "mark": {"type": "line", "strokeWidth": 2.5, "interpolate": "monotone"},
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "interpolate": "monotone"
+      },
       "encoding": {
         "x": {
           "field": "hour",
           "type": "quantitative",
-          "scale": {"domain": [6, 15], "nice": false},
+          "scale": {
+            "domain": [
+              6,
+              15
+            ],
+            "nice": false
+          },
           "title": "Hour of day",
           "axis": {
-            "values": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "values": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
             "labelExpr": "datum.value < 12 ? datum.value + 'am' : datum.value == 12 ? '12pm' : (datum.value - 12) + 'pm'",
             "labelColor": "#666",
             "domainColor": "#D89651",
@@ -58,7 +161,12 @@
         "y": {
           "field": "count",
           "type": "quantitative",
-          "scale": {"domain": [0, 800]},
+          "scale": {
+            "domain": [
+              0,
+              800
+            ]
+          },
           "title": "Average pedestrians per sensor, per hour",
           "axis": {
             "titleColor": "#3C1F0F",
@@ -71,8 +179,14 @@
           "field": "type",
           "type": "nominal",
           "scale": {
-            "domain": ["Weekday", "Weekend"],
-            "range": ["#6B3410", "#D89651"]
+            "domain": [
+              "Weekday",
+              "Weekend"
+            ],
+            "range": [
+              "#6B3410",
+              "#D89651"
+            ]
           },
           "legend": {
             "orient": "top-left",
@@ -84,76 +198,222 @@
           }
         },
         "tooltip": [
-          {"field": "type", "title": "Day type"},
-          {"field": "hour", "title": "Hour"},
-          {"field": "count", "title": "Avg pedestrians", "format": ".0f"}
+          {
+            "field": "type",
+            "title": "Day type"
+          },
+          {
+            "field": "hour",
+            "title": "Hour"
+          },
+          {
+            "field": "count",
+            "title": "Avg pedestrians",
+            "format": ".0f"
+          }
         ]
-      }
-    },
-    {
-      "data": {"values": [{"x": 6.6, "y": 640, "x2": 8, "y2": 505}]},
-      "mark": {"type": "rule", "color": "#6B3410", "strokeWidth": 0.7, "opacity": 0.6},
-      "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "quantitative"},
-        "x2": {"field": "x2"},
-        "y2": {"field": "y2"}
-      }
-    },
-    {
-      "data": {"values": [{"x": 8, "y": 505}]},
-      "mark": {"type": "point", "filled": true, "color": "#6B3410", "size": 35, "opacity": 0.8},
-      "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "quantitative"}
       }
     },
     {
       "data": {
         "values": [
-          {"x": 6.5, "y": 675, "t": "8am rush —"},
-          {"x": 6.2, "y": 650, "t": "coffee's busy window"}
+          {
+            "x": 6.6,
+            "y": 640,
+            "x2": 8,
+            "y2": 505
+          }
         ]
       },
-      "mark": {"type": "text", "align": "left", "fontStyle": "italic", "fontSize": 11, "color": "#6B3410"},
+      "mark": {
+        "type": "rule",
+        "color": "#6B3410",
+        "strokeWidth": 0.7,
+        "opacity": 0.6
+      },
       "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "quantitative"},
-        "text": {"field": "t"}
-      }
-    },
-    {
-      "data": {"values": [{"x": 11.5, "y": 300, "x2": 11, "y2": 567}]},
-      "mark": {"type": "rule", "color": "#B8702F", "strokeWidth": 0.7, "opacity": 0.6},
-      "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "quantitative"},
-        "x2": {"field": "x2"},
-        "y2": {"field": "y2"}
-      }
-    },
-    {
-      "data": {"values": [{"x": 11, "y": 567}]},
-      "mark": {"type": "point", "filled": true, "color": "#B8702F", "size": 35, "opacity": 0.8},
-      "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "quantitative"}
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x2"
+        },
+        "y2": {
+          "field": "y2"
+        }
       }
     },
     {
       "data": {
         "values": [
-          {"x": 10.7, "y": 285, "t": "By late morning the weekend crowd"},
-          {"x": 10.5, "y": 260, "t": "overtakes the weekday commuters"}
+          {
+            "x": 8,
+            "y": 505
+          }
         ]
       },
-      "mark": {"type": "text", "align": "left", "fontStyle": "italic", "fontSize": 11, "color": "#B8702F"},
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#6B3410",
+        "size": 35,
+        "opacity": 0.8
+      },
       "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "quantitative"},
-        "text": {"field": "t"}
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 6.5,
+            "y": 675,
+            "t": "8am rush \u2014"
+          },
+          {
+            "x": 6.2,
+            "y": 650,
+            "t": "coffee's busy window"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontStyle": "italic",
+        "fontSize": 11,
+        "color": "#6B3410"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 11.5,
+            "y": 300,
+            "x2": 11,
+            "y2": 567
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B8702F",
+        "strokeWidth": 0.7,
+        "opacity": 0.6
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x2"
+        },
+        "y2": {
+          "field": "y2"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 11,
+            "y": 567
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#B8702F",
+        "size": 35,
+        "opacity": 0.8
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 10.7,
+            "y": 285,
+            "t": "By late morning the weekend crowd"
+          },
+          {
+            "x": 10.5,
+            "y": 260,
+            "t": "overtakes the weekday commuters"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontStyle": "italic",
+        "fontSize": 11,
+        "color": "#B8702F"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
       }
     }
   ],
-  "config": {"view": {"stroke": null}, "background": "transparent"}
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "font": "Georgia, Times New Roman, serif"
+  }
 }
