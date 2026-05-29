@@ -8,8 +8,8 @@
     "subtitleColor": "#666",
     "color": "#3C1F0F"
   },
-  "width": 480,
-  "height": 360,
+  "width": 420,
+  "height": 380,
   "data": {
     "values": [
       {"scenario": "Busy day (200 cups)", "component": "GST", "amount": 0.45, "order": 1},
@@ -80,7 +80,7 @@
   ],
   "config": {
     "view": {"stroke": null},
-    "background": "white",
+    "background": "transparent",
     "axis": {"domainColor": "#D89651"}
   }
 }
