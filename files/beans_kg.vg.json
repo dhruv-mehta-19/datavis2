@@ -9,8 +9,8 @@
     "subtitleColor": "#666",
     "color": "#3C1F0F"
   },
-  "width": 750,
-  "height": 550,
+  "width": 560,
+  "height": 480,
   "data": {
     "url": "https://raw.githubusercontent.com/dhruv-mehta-19/datavis2/refs/heads/main/coffee_imports_2023.csv"
   },
@@ -61,14 +61,16 @@
         "x": {
           "field": "quantity",
           "type": "quantitative",
-          "title": "Quantity imported (kg - log scale)",
+          "title": "Quantity imported (kg — log scale)",
           "scale": {"type": "log"},
           "axis": {
-            "format": ",.0s",
+            "format": "~s",
             "values": [100, 1000, 10000, 100000, 1000000, 10000000, 100000000],
             "grid": true,
             "gridColor": "#f0f0f0",
-            "gridOpacity": 0.6
+            "gridOpacity": 0.6,
+            "titleColor": "#3C1F0F",
+            "labelColor": "#666"
           }
         },
         "y": {
@@ -81,7 +83,9 @@
             "values": [2, 3, 5, 8, 15, 30, 60],
             "grid": true,
             "gridColor": "#f0f0f0",
-            "gridOpacity": 0.6
+            "gridOpacity": 0.6,
+            "titleColor": "#3C1F0F",
+            "labelColor": "#666"
           }
         },
         "size": {
@@ -95,13 +99,12 @@
           "type": "nominal",
           "scale": {
             "domain": ["Small (< $1M)", "Mid ($1M–$10M)", "Large ($10M–$50M)", "Very Large ($50M+)"],
-            "range": ["#6B3410", "#6B3410", "#6B3410", "#6B3410"]
+            "range": ["#D89651", "#B8702F", "#6B3410", "#3C1F0F"]
           },
           "legend": {
             "title": "Click trade category to filter",
             "orient": "right",
-            "symbolType": "circle",
-            "symbolFillColor": "#6B3410"
+            "symbolType": "circle"
           }
         },
         "opacity": {
@@ -119,8 +122,8 @@
         "tooltip": [
           {"field": "partner", "type": "nominal", "title": "Country"},
           {"field": "price_per_kg", "type": "quantitative", "title": "Price per kg", "format": "$,.2f"},
-          {"field": "quantity", "type": "quantitative", "title": "Quantity (kg)", "format": ",.0f"},
-          {"field": "value_usd_full", "type": "quantitative", "title": "Total value", "format": "$,.0f"},
+          {"field": "quantity", "type": "quantitative", "title": "Quantity (kg)", "format": "~s"},
+          {"field": "value_usd_full", "type": "quantitative", "title": "Total value", "format": "$~s"},
           {"field": "trade_category", "type": "nominal", "title": "Category"}
         ]
       }
@@ -154,10 +157,10 @@
     {
       "data": {
         "values": [
-          {"partner": "Vietnam - the bulk king at $2.58/kg", "x": 80000, "y": 1.97},
+          {"partner": "Vietnam — bulk king at $2.58/kg", "x": 80000, "y": 1.97},
           {"partner": "Brazil", "x": 45000000, "y": 3.8},
           {"partner": "Ethiopia", "x": 499999, "y": 3.5},
-          {"partner": "Jamaica - luxury from the Blue Mountains at $62/kg", "x": 5000, "y": 48},
+          {"partner": "Jamaica — luxury at $62/kg", "x": 5000, "y": 48},
           {"partner": "Yemen", "x": 8000, "y": 22},
           {"partner": "Colombia", "x": 20000000, "y": 6.5},
           {"partner": "Kenya", "x": 3500000, "y": 7.5}
@@ -202,6 +205,6 @@
   ],
   "config": {
     "view": {"stroke": null},
-    "background": "white"
+    "background": "transparent"
   }
 }
