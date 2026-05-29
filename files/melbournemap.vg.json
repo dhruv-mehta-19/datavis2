@@ -3,24 +3,31 @@
   "title": {
     "text": "Where Melbourne Drinks",
     "subtitle": [
-      "Every cafe and restaurant in the City of Melbourne",
+      "Every cafe and restaurant in the City of Melbourne.",
       "Click a neighbourhood or size category in the legend to filter. Click again to deselect, hold Shift for multiple.",
-      "Note: data covers City of Melbourne council only — St Kilda, Richmond and most of South Yarra are in other councils."
+      "Note: data covers City of Melbourne council only \u2014 St Kilda, Richmond and most of South Yarra are in other councils."
     ],
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 12,
     "subtitleColor": "#666",
-    "color": "#3C1F0F"
+    "color": "#3C1F0F",
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Georgia, Times New Roman, serif"
   },
-  "width": 560,
-  "height": 480,
-  "projection": {"type": "mercator"},
+  "width": 780,
+  "height": 600,
+  "projection": {
+    "type": "mercator"
+  },
   "layer": [
     {
       "data": {
         "url": "https://raw.githubusercontent.com/dhruv-mehta-19/datavis2/refs/heads/main/small-areas-for-census-of-land-use-and-employment-clue.geojson",
-        "format": {"type": "json", "property": "features"}
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
       },
       "mark": {
         "type": "geoshape",
@@ -30,7 +37,11 @@
       },
       "encoding": {
         "tooltip": [
-          {"field": "properties.featurenam", "type": "nominal", "title": "Neighbourhood"}
+          {
+            "field": "properties.featurenam",
+            "type": "nominal",
+            "title": "Neighbourhood"
+          }
         ]
       }
     },
@@ -41,24 +52,43 @@
       "transform": [
         {
           "aggregate": [
-            {"op": "sum", "field": "Number of seats", "as": "total_seats"}
+            {
+              "op": "sum",
+              "field": "Number of seats",
+              "as": "total_seats"
+            }
           ],
-          "groupby": ["Trading name", "Longitude", "Latitude", "CLUE small area"]
+          "groupby": [
+            "Trading name",
+            "Longitude",
+            "Latitude",
+            "CLUE small area"
+          ]
         },
         {
-          "calculate": "datum.total_seats < 50 ? 'Small (< 50 seats)' : datum.total_seats < 150 ? 'Medium (50–149)' : datum.total_seats < 300 ? 'Large (150–299)' : 'Very Large (300+)'",
+          "calculate": "datum.total_seats < 80 ? 'Small (< 80 seats)' : datum.total_seats < 200 ? 'Medium (80\u2013199)' : 'Large (200+)'",
           "as": "size_category"
         }
       ],
       "params": [
         {
           "name": "area_select",
-          "select": {"type": "point", "fields": ["CLUE small area"]},
+          "select": {
+            "type": "point",
+            "fields": [
+              "CLUE small area"
+            ]
+          },
           "bind": "legend"
         },
         {
           "name": "size_select",
-          "select": {"type": "point", "fields": ["size_category"]},
+          "select": {
+            "type": "point",
+            "fields": [
+              "size_category"
+            ]
+          },
           "bind": "legend"
         }
       ],
@@ -68,33 +98,65 @@
         "strokeWidth": 0.5
       },
       "encoding": {
-        "longitude": {"field": "Longitude", "type": "quantitative"},
-        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
         "size": {
           "field": "total_seats",
           "type": "quantitative",
-          "scale": {"range": [10, 350], "domain": [10, 500]},
+          "scale": {
+            "range": [
+              10,
+              350
+            ],
+            "domain": [
+              10,
+              500
+            ]
+          },
           "legend": {
             "title": "Total seats",
             "orient": "right",
             "offset": 10,
-            "values": [20, 50, 100, 200, 500]
+            "values": [
+              50,
+              100,
+              200,
+              500
+            ]
           }
         },
         "color": {
           "field": "size_category",
           "type": "nominal",
           "scale": {
-            "domain": ["Small (< 50 seats)", "Medium (50–149)", "Large (150–299)", "Very Large (300+)"],
-            "range": ["#D89651", "#B8702F", "#6B3410", "#3C1F0F"]
+            "domain": [
+              "Small (< 80 seats)",
+              "Medium (80\u2013199)",
+              "Large (200+)"
+            ],
+            "range": [
+              "#D89651",
+              "#6B3410",
+              "#3C1F0F"
+            ]
           }
         },
         "opacity": {
           "condition": {
             "test": {
               "and": [
-                {"param": "area_select"},
-                {"param": "size_select"}
+                {
+                  "param": "area_select"
+                },
+                {
+                  "param": "size_select"
+                }
               ]
             },
             "value": 0.75
@@ -102,10 +164,26 @@
           "value": 0.08
         },
         "tooltip": [
-          {"field": "Trading name", "type": "nominal", "title": "Venue"},
-          {"field": "total_seats", "type": "quantitative", "title": "Seats"},
-          {"field": "size_category", "type": "nominal", "title": "Size"},
-          {"field": "CLUE small area", "type": "nominal", "title": "Area"}
+          {
+            "field": "Trading name",
+            "type": "nominal",
+            "title": "Venue"
+          },
+          {
+            "field": "total_seats",
+            "type": "quantitative",
+            "title": "Seats"
+          },
+          {
+            "field": "size_category",
+            "type": "nominal",
+            "title": "Size"
+          },
+          {
+            "field": "CLUE small area",
+            "type": "nominal",
+            "title": "Area"
+          }
         ]
       }
     },
@@ -116,15 +194,24 @@
       "transform": [
         {
           "aggregate": [
-            {"op": "sum", "field": "Number of seats", "as": "total_seats"}
+            {
+              "op": "sum",
+              "field": "Number of seats",
+              "as": "total_seats"
+            }
           ],
-          "groupby": ["CLUE small area"]
+          "groupby": [
+            "CLUE small area"
+          ]
         },
         {
           "filter": "datum['CLUE small area'] != null"
         }
       ],
-      "mark": {"type": "point", "opacity": 0},
+      "mark": {
+        "type": "point",
+        "opacity": 0
+      },
       "encoding": {
         "color": {
           "field": "CLUE small area",
@@ -136,23 +223,77 @@
             "labelLimit": 150,
             "symbolType": "square"
           },
-          "scale": {"range": ["#6B3410"]}
+          "scale": {
+            "range": [
+              "#6B3410"
+            ]
+          }
         }
       }
     },
     {
       "data": {
         "values": [
-          {"lon": 144.9633, "lat": -37.8136, "label": "CBD", "size": 16},
-          {"lon": 144.9710, "lat": -37.8040, "label": "Carlton", "size": 14},
-          {"lon": 144.9450, "lat": -37.8236, "label": "Docklands", "size": 14},
-          {"lon": 144.9647, "lat": -37.8260, "label": "Southbank", "size": 14},
-          {"lon": 144.9526, "lat": -37.8005, "label": "North Melbourne", "size": 12},
-          {"lon": 144.9844, "lat": -37.8181, "label": "East Melbourne", "size": 12},
-          {"lon": 144.9460, "lat": -37.8100, "label": "West Melbourne", "size": 12},
-          {"lon": 144.9190, "lat": -37.8250, "label": "Port Melbourne", "size": 11},
-          {"lon": 144.9533, "lat": -37.7860, "label": "Parkville", "size": 12},
-          {"lon": 144.9300, "lat": -37.7950, "label": "Kensington", "size": 12}
+          {
+            "lon": 144.9633,
+            "lat": -37.8136,
+            "label": "CBD",
+            "size": 16
+          },
+          {
+            "lon": 144.971,
+            "lat": -37.804,
+            "label": "Carlton",
+            "size": 14
+          },
+          {
+            "lon": 144.945,
+            "lat": -37.8236,
+            "label": "Docklands",
+            "size": 14
+          },
+          {
+            "lon": 144.9647,
+            "lat": -37.826,
+            "label": "Southbank",
+            "size": 14
+          },
+          {
+            "lon": 144.9526,
+            "lat": -37.8005,
+            "label": "North Melbourne",
+            "size": 12
+          },
+          {
+            "lon": 144.9844,
+            "lat": -37.8181,
+            "label": "East Melbourne",
+            "size": 12
+          },
+          {
+            "lon": 144.946,
+            "lat": -37.81,
+            "label": "West Melbourne",
+            "size": 12
+          },
+          {
+            "lon": 144.919,
+            "lat": -37.825,
+            "label": "Port Melbourne",
+            "size": 11
+          },
+          {
+            "lon": 144.9533,
+            "lat": -37.786,
+            "label": "Parkville",
+            "size": 12
+          },
+          {
+            "lon": 144.93,
+            "lat": -37.795,
+            "label": "Kensington",
+            "size": 12
+          }
         ]
       },
       "layer": [
@@ -165,10 +306,23 @@
             "fill": "white"
           },
           "encoding": {
-            "longitude": {"field": "lon", "type": "quantitative"},
-            "latitude": {"field": "lat", "type": "quantitative"},
-            "text": {"field": "label"},
-            "size": {"field": "size", "type": "quantitative", "scale": null, "legend": null}
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            },
+            "size": {
+              "field": "size",
+              "type": "quantitative",
+              "scale": null,
+              "legend": null
+            }
           }
         },
         {
@@ -178,17 +332,33 @@
             "color": "#3C1F0F"
           },
           "encoding": {
-            "longitude": {"field": "lon", "type": "quantitative"},
-            "latitude": {"field": "lat", "type": "quantitative"},
-            "text": {"field": "label"},
-            "size": {"field": "size", "type": "quantitative", "scale": null, "legend": null}
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            },
+            "size": {
+              "field": "size",
+              "type": "quantitative",
+              "scale": null,
+              "legend": null
+            }
           }
         }
       ]
     }
   ],
   "config": {
-    "view": {"stroke": null},
-    "background": "transparent"
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "font": "Georgia, Times New Roman, serif"
   }
 }
