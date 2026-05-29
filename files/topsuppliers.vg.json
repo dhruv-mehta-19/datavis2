@@ -9,8 +9,8 @@
     "subtitleColor": "#666",
     "color": "#3C1F0F"
   },
-  "width": 600,
-  "height": 400,
+  "width": 560,
+  "height": 420,
   "data": {
     "values": [
       {"country": "Brazil", "value": 112085, "region": "Latin America"},
@@ -43,24 +43,45 @@
     }
   ],
   "transform": [
-    {"filter": "Region == 'All' || datum.region == Region"}
+    {"filter": "Region == 'All' || datum.region == Region"},
+    {"calculate": "datum.value * 1000", "as": "value_usd"}
   ],
   "layer": [
     {
       "mark": {"type": "bar", "cornerRadiusEnd": 2},
       "encoding": {
-        "y": {"field": "country", "type": "nominal", "sort": "-x", "title": null,
-              "axis": {"labelFontSize": 12, "labelColor": "#3C1F0F"}},
-        "x": {"field": "value", "type": "quantitative", "title": "Import value (USD thousands)",
-              "axis": {"titleColor": "#3C1F0F", "labelColor": "#666", "grid": false}},
-        "color": {"field": "region", "type": "nominal",
-                  "scale": {"domain": ["Latin America", "Asia-Pacific", "Africa"],
-                            "range": ["#6B3410", "#B8702F", "#D89651"]},
-                  "legend": {"title": "Region", "orient": "bottom-right"}},
+        "y": {
+          "field": "country",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {"labelFontSize": 12, "labelColor": "#3C1F0F"}
+        },
+        "x": {
+          "field": "value_usd",
+          "type": "quantitative",
+          "title": "Import value (USD)",
+          "axis": {
+            "titleColor": "#3C1F0F",
+            "labelColor": "#666",
+            "grid": false,
+            "format": "~s",
+            "labelExpr": "replace(datum.label, 'G', 'B')"
+          }
+        },
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Latin America", "Asia-Pacific", "Africa"],
+            "range": ["#6B3410", "#B8702F", "#D89651"]
+          },
+          "legend": {"title": "Region", "orient": "bottom-right"}
+        },
         "tooltip": [
           {"field": "country", "type": "nominal", "title": "Country"},
           {"field": "region", "type": "nominal", "title": "Region"},
-          {"field": "value", "type": "quantitative", "title": "Value (USD '000)", "format": ","}
+          {"field": "value_usd", "type": "quantitative", "title": "Value (USD)", "format": "$~s"}
         ]
       }
     },
@@ -68,10 +89,14 @@
       "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 10, "color": "#3C1F0F"},
       "encoding": {
         "y": {"field": "country", "type": "nominal", "sort": "-x"},
-        "x": {"field": "value", "type": "quantitative"},
-        "text": {"field": "value", "type": "quantitative", "format": ","}
+        "x": {"field": "value_usd", "type": "quantitative"},
+        "text": {"field": "value_usd", "type": "quantitative", "format": "~s"}
       }
     }
   ],
-  "config": {"view": {"stroke": null}, "background": "white", "axis": {"domainColor": "#D89651"}}
+  "config": {
+    "view": {"stroke": null},
+    "background": "transparent",
+    "axis": {"domainColor": "#D89651"}
+  }
 }
