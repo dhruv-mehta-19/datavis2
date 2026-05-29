@@ -7,31 +7,58 @@
     "fontSize": 20,
     "subtitleFontSize": 12,
     "subtitleColor": "#666",
-    "color": "#3C1F0F"
+    "color": "#3C1F0F",
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Georgia, Times New Roman, serif"
   },
-  "width": 560,
+  "width": 480,
   "height": 480,
   "data": {
     "url": "https://raw.githubusercontent.com/dhruv-mehta-19/datavis2/refs/heads/main/coffee_imports_2023.csv"
   },
   "transform": [
-    {"calculate": "datum.value_usd_thousands * 1000", "as": "value_usd_full"},
-    {"calculate": "datum.value_usd_full / datum.quantity", "as": "price_per_kg"},
-    {"calculate": "datum.value_usd_full < 1000000 ? 'Small (< $1M)' : datum.value_usd_full < 10000000 ? 'Mid ($1M–$10M)' : datum.value_usd_full < 50000000 ? 'Large ($10M–$50M)' : 'Very Large ($50M+)'", "as": "trade_category"},
-    {"filter": "datum.quantity > 1000"},
-    {"filter": "datum.partner != 'Australia'"}
+    {
+      "calculate": "datum.value_usd_thousands * 1000",
+      "as": "value_usd_full"
+    },
+    {
+      "calculate": "datum.value_usd_full / datum.quantity",
+      "as": "price_per_kg"
+    },
+    {
+      "calculate": "datum.value_usd_full < 1000000 ? 'Small (< $1M)' : datum.value_usd_full < 10000000 ? 'Mid ($1M\u2013$10M)' : datum.value_usd_full < 50000000 ? 'Large ($10M\u2013$50M)' : 'Very Large ($50M+)'",
+      "as": "trade_category"
+    },
+    {
+      "filter": "datum.quantity > 1000"
+    },
+    {
+      "filter": "datum.partner != 'Australia'"
+    }
   ],
   "layer": [
     {
-      "data": {"values": [{"y": 5.67}]},
+      "data": {
+        "values": [
+          {
+            "y": 5.67
+          }
+        ]
+      },
       "mark": {
         "type": "rule",
         "stroke": "#999",
         "strokeWidth": 1,
-        "strokeDash": [4, 3]
+        "strokeDash": [
+          4,
+          3
+        ]
       },
       "encoding": {
-        "y": {"field": "y", "type": "quantitative"}
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        }
       }
     },
     {
@@ -41,13 +68,20 @@
           "select": {
             "type": "point",
             "on": "pointerover",
-            "fields": ["partner"],
+            "fields": [
+              "partner"
+            ],
             "clear": "pointerout"
           }
         },
         {
           "name": "category_select",
-          "select": {"type": "point", "fields": ["trade_category"]},
+          "select": {
+            "type": "point",
+            "fields": [
+              "trade_category"
+            ]
+          },
           "bind": "legend"
         }
       ],
@@ -61,11 +95,21 @@
         "x": {
           "field": "quantity",
           "type": "quantitative",
-          "title": "Quantity imported (kg — log scale)",
-          "scale": {"type": "log"},
+          "title": "Quantity imported (kg \u2014 log scale)",
+          "scale": {
+            "type": "log"
+          },
           "axis": {
             "format": "~s",
-            "values": [100, 1000, 10000, 100000, 1000000, 10000000, 100000000],
+            "values": [
+              100,
+              1000,
+              10000,
+              100000,
+              1000000,
+              10000000,
+              100000000
+            ],
             "grid": true,
             "gridColor": "#f0f0f0",
             "gridOpacity": 0.6,
@@ -77,10 +121,24 @@
           "field": "price_per_kg",
           "type": "quantitative",
           "title": "Price per kg (USD)",
-          "scale": {"type": "log", "domain": [2, 70]},
+          "scale": {
+            "type": "log",
+            "domain": [
+              2,
+              70
+            ]
+          },
           "axis": {
             "format": "$,.2f",
-            "values": [2, 3, 5, 8, 15, 30, 60],
+            "values": [
+              2,
+              3,
+              5,
+              8,
+              15,
+              30,
+              60
+            ],
             "grid": true,
             "gridColor": "#f0f0f0",
             "gridOpacity": 0.6,
@@ -91,15 +149,30 @@
         "size": {
           "field": "value_usd_full",
           "type": "quantitative",
-          "scale": {"range": [40, 600]},
+          "scale": {
+            "range": [
+              40,
+              600
+            ]
+          },
           "legend": null
         },
         "color": {
           "field": "trade_category",
           "type": "nominal",
           "scale": {
-            "domain": ["Small (< $1M)", "Mid ($1M–$10M)", "Large ($10M–$50M)", "Very Large ($50M+)"],
-            "range": ["#D89651", "#B8702F", "#6B3410", "#3C1F0F"]
+            "domain": [
+              "Small (< $1M)",
+              "Mid ($1M\u2013$10M)",
+              "Large ($10M\u2013$50M)",
+              "Very Large ($50M+)"
+            ],
+            "range": [
+              "#D89651",
+              "#B8702F",
+              "#6B3410",
+              "#3C1F0F"
+            ]
           },
           "legend": {
             "title": "Click trade category to filter",
@@ -111,8 +184,13 @@
           "condition": {
             "test": {
               "and": [
-                {"param": "hover", "empty": true},
-                {"param": "category_select"}
+                {
+                  "param": "hover",
+                  "empty": true
+                },
+                {
+                  "param": "category_select"
+                }
               ]
             },
             "value": 0.75
@@ -120,50 +198,175 @@
           "value": 0.1
         },
         "tooltip": [
-          {"field": "partner", "type": "nominal", "title": "Country"},
-          {"field": "price_per_kg", "type": "quantitative", "title": "Price per kg", "format": "$,.2f"},
-          {"field": "quantity", "type": "quantitative", "title": "Quantity (kg)", "format": "~s"},
-          {"field": "value_usd_full", "type": "quantitative", "title": "Total value", "format": "$~s"},
-          {"field": "trade_category", "type": "nominal", "title": "Category"}
+          {
+            "field": "partner",
+            "type": "nominal",
+            "title": "Country"
+          },
+          {
+            "field": "price_per_kg",
+            "type": "quantitative",
+            "title": "Price per kg",
+            "format": "$,.2f"
+          },
+          {
+            "field": "quantity",
+            "type": "quantitative",
+            "title": "Quantity (kg)",
+            "format": "~s"
+          },
+          {
+            "field": "value_usd_full",
+            "type": "quantitative",
+            "title": "Total value",
+            "format": "$~s"
+          },
+          {
+            "field": "trade_category",
+            "type": "nominal",
+            "title": "Category"
+          }
         ]
       }
     },
     {
       "data": {
         "values": [
-          {"x_anchor": 1220, "y_anchor": 61.74, "x_label": 100000, "y_label": 50},
-          {"x_anchor": 12459700, "y_anchor": 2.58, "x_label": 800000, "y_label": 2.1},
-          {"x_anchor": 100, "y_anchor": 5.67, "x_label": 30, "y_label": 5.67},
-          {"x_anchor": 1879230, "y_anchor": 6.46, "x_label": 3500000, "y_label": 7.5},
-          {"x_anchor": 5496150, "y_anchor": 5.34, "x_label": 750000, "y_label": 3.8},
-          {"x_anchor": 3460, "y_anchor": 18.96, "x_label": 8000, "y_label": 22},
-          {"x_anchor": 10989600, "y_anchor": 5.79, "x_label": 20000000, "y_label": 6.5},
-          {"x_anchor": 25092500, "y_anchor": 4.47, "x_label": 45000000, "y_label": 3.8}
+          {
+            "x_anchor": 1220,
+            "y_anchor": 61.74,
+            "x_label": 100000,
+            "y_label": 50
+          },
+          {
+            "x_anchor": 12459700,
+            "y_anchor": 2.58,
+            "x_label": 800000,
+            "y_label": 2.1
+          },
+          {
+            "x_anchor": 100,
+            "y_anchor": 5.67,
+            "x_label": 30,
+            "y_label": 5.67
+          },
+          {
+            "x_anchor": 1879230,
+            "y_anchor": 6.46,
+            "x_label": 3500000,
+            "y_label": 7.5
+          },
+          {
+            "x_anchor": 5496150,
+            "y_anchor": 5.34,
+            "x_label": 750000,
+            "y_label": 3.8
+          },
+          {
+            "x_anchor": 3460,
+            "y_anchor": 18.96,
+            "x_label": 8000,
+            "y_label": 22
+          },
+          {
+            "x_anchor": 10989600,
+            "y_anchor": 5.79,
+            "x_label": 20000000,
+            "y_label": 6.5
+          },
+          {
+            "x_anchor": 25092500,
+            "y_anchor": 4.47,
+            "x_label": 45000000,
+            "y_label": 3.8
+          }
         ]
       },
       "mark": {
         "type": "rule",
         "stroke": "#5C2E0C",
         "strokeWidth": 0.8,
-        "strokeDash": [3, 2]
+        "strokeDash": [
+          3,
+          2
+        ]
       },
       "encoding": {
-        "x": {"field": "x_anchor", "type": "quantitative", "scale": {"type": "log"}},
-        "x2": {"field": "x_label"},
-        "y": {"field": "y_anchor", "type": "quantitative", "scale": {"type": "log"}},
-        "y2": {"field": "y_label"}
+        "x": {
+          "field": "x_anchor",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "x2": {
+          "field": "x_label"
+        },
+        "y": {
+          "field": "y_anchor",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "y2": {
+          "field": "y_label"
+        }
       }
     },
     {
       "data": {
         "values": [
-          {"partner": "Vietnam — bulk king at $2.58/kg", "x": 80000, "y": 1.97},
-          {"partner": "Brazil", "x": 45000000, "y": 3.8},
-          {"partner": "Ethiopia", "x": 499999, "y": 3.5},
-          {"partner": "Jamaica — luxury at $62/kg", "x": 5000, "y": 48},
-          {"partner": "Yemen", "x": 8000, "y": 22},
-          {"partner": "Colombia", "x": 20000000, "y": 6.5},
-          {"partner": "Kenya", "x": 3500000, "y": 7.5}
+          {
+            "partner": "Vietnam \u2014 bulk king at $2.58/kg",
+            "x": 80000,
+            "y": 1.97
+          },
+          {
+            "partner": "Brazil",
+            "x": 45000000,
+            "y": 3.8
+          },
+          {
+            "partner": "Ethiopia",
+            "x": 499999,
+            "y": 3.5
+          },
+          {
+            "partner": "Jamaica \u2014 luxury at $62/kg",
+            "x": 5000,
+            "y": 48
+          },
+          {
+            "partner": "Yemen",
+            "x": 8000,
+            "y": 22
+          },
+          {
+            "partner": "Colombia",
+            "x": 20000000,
+            "y": 6.5
+          },
+          {
+            "partner": "Kenya",
+            "x": 3500000,
+            "y": 7.5
+          },
+          {
+            "partner": "Honduras",
+            "x": 700000,
+            "y": 4.8
+          },
+          {
+            "partner": "PNG",
+            "x": 4500000,
+            "y": 4.2
+          },
+          {
+            "partner": "India",
+            "x": 2000000,
+            "y": 5.1
+          }
         ]
       },
       "mark": {
@@ -176,15 +379,33 @@
         "color": "#3C1F0F"
       },
       "encoding": {
-        "x": {"field": "x", "type": "quantitative", "scale": {"type": "log"}},
-        "y": {"field": "y", "type": "quantitative", "scale": {"type": "log"}},
-        "text": {"field": "partner"}
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "text": {
+          "field": "partner"
+        }
       }
     },
     {
       "data": {
         "values": [
-          {"x": 30, "y": 5.67, "label": "Median: $5.67/kg"}
+          {
+            "x": 30,
+            "y": 5.67,
+            "label": "Median: $5.67/kg"
+          }
         ]
       },
       "mark": {
@@ -197,14 +418,74 @@
         "color": "#5C2E0C"
       },
       "encoding": {
-        "x": {"field": "x", "type": "quantitative", "scale": {"type": "log"}},
-        "y": {"field": "y", "type": "quantitative", "scale": {"type": "log"}},
-        "text": {"field": "label"}
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 200,
+            "y": 38,
+            "t": "Premium / specialty zone"
+          },
+          {
+            "x": 200000000,
+            "y": 2.3,
+            "t": "High-volume commodity zone"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontStyle": "italic",
+        "fontSize": 10.5,
+        "color": "#9a8e7c",
+        "opacity": 0.85
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "type": "log"
+          }
+        },
+        "text": {
+          "field": "t"
+        }
       }
     }
   ],
   "config": {
-    "view": {"stroke": null},
-    "background": "transparent"
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "font": "Georgia, Times New Roman, serif"
   }
 }
