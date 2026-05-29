@@ -2,15 +2,15 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Where Melbourne's Cafes Cluster",
-    "subtitle": "Number of cafes by neighbourhood in the city of Melbourne, 2024",
+    "subtitle": "Number of cafes by neighbourhood in the city of Melbourne",
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 12,
     "subtitleColor": "#666",
     "color": "#3C1F0F"
   },
-  "width": 850,
-  "height": 450,
+  "width": 560,
+  "height": 480,
   "data": {
     "values": [
       {"neighbourhood": "Melbourne (CBD)", "cafe_count": 1298, "x": 0.0000, "y": 0.0000, "x2": 0.5331, "y2": 1.0000},
@@ -139,6 +139,6 @@
   ],
   "config": {
     "view": {"stroke": null},
-    "background": "white"
+    "background": "transparent"
   }
 }
