@@ -4,177 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Heart of Coffee — Melbourne's Café Culture, From Bean to Cup</title>
-
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
 <style>
   :root {
-    --ink: #3C1F0F;
+    --ink:   #3C1F0F;
     --brown: #6B3410;
-    --tan: #B8702F;
+    --tan:   #B8702F;
     --cream: #F5F1E8;
     --paper: #FAF7F1;
-    --body-font: Georgia, 'Times New Roman', serif;
+    --f: Georgia, 'Times New Roman', serif;
   }
   * { box-sizing: border-box; }
+
   body {
-    font-family: var(--body-font);
+    font-family: var(--f);
     color: var(--ink);
     background: var(--paper);
-    margin: 0;
-    line-height: 1.7;
+    margin: 0; line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  .col  { max-width: 800px;  margin: 0 auto; padding: 0 24px; }
-  .wide { max-width: 1260px; margin: 0 auto; padding: 0 32px; }
+
+  .col  { max-width: 780px;  margin: 0 auto; padding: 0 24px; }
+  .wide { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
 
   /* ── Hero ── */
   header.hero {
     text-align: center;
-    padding: 86px 24px 50px;
+    padding: 64px 24px 40px;
     background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
     border-bottom: 1px solid #e7ddca;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
-  header.hero h1   { font-size: 50px; font-weight: 500; margin: 0 0 12px; letter-spacing: -0.8px; font-family: var(--body-font); }
-  header.hero .sub { font-size: 21px; color: var(--brown); font-style: italic; margin: 0 0 18px; font-family: var(--body-font); }
-  header.hero .byline { font-size: 12px; color: #9a8e7c; letter-spacing: 1.4px; text-transform: uppercase; font-family: var(--body-font); }
+  header.hero h1     { font-size: 46px; font-weight: 500; margin: 0 0 10px; letter-spacing: -0.8px; }
+  header.hero .sub   { font-size: 20px; color: var(--brown); font-style: italic; margin: 0 0 14px; }
+  header.hero .byline{ font-size: 11px; color: #9a8e7c; letter-spacing: 1.4px; text-transform: uppercase; }
 
   /* ── Section headings ── */
   h2 {
-    font-size: 30px; font-weight: 500; margin: 70px 0 8px;
+    font-size: 28px; font-weight: 500; margin: 52px 0 6px;
     text-align: center; letter-spacing: -0.4px;
-    font-family: var(--body-font);
   }
   h2 .kicker {
-    display: block; font-size: 12px; font-style: italic; color: var(--tan);
-    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;
+    display: block; font-size: 11px; font-style: italic; color: var(--tan);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px;
   }
   h2 + p.intro {
-    text-align: center; max-width: 640px; margin: 0 auto 30px; font-size: 17px;
-    font-family: var(--body-font);
+    text-align: center; max-width: 600px; margin: 0 auto 22px; font-size: 16px;
   }
+  .section-head { text-align: center; margin: 36px 0 4px; }
+  .section-head h3 { font-size: 19px; color: var(--brown); margin: 0 0 8px; font-weight: 500; }
 
-  .section-head { text-align: center; margin: 50px 0 6px; }
-  .section-head h3 {
-    font-size: 20px; color: var(--brown); margin: 0 0 10px; font-weight: 500;
-    font-family: var(--body-font);
-  }
-
-  /* ── Body text ── */
-  p { font-size: 17px; margin: 0 0 20px; font-family: var(--body-font); }
-  p.lede { font-size: 19px; color: #4a2c16; }
+  /* ── Text ── */
+  p { font-size: 16px; margin: 0 0 16px; }
+  p.lede { font-size: 18px; color: #4a2c16; }
   p b, p strong { color: var(--brown); }
-
-  /* ── Chart containers ── */
-
-  /* Single full-width chart — truly centred */
-  .chart-single {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 20px 0 14px;
-  }
-
-  /* Equal-pair: both charts flex equally */
-  .chart-pair {
-    display: flex; gap: 40px;
-    justify-content: center; align-items: flex-start;
-    margin: 20px auto 14px;
-    flex-wrap: wrap;
-  }
-  .chart-pair > div {
-    flex: 1 1 0; min-width: 0;
-    display: flex; justify-content: center;
-  }
-
-  /* Dominant-pair: left chart is large, right is secondary */
-  .chart-pair-dominant {
-    display: flex; gap: 40px;
-    justify-content: flex-start; align-items: flex-start;
-    margin: 20px auto 14px;
-    flex-wrap: wrap;
-  }
-  .chart-pair-dominant .chart-main {
-    flex: 0 0 auto;
-    display: flex; justify-content: center;
-  }
-  .chart-pair-dominant .chart-secondary {
-    flex: 1 1 380px; min-width: 0;
-    display: flex; justify-content: center;
-  }
-
-  /* World map + stat notes */
-  .map-with-notes {
-    display: flex; gap: 36px;
-    justify-content: center; align-items: flex-start;
-    margin: 30px auto 14px;
-    flex-wrap: wrap;
-  }
-  .map-with-notes .map-box {
-    flex: 1 1 700px; max-width: 860px;
-    display: flex; justify-content: center;
-  }
-  .map-with-notes .notes {
-    flex: 0 1 260px; max-width: 280px;
-    padding-top: 20px;
-  }
-  .map-with-notes .notes h4 {
-    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--tan); font-weight: normal; margin: 0 0 12px;
-    font-family: var(--body-font);
-  }
-  .map-with-notes .stat { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid #e7ddca; }
-  .map-with-notes .stat:last-child { border-bottom: none; }
-  .map-with-notes .stat .big { font-size: 34px; color: var(--brown); font-weight: 500; line-height: 1.1; margin: 0 0 4px; font-family: var(--body-font); }
-  .map-with-notes .stat p  { font-size: 14.5px; color: #5a4030; margin: 0; line-height: 1.5; }
-
-  /* Make all vega SVG backgrounds transparent */
-  .chart-single > div, .chart-pair > div > div,
-  .chart-pair-dominant .chart-main > div, .chart-pair-dominant .chart-secondary > div,
-  .map-with-notes .map-box > div,
-  canvas, svg { background: transparent !important; }
 
   /* ── Callout boxes ── */
   .readwhy {
-    font-size: 14.5px; color: #5a4030; background: var(--cream);
-    border-left: 3px solid var(--tan); padding: 14px 18px;
-    margin: 6px auto 32px; max-width: 1100px; border-radius: 0 4px 4px 0;
-    font-family: var(--body-font);
+    font-size: 13.5px; color: #5a4030; background: var(--cream);
+    border-left: 3px solid var(--tan); padding: 12px 16px;
+    margin: 4px 0 24px; border-radius: 0 4px 4px 0;
   }
   .readwhy strong { color: var(--brown); }
-
   .tip {
-    font-size: 14.5px; color: var(--brown); background: var(--cream);
-    border-left: 3px solid var(--tan); padding: 11px 16px;
-    margin: 0 auto 18px; max-width: 1100px; border-radius: 0 4px 4px 0;
-    text-align: center; font-family: var(--body-font);
+    font-size: 13.5px; color: var(--brown); background: var(--cream);
+    border-left: 3px solid var(--tan); padding: 10px 16px;
+    margin: 0 0 14px; border-radius: 0 4px 4px 0; text-align: center;
   }
 
-  .divider { text-align: center; color: var(--tan); margin: 60px 0 0; font-size: 18px; letter-spacing: 8px; }
+  /* ── Chart layout ── */
 
-  /* ── Footer ── */
+  /* Equal pair — both children grow equally */
+  .chart-pair {
+    display: flex; gap: 32px;
+    align-items: flex-start;
+    margin: 12px 0 0;
+    flex-wrap: nowrap;
+  }
+  .chart-pair > div {
+    flex: 1 1 0; min-width: 0;
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  /* Dominant pair — first child is larger, second is secondary */
+  .chart-pair-dominant {
+    display: flex; gap: 28px;
+    align-items: flex-start;
+    margin: 12px 0 0;
+  }
+  .chart-pair-dominant .chart-main      { flex: 0 0 auto; }
+  .chart-pair-dominant .chart-secondary { flex: 1 1 0; min-width: 0; display: flex; justify-content: center; }
+
+  /* Single centred chart */
+  .chart-center {
+    display: flex; justify-content: center;
+    margin: 12px 0 0;
+  }
+
+  /* World map with stat notes */
+  .map-with-notes {
+    display: flex; gap: 32px;
+    align-items: flex-start;
+    margin: 20px 0 0;
+  }
+  .map-with-notes .map-box { flex: 1 1 auto; min-width: 0; display: flex; justify-content: center; }
+  .map-with-notes .notes   { flex: 0 0 240px; padding-top: 16px; }
+  .map-with-notes .notes h4 {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--tan); font-weight: normal; margin: 0 0 10px;
+  }
+  .map-with-notes .stat { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #e7ddca; }
+  .map-with-notes .stat:last-child { border-bottom: none; }
+  .map-with-notes .stat .big { font-size: 30px; color: var(--brown); font-weight: 500; line-height: 1.1; margin: 0 0 3px; }
+  .map-with-notes .stat p    { font-size: 13px; color: #5a4030; margin: 0; line-height: 1.45; }
+
+  /* Make vega SVG backgrounds transparent */
+  .vega-embed, .vega-embed canvas, .vega-embed svg { background: transparent !important; }
+
+  /* ── Vega dropdown styling ── */
+  .vega-bind {
+    font-family: var(--f) !important;
+    font-size: 13px !important;
+    color: var(--ink) !important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .vega-bind label { font-family: var(--f) !important; color: var(--ink) !important; }
+  .vega-bind select, .vega-bind input {
+    font-family: var(--f) !important;
+    font-size: 12px !important;
+    border: 1px solid #D89651;
+    border-radius: 3px;
+    padding: 2px 6px;
+    background: var(--cream);
+    color: var(--ink);
+  }
+  /* Keep bind controls inside the chart column */
+  .chart-pair > div .vega-embed { width: 100%; }
+
+  /* ── Misc ── */
+  .divider { text-align: center; color: var(--tan); margin: 48px 0 0; font-size: 16px; letter-spacing: 8px; }
+
   footer.sources {
-    margin-top: 90px; background: var(--cream); border-top: 1px solid #e7ddca;
-    padding: 40px 0 60px;
+    margin-top: 72px; background: var(--cream); border-top: 1px solid #e7ddca;
+    padding: 36px 0 52px;
   }
-  footer.sources h3 { color: var(--ink); margin-top: 0; font-family: var(--body-font); }
-  footer.sources ul  { padding-left: 20px; margin: 0 0 18px; }
-  footer.sources li  { font-size: 14px; margin-bottom: 7px; font-family: var(--body-font); }
+  footer.sources h3  { color: var(--ink); margin-top: 0; }
+  footer.sources ul  { padding-left: 20px; margin: 0 0 14px; }
+  footer.sources li  { font-size: 13px; margin-bottom: 6px; }
   footer.sources a   { color: var(--brown); }
-  .note { font-size: 13px; color: #7c7060; font-family: var(--body-font); }
+  .note { font-size: 12px; color: #7c7060; }
 
-  @media (max-width: 900px) {
-    .chart-pair, .chart-pair-dominant, .map-with-notes { gap: 24px; flex-direction: column; }
-    .map-with-notes .notes { padding-top: 0; }
-    h2 { font-size: 26px; }
-    header.hero h1 { font-size: 38px; }
+  @media (max-width: 860px) {
+    .chart-pair, .chart-pair-dominant, .map-with-notes { flex-direction: column; gap: 20px; }
+    header.hero h1 { font-size: 34px; }
+    h2 { font-size: 23px; }
   }
 </style>
 </head>
-
 <body>
 
 <header class="hero">
@@ -187,7 +178,7 @@
   <p class="lede">Melbourne isn't where Australians drink the most coffee — and this isn't a story about being the best. It's a story about a <em>culture</em>: how a city turned coffee into a daily ritual, a livelihood, and an identity. To understand it, you have to follow the bean — from farms half a world away, through the laneways where it's poured, to the cup you pay five dollars for.</p>
 </div>
 
-<!-- ════════════════ PART ONE ════════════════ -->
+<!-- ═══════════════════════════════ PART ONE ═══════════════════════════════ -->
 <h2><span class="kicker">Part One — The World in Your Cup</span>The Beans Behind the Ritual</h2>
 <p class="intro">Every flat white begins somewhere far from Lygon Street. Before a bean is ground in Carlton, it travels through a global supply network — one that turns out to be far narrower than it looks.</p>
 
@@ -227,13 +218,12 @@
 
 <div class="divider">✺</div>
 
-<!-- ════════════════ PART TWO ════════════════ -->
+<!-- ═══════════════════════════════ PART TWO ═══════════════════════════════ -->
 <h2><span class="kicker">Part Two — The City That Drinks It</span>A Culture Built in the Laneways</h2>
 <p class="intro">Once the beans land, they meet a city that has built its identity around them. The City of Melbourne packs thousands of cafés into a few square kilometres — a density that began when Italian and Greek migrants brought espresso to Lygon Street in the mid-20th century, and never let go.</p>
 
 <div class="wide">
   <p class="tip">💡 On the map, click a neighbourhood or size category in the legend to filter venues.</p>
-  <!-- Dominant pair: large choropleth map + smaller treemap -->
   <div class="chart-pair-dominant">
     <div class="chart-main" id="chart4"></div>
     <div class="chart-secondary" id="chart5"></div>
@@ -254,7 +244,7 @@
 
 <div class="divider">✺</div>
 
-<!-- ════════════════ PART THREE ════════════════ -->
+<!-- ══════════════════════════════ PART THREE ══════════════════════════════ -->
 <h2><span class="kicker">Part Three — Your Cup</span>The Rhythm, the Cost, the Price</h2>
 <p class="intro">So what does it feel like to actually be part of this culture? It has a rhythm, a cost, and a price — and each tells you something about how Melbourne drinks.</p>
 
@@ -270,14 +260,14 @@
   <div class="section-head">
     <h3>The rising price of a ritual</h3>
   </div>
-  <div class="chart-single" id="chart10price"></div>
+  <div class="chart-center" id="chart10price"></div>
   <p class="readwhy"><strong>Reading the chart:</strong> after years of stability, Melbourne coffee prices have climbed sharply since 2022 — driven by the same global bean shortages visible at the very start of this story. The bean's journey ends here: in a price rise you feel every morning. The culture endures, but it has never been more costly to keep it brewing.</p>
 </div>
 
 <div class="divider">✺</div>
 
 <div class="col">
-  <p class="lede" style="margin-top: 40px; text-align: center; font-size: 20px;">From a farm in Brazil to a five-dollar cup in a Carlton laneway, Melbourne's coffee is less a claim to greatness than a way of life — global in its roots, fiercely local in its expression, and built, cup by cup, into the rhythm of the city.</p>
+  <p class="lede" style="margin-top:36px; text-align:center; font-size:19px;">From a farm in Brazil to a five-dollar cup in a Carlton laneway, Melbourne's coffee is less a claim to greatness than a way of life — global in its roots, fiercely local in its expression, and built, cup by cup, into the rhythm of the city.</p>
 </div>
 
 <footer class="sources">
@@ -318,6 +308,5 @@
     });
   });
 </script>
-
 </body>
 </html>
