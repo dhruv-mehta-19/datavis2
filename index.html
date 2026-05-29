@@ -27,7 +27,7 @@
     -webkit-font-smoothing: antialiased;
   }
   .col { max-width: 800px; margin: 0 auto; padding: 0 24px; }
-  .wide { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .wide { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 
   header.hero {
     text-align: center;
@@ -52,6 +52,18 @@
     text-align: center; max-width: 640px; margin: 0 auto 30px; font-size: 17px;
   }
 
+  /* Section subheadings — live inside .wide for alignment with charts */
+  .section-head {
+    text-align: center;
+    margin: 50px 0 6px;
+  }
+  .section-head h3 {
+    font-size: 20px;
+    color: var(--brown);
+    margin: 0 0 10px;
+    font-weight: 500;
+  }
+
   p { font-size: 17px; margin: 0 0 20px; }
   p.lede { font-size: 19px; color: #4a2c16; }
   p b, p strong { color: var(--brown); }
@@ -62,13 +74,15 @@
   }
 
   .chart-pair {
-    display: flex; gap: 36px;
+    display: flex; gap: 40px;
     justify-content: center; align-items: flex-start;
-    margin: 30px auto 14px;
+    margin: 20px auto 14px;
     flex-wrap: wrap;
   }
-  .chart-pair > div { flex: 1 1 480px; min-width: 0; max-width: 560px;
-                       display: flex; justify-content: center; background: transparent; }
+  .chart-pair > div {
+    flex: 1 1 480px; min-width: 0;
+    display: flex; justify-content: center; background: transparent;
+  }
 
   .map-with-notes {
     display: flex; gap: 36px;
@@ -76,10 +90,12 @@
     margin: 30px auto 14px;
     flex-wrap: wrap;
   }
-  .map-with-notes .map-box { flex: 1 1 640px; max-width: 720px;
-                              display: flex; justify-content: center; background: transparent; }
+  .map-with-notes .map-box {
+    flex: 1 1 700px; max-width: 820px;
+    display: flex; justify-content: center; background: transparent;
+  }
   .map-with-notes .notes {
-    flex: 0 1 300px; max-width: 320px;
+    flex: 0 1 280px; max-width: 300px;
     padding-top: 20px;
   }
   .map-with-notes .notes h4 {
@@ -105,14 +121,14 @@
   .readwhy {
     font-size: 14.5px; color: #5a4030; background: var(--cream);
     border-left: 3px solid var(--tan); padding: 14px 18px;
-    margin: 6px auto 32px; max-width: 800px; border-radius: 0 4px 4px 0;
+    margin: 6px auto 32px; max-width: 1100px; border-radius: 0 4px 4px 0;
   }
   .readwhy strong { color: var(--brown); }
 
   .tip {
     font-size: 14.5px; color: var(--brown); background: var(--cream);
     border-left: 3px solid var(--tan); padding: 11px 16px;
-    margin: 0 auto 18px; max-width: 800px; border-radius: 0 4px 4px 0;
+    margin: 0 auto 18px; max-width: 1100px; border-radius: 0 4px 4px 0;
     text-align: center;
   }
 
@@ -172,44 +188,46 @@
     </div>
   </div>
 </div>
-<p class="readwhy"><strong>Reading the map:</strong> a dark band across <strong>Latin America</strong> supplies the bulk of Australia's beans, with smaller contributions from <strong>Africa</strong> and <strong>South-East Asia</strong>. Melbourne's café culture, for all its local identity, rests on a remarkably global — and narrow — supply chain.</p>
-
-<div class="col">
-  <h3 style="text-align:center; font-size:20px; color:var(--brown); margin: 50px 0 6px;">Explore the suppliers — and the spectrum from bulk to premium</h3>
-  <p class="tip">💡 Use the dropdown on the left to filter suppliers by region. The chart on the right shows the price-to-volume trade-off across origin countries.</p>
-</div>
 <div class="wide">
+  <p class="readwhy"><strong>Reading the map:</strong> a dark band across <strong>Latin America</strong> supplies the bulk of Australia's beans, with smaller contributions from <strong>Africa</strong> and <strong>South-East Asia</strong>. Melbourne's café culture, for all its local identity, rests on a remarkably global — and narrow — supply chain.</p>
+</div>
+
+<div class="wide">
+  <div class="section-head">
+    <h3>Explore the suppliers — and the spectrum from bulk to premium</h3>
+  </div>
+  <p class="tip">💡 Use the dropdown on the left to filter suppliers by region. The chart on the right shows the price-to-volume trade-off across origin countries.</p>
   <div class="chart-pair">
     <div id="chart2"></div>
     <div id="chart3"></div>
   </div>
+  <p class="readwhy"><strong>Reading the pair:</strong> on the left, a few origin countries dominate every region — supply is concentrated everywhere you look. On the right, the trade-off is stark: <strong>Vietnam</strong> sits in the bottom-right with vast volumes of cheap robusta, while tiny quantities of <strong>premium</strong> beans command many times the price. A city that takes coffee seriously buys from both ends.</p>
 </div>
-<p class="readwhy"><strong>Reading the pair:</strong> on the left, a few origin countries dominate every region — supply is concentrated everywhere you look. On the right, the trade-off is stark: <strong>Vietnam</strong> sits in the bottom-right with vast volumes of cheap robusta, while tiny quantities of <strong>premium</strong> beans command many times the price. A city that takes coffee seriously buys from both ends.</p>
 
 <div class="divider">✺</div>
 
 <h2><span class="kicker">Part Two — The City That Drinks It</span>A Culture Built in the Laneways</h2>
 <p class="intro">Once the beans land, they meet a city that has built its identity around them. The City of Melbourne packs thousands of cafés into a few square kilometres — a density that began when Italian and Greek migrants brought espresso to Lygon Street in the mid-20th century, and never let go.</p>
 
-<p class="tip">💡 On the map, click a neighbourhood or size category in the legend to filter venues.</p>
 <div class="wide">
+  <p class="tip">💡 On the map, click a neighbourhood or size category in the legend to filter venues.</p>
   <div class="chart-pair">
     <div id="chart4"></div>
     <div id="chart5"></div>
   </div>
+  <p class="readwhy"><strong>Reading the pair:</strong> the map shows <em>where</em> the cafés cluster — the <strong>CBD</strong> and <strong>Carlton</strong> glow with venues, the legacy of that migrant coffee heart. The treemap beside it counts them out: the CBD alone holds more cafés than every other neighbourhood combined. This isn't coffee spread thinly across a city; it's concentrated, competitive, and woven into the streets people walk every day.</p>
 </div>
-<p class="readwhy"><strong>Reading the pair:</strong> the map shows <em>where</em> the cafés cluster — the <strong>CBD</strong> and <strong>Carlton</strong> glow with venues, the legacy of that migrant coffee heart. The treemap beside it counts them out: the CBD alone holds more cafés than every other neighbourhood combined. This isn't coffee spread thinly across a city; it's concentrated, competitive, and woven into the streets people walk every day.</p>
 
-<div class="col">
-  <h3 style="text-align:center; font-size:20px; color:var(--brown); margin: 50px 0 18px;">How tight is the cluster — and how did it get this way?</h3>
-</div>
 <div class="wide">
+  <div class="section-head">
+    <h3>How tight is the cluster — and how did it get this way?</h3>
+  </div>
   <div class="chart-pair">
     <div id="chart7density"></div>
     <div id="chart6"></div>
   </div>
+  <p class="readwhy"><strong>Reading the pair:</strong> on the left, the CBD isn't just biggest — it's <strong>over 500 cafés per square kilometre</strong>, in a league of its own; small Southbank punches above its weight while sprawling Port Melbourne falls to the bottom. On the right, the timeline shows this density didn't appear overnight — café and restaurant numbers climbed steadily from 2002, dipped through COVID-19, and recovered. The culture grew with the city.</p>
 </div>
-<p class="readwhy"><strong>Reading the pair:</strong> on the left, the CBD isn't just biggest — it's <strong>over 500 cafés per square kilometre</strong>, in a league of its own; small Southbank punches above its weight while sprawling Port Melbourne falls to the bottom. On the right, the timeline shows this density didn't appear overnight — café and restaurant numbers climbed steadily from 2002, dipped through COVID-19, and recovered. The culture grew with the city.</p>
 
 <div class="divider">✺</div>
 
@@ -221,16 +239,16 @@
     <div id="chart8ped"></div>
     <div id="chart9cup"></div>
   </div>
+  <p class="readwhy"><strong>Reading the pair:</strong> on the left, the city's foot traffic reveals coffee as a <strong>morning ritual</strong> — weekdays spike with the 8am commute, weekends build slowly toward a long, late brunch. On the right, the cost of that ritual: the beans are the cheapest part of your cup. Far more goes to <strong>labour</strong>, rent, and tax — and because wages are paid per shift, a quiet day can wipe out a café's slim margin. The economics are tight, which is exactly why quality matters: in a city this saturated, a café survives only by being good.</p>
 </div>
-<p class="readwhy"><strong>Reading the pair:</strong> on the left, the city's foot traffic reveals coffee as a <strong>morning ritual</strong> — weekdays spike with the 8am commute, weekends build slowly toward a long, late brunch. On the right, the cost of that ritual: the beans are the cheapest part of your cup. Far more goes to <strong>labour</strong>, rent, and tax — and because wages are paid per shift, a quiet day can wipe out a café's slim margin. The economics are tight, which is exactly why quality matters: in a city this saturated, a café survives only by being good.</p>
 
-<div class="col">
-  <h3 style="text-align:center; font-size:20px; color:var(--brown); margin: 50px 0 6px;">The rising price of a ritual</h3>
-</div>
 <div class="wide">
+  <div class="section-head">
+    <h3>The rising price of a ritual</h3>
+  </div>
   <div class="chart-single" id="chart10price"></div>
+  <p class="readwhy"><strong>Reading the chart:</strong> after years of stability, Melbourne coffee prices have climbed sharply since 2022 — driven by the same global bean shortages visible at the very start of this story. The bean's journey ends here: in a price rise you feel every morning. The culture endures, but it has never been more costly to keep it brewing.</p>
 </div>
-<p class="readwhy"><strong>Reading the chart:</strong> after years of stability, Melbourne coffee prices have climbed sharply since 2022 — driven by the same global bean shortages visible at the very start of this story. The bean's journey ends here: in a price rise you feel every morning. The culture endures, but it has never been more costly to keep it brewing.</p>
 
 <div class="divider">✺</div>
 
@@ -257,21 +275,21 @@
 
 <script>
   const charts = [
-    {div: '#chart1',       spec: 'files/worldmap.vg.json'},
-    {div: '#chart2',       spec: 'files/topsuppliers.vg.json'},
-    {div: '#chart3',       spec: 'files/beans_kg.vg.json'},
-    {div: '#chart4',       spec: 'files/melbournemap.vg.json'},
-    {div: '#chart5',       spec: 'files/treemap.vg.json'},
-    {div: '#chart7density',spec: 'files/cafedensity.vg.json'},
-    {div: '#chart6',       spec: 'files/diningboom.vg.js'},
-    {div: '#chart8ped',    spec: 'files/timetrend.vg.json'},
-    {div: '#chart9cup',    spec: 'files/coffecup.vg.json'},
-    {div: '#chart10price', spec: 'files/risingprice.vg.json'}
+    {div: '#chart1',        spec: 'files/worldmap.vg.json'},
+    {div: '#chart2',        spec: 'files/topsuppliers.vg.json'},
+    {div: '#chart3',        spec: 'files/beans_kg.vg.json'},
+    {div: '#chart4',        spec: 'files/melbournemap.vg.json'},
+    {div: '#chart5',        spec: 'files/treemap.vg.json'},
+    {div: '#chart7density', spec: 'files/cafedensity.vg.json'},
+    {div: '#chart6',        spec: 'files/diningboom.vg.js'},
+    {div: '#chart8ped',     spec: 'files/timetrend.vg.json'},
+    {div: '#chart9cup',     spec: 'files/coffecup.vg.json'},
+    {div: '#chart10price',  spec: 'files/risingprice.vg.json'}
   ];
   charts.forEach(c => {
     vegaEmbed(c.div, c.spec, {actions: false, renderer: 'svg'}).catch(err => {
       const el = document.querySelector(c.div);
-      if (el) el.innerHTML = '<p style="color:#999;font-style:italic;font-size:13px">Chart could not load: '+c.spec+'</p>';
+      if (el) el.innerHTML = '<p style="color:#999;font-style:italic;font-size:13px">Chart could not load: ' + c.spec + '</p>';
       console.error(c.spec, err);
     });
   });
