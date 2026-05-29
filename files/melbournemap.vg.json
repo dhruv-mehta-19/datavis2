@@ -3,7 +3,7 @@
   "title": {
     "text": "Where Melbourne Drinks",
     "subtitle": [
-      "Every cafe and restaurant in the City of Melbourne.",
+      "Every cafe and restaurant in the City of Melbourne, 2024.",
       "Click a neighbourhood or size category in the legend to filter. Click again to deselect, hold Shift for multiple.",
       "Note: data covers City of Melbourne council only \u2014 St Kilda, Richmond and most of South Yarra are in other councils."
     ],
@@ -12,11 +12,12 @@
     "subtitleFontSize": 12,
     "subtitleColor": "#666",
     "color": "#3C1F0F",
-    "font": "Georgia, Times New Roman, serif",
-    "subtitleFont": "Georgia, Times New Roman, serif"
+    "font": "Georgia, 'Times New Roman', serif",
+    "subtitleFont": "Georgia, 'Times New Roman', serif",
+    "labelFont": "Georgia, 'Times New Roman', serif"
   },
-  "width": 780,
-  "height": 600,
+  "width": 640,
+  "height": 520,
   "projection": {
     "type": "mercator"
   },
@@ -33,7 +34,9 @@
         "type": "geoshape",
         "fill": "#F5F1E8",
         "stroke": "#D89651",
-        "strokeWidth": 0.8
+        "strokeWidth": 0.8,
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       },
       "encoding": {
         "tooltip": [
@@ -95,7 +98,9 @@
       "mark": {
         "type": "circle",
         "stroke": "#3C1F0F",
-        "strokeWidth": 0.5
+        "strokeWidth": 0.5,
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       },
       "encoding": {
         "longitude": {
@@ -128,7 +133,9 @@
               100,
               200,
               500
-            ]
+            ],
+            "labelFont": "Georgia, 'Times New Roman', serif",
+            "titleFont": "Georgia, 'Times New Roman', serif"
           }
         },
         "color": {
@@ -210,7 +217,9 @@
       ],
       "mark": {
         "type": "point",
-        "opacity": 0
+        "opacity": 0,
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       },
       "encoding": {
         "color": {
@@ -221,7 +230,9 @@
             "orient": "right",
             "offset": 10,
             "labelLimit": 150,
-            "symbolType": "square"
+            "symbolType": "square",
+            "labelFont": "Georgia, 'Times New Roman', serif",
+            "titleFont": "Georgia, 'Times New Roman', serif"
           },
           "scale": {
             "range": [
@@ -303,7 +314,9 @@
             "fontWeight": "bold",
             "stroke": "white",
             "strokeWidth": 3,
-            "fill": "white"
+            "fill": "white",
+            "labelFont": "Georgia, 'Times New Roman', serif",
+            "titleFont": "Georgia, 'Times New Roman', serif"
           },
           "encoding": {
             "longitude": {
@@ -329,7 +342,9 @@
           "mark": {
             "type": "text",
             "fontWeight": "bold",
-            "color": "#3C1F0F"
+            "color": "#3C1F0F",
+            "labelFont": "Georgia, 'Times New Roman', serif",
+            "titleFont": "Georgia, 'Times New Roman', serif"
           },
           "encoding": {
             "longitude": {
@@ -359,6 +374,23 @@
       "stroke": null
     },
     "background": "transparent",
-    "font": "Georgia, Times New Roman, serif"
+    "font": "Georgia, 'Times New Roman', serif",
+    "axis": {
+      "labelFont": "Georgia, 'Times New Roman', serif",
+      "titleFont": "Georgia, 'Times New Roman', serif"
+    },
+    "legend": {
+      "labelFont": "Georgia, 'Times New Roman', serif",
+      "titleFont": "Georgia, 'Times New Roman', serif"
+    },
+    "header": {
+      "labelFont": "Georgia, 'Times New Roman', serif",
+      "titleFont": "Georgia, 'Times New Roman', serif"
+    },
+    "title": {
+      "font": "Georgia, 'Times New Roman', serif",
+      "subtitleFont": "Georgia, 'Times New Roman', serif",
+      "labelFont": "Georgia, 'Times New Roman', serif"
+    }
   }
 }
