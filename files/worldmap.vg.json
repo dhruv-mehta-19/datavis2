@@ -2,14 +2,15 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Where Australia's Coffee Comes From",
-    "subtitle": "Australian imports of unroasted coffee beans by country",
+    "subtitle": "Australian imports of unroasted coffee beans by country, 2023",
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666",
     "color": "#000000",
-    "font": "Georgia, Times New Roman, serif",
-    "subtitleFont": "Georgia, Times New Roman, serif"
+    "font": "Georgia, 'Times New Roman', serif",
+    "subtitleFont": "Georgia, 'Times New Roman', serif",
+    "labelFont": "Georgia, 'Times New Roman', serif"
   },
   "width": 980,
   "height": 520,
@@ -29,7 +30,9 @@
         "type": "geoshape",
         "fill": "#c8bfb0",
         "stroke": "white",
-        "strokeWidth": 0.5
+        "strokeWidth": 0.5,
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       }
     },
     {
@@ -67,7 +70,9 @@
       "mark": {
         "type": "geoshape",
         "stroke": "white",
-        "strokeWidth": 0.5
+        "strokeWidth": 0.5,
+        "labelFont": "Georgia, 'Times New Roman', serif",
+        "titleFont": "Georgia, 'Times New Roman', serif"
       },
       "encoding": {
         "color": {
@@ -95,7 +100,9 @@
               1000000,
               10000000,
               100000000
-            ]
+            ],
+            "labelFont": "Georgia, 'Times New Roman', serif",
+            "titleFont": "Georgia, 'Times New Roman', serif"
           }
         },
         "tooltip": [
@@ -144,7 +151,9 @@
           "mark": {
             "type": "rule",
             "stroke": "#6b3410",
-            "strokeWidth": 0.5
+            "strokeWidth": 0.5,
+            "labelFont": "Georgia, 'Times New Roman', serif",
+            "titleFont": "Georgia, 'Times New Roman', serif"
           },
           "encoding": {
             "longitude": {
@@ -168,7 +177,9 @@
             "type": "text",
             "fontSize": 10,
             "fontWeight": "bold",
-            "color": "#3C1F0F"
+            "color": "#3C1F0F",
+            "labelFont": "Georgia, 'Times New Roman', serif",
+            "titleFont": "Georgia, 'Times New Roman', serif"
           },
           "encoding": {
             "longitude": {
@@ -192,6 +203,23 @@
       "stroke": null
     },
     "background": "transparent",
-    "font": "Georgia, Times New Roman, serif"
+    "font": "Georgia, 'Times New Roman', serif",
+    "axis": {
+      "labelFont": "Georgia, 'Times New Roman', serif",
+      "titleFont": "Georgia, 'Times New Roman', serif"
+    },
+    "legend": {
+      "labelFont": "Georgia, 'Times New Roman', serif",
+      "titleFont": "Georgia, 'Times New Roman', serif"
+    },
+    "header": {
+      "labelFont": "Georgia, 'Times New Roman', serif",
+      "titleFont": "Georgia, 'Times New Roman', serif"
+    },
+    "title": {
+      "font": "Georgia, 'Times New Roman', serif",
+      "subtitleFont": "Georgia, 'Times New Roman', serif",
+      "labelFont": "Georgia, 'Times New Roman', serif"
+    }
   }
 }
